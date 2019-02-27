@@ -19,32 +19,65 @@ namespace ScotYard
         // Liste des boutons du jeu
         List<Button> _listeBoutons = new List<Button>();
 
+        // Les joueurs
+        Detective detec1;
+        Detective detec2;
+        Detective detec3;
+        MrX mrX;
+
         /// <summary>
         /// Constructeur de la fenêtre
         /// </summary>
-        public FenetreJeu()
-        {
-            MaximizeBox = false;
+        public FenetreJeu() {
             InitializeComponent();
             InitialiserBoutons();
             ScotYard.Graphe.Case.CreerCases();
 
-
+            setup(detec1, detec2, detec3, mrX);
             // TEMP
-            Detective detective1 = new Detective("Detective 1", 1);
-            Console.WriteLine(detective1.CaseActuelle);
-            _listeBoutons[detective1.CaseActuelle].BackColor = Color.Red;
-            detective1.test();
 
-            MrX mrX = new MrX(1);
-            Transports? transportVoleur;
-            bool? blackTicketBool;
-            int a = ScotAI.Case.ProchaineCaseVoleur(false, 1, 3, 3, 3, 3, out transportVoleur, out blackTicketBool);
-            Console.WriteLine("Voleur a bouger de 1 a " + a + " avec " + transportVoleur.Value);
-            
+            //Detective detective1 = new Detective("Detective 1", 1);
+            //Console.WriteLine(detective1.CaseActuelle);
+            //detective1.test();
+
+            //MrX mrX = new MrX(1);
+            //Transports? transportVoleur;
+            //bool? blackTicketBool;
+            //int a = ScotAI.Case.ProchaineCaseVoleur(false, 1, 3, 3, 3, 3, out transportVoleur, out blackTicketBool);
+            //Console.WriteLine("Voleur a bouger de 1 a " + a + " avec " + transportVoleur.Value);
         }
 
-       
+
+        private void setup(Detective detec1, Detective detec2, Detective detec3, MrX mrX) {
+            List<int> exclude = new List<int>();
+            int[] caseInitiales = new int[4];
+
+            Random rnd = new Random();
+
+            // Génère des ints aléatoires entre 1 et 199 inclusif sans dupliques
+            int randNumCase;
+            for (int i = 0; i < caseInitiales.Length; i++) {
+                while (true) {
+                    randNumCase = rnd.Next(1, 199);
+
+                    if (exclude.Contains(randNumCase)) {
+                        continue;
+                    }
+                    else {
+                        exclude.Add(randNumCase);
+                        break;
+                    }
+                }
+                caseInitiales[i] = randNumCase;
+            }
+
+            // Création joueurs
+            detec1 = new Detective("Detective 1", caseInitiales[0], Color.Maroon);
+            detec2 = new Detective("Detective 2", caseInitiales[1], Color.Green);
+            detec3 = new Detective("Detective 3", caseInitiales[2], Color.Navy);
+            mrX = new MrX(caseInitiales[3]);
+        }
+
         /// <summary>
         /// Insertion des boutons dans une liste
         /// </summary>
@@ -250,6 +283,11 @@ namespace ScotYard
             _listeBoutons.Add(btn197);
             _listeBoutons.Add(btn198);
             _listeBoutons.Add(btn199);
+        }
+
+        private void optsMnuItem_Click(object sender, EventArgs e) {
+            FenetreOptions fntOpts = new FenetreOptions(detec1, detec2, detec3);
+            fntOpts.Show();
         }
     }
 }

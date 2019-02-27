@@ -20,3 +20,13 @@ D:\gitRepos\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.exe
 D:\gitRepos\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.pdb
 D:\gitRepos\ScotYard-Etudiant\ScotYard\bin\Debug\ScotAI.dll
 D:\gitRepos\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.csproj.CopyComplete
+H:\gitRepos\Scotland\ScotYard\bin\Debug\ScotYard.exe
+H:\gitRepos\Scotland\ScotYard\bin\Debug\ScotYard.pdb
+H:\gitRepos\Scotland\ScotYard\bin\Debug\ScotAI.dll
+H:\gitRepos\Scotland\ScotYard\obj\x86\Debug\ScotYard.csprojResolveAssemblyReference.cache
+H:\gitRepos\Scotland\ScotYard\obj\x86\Debug\ScotYard.FenetreJeu.resources
+H:\gitRepos\Scotland\ScotYard\obj\x86\Debug\ScotYard.FenetreOptions.resources
+H:\gitRepos\Scotland\ScotYard\obj\x86\Debug\ScotYard.Properties.Resources.resources
+H:\gitRepos\Scotland\ScotYard\obj\x86\Debug\ScotYard.csproj.GenerateResource.Cache
+H:\gitRepos\Scotland\ScotYard\obj\x86\Debug\ScotYard.exe
+H:\gitRepos\Scotland\ScotYard\obj\x86\Debug\ScotYard.pdb

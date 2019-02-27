@@ -11,44 +11,27 @@ namespace ScotYard.Logique {
         private String nom;
 
         private int caseActuelle;
-
         public int CaseActuelle {
-            get {
-                return caseActuelle;
-            }
-            set {
-                caseActuelle = value;
-            }
+            get { return caseActuelle; }
+            set { caseActuelle = value; }
         }
 
         private int nbrTaxi;
         public int NbrTaxi {
-            get {
-                return nbrTaxi;
-            }
-            set {
-                nbrTaxi = value;
-            }
+            get { return nbrTaxi; }
+            set { nbrTaxi = value; }
         }
 
         private int nbrBus;
         public int NbrBus {
-            get {
-                return nbrBus;
-            }
-            set {
-                nbrBus = value;
-            }
+            get { return nbrBus; }
+            set { nbrBus = value; }
         }
 
         private int nbrMetro;
         public int NbrMetro {
-            get {
-                return nbrMetro;
-            }
-            set {
-                nbrMetro = value;
-            }
+            get { return nbrMetro; }
+            set { nbrMetro = value; }
         }
 
         public Joueur(String nom, int caseActuelle) {
