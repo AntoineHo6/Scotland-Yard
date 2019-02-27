@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ScotYard.Graphe;
+using ScotYard.Logique;
+using ScotAI;
 
 namespace ScotYard
 {
@@ -22,11 +24,24 @@ namespace ScotYard
         /// </summary>
         public FenetreJeu()
         {
+            MaximizeBox = false;
             InitializeComponent();
             InitialiserBoutons();
-            Case.CreerCases();
+            ScotYard.Graphe.Case.CreerCases();
 
-            MaximizeBox = false;
+
+            // TEMP
+            Detective detective1 = new Detective("Detective 1", 1);
+            Console.WriteLine(detective1.CaseActuelle);
+            _listeBoutons[detective1.CaseActuelle].BackColor = Color.Red;
+            detective1.test();
+
+            MrX mrX = new MrX(1);
+            Transports? transportVoleur;
+            bool? blackTicketBool;
+            int a = ScotAI.Case.ProchaineCaseVoleur(false, 1, 3, 3, 3, 3, out transportVoleur, out blackTicketBool);
+            Console.WriteLine("Voleur a bouger de 1 a " + a + " avec " + transportVoleur.Value);
+            
         }
 
        
@@ -235,11 +250,6 @@ namespace ScotYard
             _listeBoutons.Add(btn197);
             _listeBoutons.Add(btn198);
             _listeBoutons.Add(btn199);
-        }
-
-        private void optionsToolStripMenuItem_Click(object sender, EventArgs e) {
-            FenetreOptions fo = new FenetreOptions();
-            fo.Show();
         }
     }
 }

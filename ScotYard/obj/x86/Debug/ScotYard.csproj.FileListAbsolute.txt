@@ -8,3 +8,15 @@ C:\Users\Antoine Ho\Documents\Visual Studio Projects\ScotYard-Etudiant\ScotYard\
 C:\Users\Antoine Ho\Documents\Visual Studio Projects\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.pdb
 C:\Users\Antoine Ho\Documents\Visual Studio Projects\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.FenetreOptions.resources
 C:\Users\Antoine Ho\Documents\Visual Studio Projects\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.csprojAssemblyReference.cache
+D:\gitRepos\ScotYard-Etudiant\ScotYard\bin\Debug\ScotYard.exe
+D:\gitRepos\ScotYard-Etudiant\ScotYard\bin\Debug\ScotYard.pdb
+D:\gitRepos\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.csprojAssemblyReference.cache
+D:\gitRepos\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.FenetreJeu.resources
+D:\gitRepos\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.FenetreOptions.resources
+D:\gitRepos\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.Properties.Resources.resources
+D:\gitRepos\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.csproj.GenerateResource.cache
+D:\gitRepos\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.csproj.CoreCompileInputs.cache
+D:\gitRepos\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.exe
+D:\gitRepos\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.pdb
+D:\gitRepos\ScotYard-Etudiant\ScotYard\bin\Debug\ScotAI.dll
+D:\gitRepos\ScotYard-Etudiant\ScotYard\obj\x86\Debug\ScotYard.csproj.CopyComplete

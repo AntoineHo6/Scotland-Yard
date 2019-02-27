@@ -257,14 +257,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
@@ -301,19 +295,23 @@
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.àProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.picturebox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox29 = new System.Windows.Forms.PictureBox();
+            this.pictureBox30 = new System.Windows.Forms.PictureBox();
+            this.pictureBox31 = new System.Windows.Forms.PictureBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
@@ -338,6 +336,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturebox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
             this.SuspendLayout();
             // 
             // btn199
@@ -2816,30 +2823,18 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Controls.Add(this.pictureBox4);
+            this.panel3.Controls.Add(this.pictureBox31);
+            this.panel3.Controls.Add(this.pictureBox30);
+            this.panel3.Controls.Add(this.pictureBox29);
             this.panel3.Controls.Add(this.pictureBox9);
-            this.panel3.Controls.Add(this.pictureBox5);
             this.panel3.Controls.Add(this.pictureBox8);
-            this.panel3.Controls.Add(this.pictureBox6);
             this.panel3.Controls.Add(this.pictureBox7);
+            this.panel3.Controls.Add(this.pictureBox6);
+            this.panel3.Controls.Add(this.pictureBox5);
             this.panel3.Location = new System.Drawing.Point(65, 26);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(77, 367);
             this.panel3.TabIndex = 27;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.DarkRed;
-            this.pictureBox2.BackgroundImage = global::ScotYard.Properties.Resources.taxi_card;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -2847,7 +2842,7 @@
             this.pictureBox3.BackgroundImage = global::ScotYard.Properties.Resources.train_card;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 49);
+            this.pictureBox3.Location = new System.Drawing.Point(32, 97);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(69, 40);
             this.pictureBox3.TabIndex = 1;
@@ -2859,76 +2854,16 @@
             this.pictureBox4.BackgroundImage = global::ScotYard.Properties.Resources.bus_card;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 95);
+            this.pictureBox4.Location = new System.Drawing.Point(10, 150);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(69, 40);
             this.pictureBox4.TabIndex = 2;
             this.pictureBox4.TabStop = false;
             // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackColor = System.Drawing.Color.DarkRed;
-            this.pictureBox9.BackgroundImage = global::ScotYard.Properties.Resources.bus_card;
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox9.Location = new System.Drawing.Point(3, 324);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox9.TabIndex = 7;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.DarkRed;
-            this.pictureBox5.BackgroundImage = global::ScotYard.Properties.Resources.taxi_card;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Location = new System.Drawing.Point(3, 141);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox5.TabIndex = 3;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.DarkRed;
-            this.pictureBox8.BackgroundImage = global::ScotYard.Properties.Resources.train_card;
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox8.Location = new System.Drawing.Point(3, 279);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox8.TabIndex = 6;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.DarkRed;
-            this.pictureBox6.BackgroundImage = global::ScotYard.Properties.Resources.taxi_card;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox6.Location = new System.Drawing.Point(3, 187);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox6.TabIndex = 4;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.DarkRed;
-            this.pictureBox7.BackgroundImage = global::ScotYard.Properties.Resources.bus_card;
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox7.Location = new System.Drawing.Point(3, 233);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox7.TabIndex = 5;
-            this.pictureBox7.TabStop = false;
-            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.pictureBox10);
+            this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.pictureBox11);
             this.panel2.Controls.Add(this.pictureBox16);
             this.panel2.Controls.Add(this.pictureBox17);
@@ -2947,7 +2882,7 @@
             this.pictureBox10.BackgroundImage = global::ScotYard.Properties.Resources.taxi_card;
             this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox10.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox10.Location = new System.Drawing.Point(32, 206);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(69, 40);
             this.pictureBox10.TabIndex = 24;
@@ -3137,6 +3072,10 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(0)))), ((int)(((byte)(2)))));
+            this.groupBox2.Controls.Add(this.label29);
+            this.groupBox2.Controls.Add(this.pictureBox10);
+            this.groupBox2.Controls.Add(this.pictureBox4);
+            this.groupBox2.Controls.Add(this.pictureBox3);
             this.groupBox2.Controls.Add(this.label28);
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.label26);
@@ -3156,7 +3095,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(295, 290);
+            this.label28.Location = new System.Drawing.Point(309, 291);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(41, 25);
             this.label28.TabIndex = 29;
@@ -3165,7 +3104,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(295, 191);
+            this.label27.Location = new System.Drawing.Point(309, 99);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(41, 25);
             this.label27.TabIndex = 28;
@@ -3174,7 +3113,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(295, 95);
+            this.label26.Location = new System.Drawing.Point(309, 199);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(53, 25);
             this.label26.TabIndex = 27;
@@ -3186,7 +3125,7 @@
             this.pictureBox28.BackgroundImage = global::ScotYard.Properties.Resources.bus_card;
             this.pictureBox28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox28.Location = new System.Drawing.Point(139, 258);
+            this.pictureBox28.Location = new System.Drawing.Point(153, 258);
             this.pictureBox28.Name = "pictureBox28";
             this.pictureBox28.Size = new System.Drawing.Size(150, 90);
             this.pictureBox28.TabIndex = 8;
@@ -3198,7 +3137,7 @@
             this.pictureBox27.BackgroundImage = global::ScotYard.Properties.Resources.train_card;
             this.pictureBox27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox27.Location = new System.Drawing.Point(139, 162);
+            this.pictureBox27.Location = new System.Drawing.Point(153, 162);
             this.pictureBox27.Name = "pictureBox27";
             this.pictureBox27.Size = new System.Drawing.Size(150, 90);
             this.pictureBox27.TabIndex = 8;
@@ -3220,7 +3159,7 @@
             this.pictureBox26.BackgroundImage = global::ScotYard.Properties.Resources.taxi_card;
             this.pictureBox26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox26.Location = new System.Drawing.Point(139, 66);
+            this.pictureBox26.Location = new System.Drawing.Point(153, 66);
             this.pictureBox26.Name = "pictureBox26";
             this.pictureBox26.Size = new System.Drawing.Size(150, 90);
             this.pictureBox26.TabIndex = 25;
@@ -3263,7 +3202,6 @@
             this.optionsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.optionsToolStripMenuItem.Text = "Options";
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // quitterToolStripMenuItem
             // 
@@ -3308,6 +3246,114 @@
             this.picturebox1.Size = new System.Drawing.Size(1026, 817);
             this.picturebox1.TabIndex = 3;
             this.picturebox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(69, 40);
+            this.pictureBox2.TabIndex = 16;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(3, 278);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(69, 40);
+            this.pictureBox5.TabIndex = 17;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Location = new System.Drawing.Point(3, 323);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(69, 40);
+            this.pictureBox6.TabIndex = 17;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox7.Location = new System.Drawing.Point(3, 232);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(69, 40);
+            this.pictureBox7.TabIndex = 18;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox8.Location = new System.Drawing.Point(3, 186);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(69, 40);
+            this.pictureBox8.TabIndex = 17;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox9.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox9.Location = new System.Drawing.Point(3, 140);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(69, 40);
+            this.pictureBox9.TabIndex = 19;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox29
+            // 
+            this.pictureBox29.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox29.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox29.BackgroundImage")));
+            this.pictureBox29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox29.Location = new System.Drawing.Point(3, 94);
+            this.pictureBox29.Name = "pictureBox29";
+            this.pictureBox29.Size = new System.Drawing.Size(69, 40);
+            this.pictureBox29.TabIndex = 20;
+            this.pictureBox29.TabStop = false;
+            // 
+            // pictureBox30
+            // 
+            this.pictureBox30.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox30.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.pictureBox30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox30.Location = new System.Drawing.Point(3, 48);
+            this.pictureBox30.Name = "pictureBox30";
+            this.pictureBox30.Size = new System.Drawing.Size(69, 40);
+            this.pictureBox30.TabIndex = 21;
+            this.pictureBox30.TabStop = false;
+            // 
+            // pictureBox31
+            // 
+            this.pictureBox31.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox31.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.pictureBox31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox31.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox31.Name = "pictureBox31";
+            this.pictureBox31.Size = new System.Drawing.Size(69, 40);
+            this.pictureBox31.TabIndex = 22;
+            this.pictureBox31.TabStop = false;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(6, 368);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(175, 25);
+            this.label29.TabIndex = 30;
+            this.label29.Text = "Case Actuelle : 1";
             // 
             // FenetreJeu
             // 
@@ -3529,14 +3575,8 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
@@ -3563,6 +3603,15 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturebox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3779,12 +3828,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem àProposToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox11;
@@ -3842,6 +3885,16 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.ToolStripSeparator quitterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem1;
+        private System.Windows.Forms.PictureBox pictureBox31;
+        private System.Windows.Forms.PictureBox pictureBox30;
+        private System.Windows.Forms.PictureBox pictureBox29;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label29;
     }
 }
 

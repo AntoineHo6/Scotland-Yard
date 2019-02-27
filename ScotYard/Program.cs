@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using ScotYard.Logique;
 
 namespace ScotYard
 {
@@ -16,6 +17,9 @@ namespace ScotYard
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FenetreJeu());
+
+            // MES AFFAIRES
+            
         }
     }
 }
