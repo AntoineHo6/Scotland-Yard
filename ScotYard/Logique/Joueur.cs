@@ -8,27 +8,27 @@ namespace ScotYard.Logique {
 
     public abstract class Joueur {
 
-        private String nom;
+        String nom;
 
-        private int caseActuelle;
+        int caseActuelle;
         public int CaseActuelle {
             get { return caseActuelle; }
             set { caseActuelle = value; }
         }
 
-        private int nbrTaxi;
+        int nbrTaxi;
         public int NbrTaxi {
             get { return nbrTaxi; }
             set { nbrTaxi = value; }
         }
 
-        private int nbrBus;
+        int nbrBus;
         public int NbrBus {
             get { return nbrBus; }
             set { nbrBus = value; }
         }
 
-        private int nbrMetro;
+        int nbrMetro;
         public int NbrMetro {
             get { return nbrMetro; }
             set { nbrMetro = value; }

@@ -6,9 +6,14 @@ using System.Drawing;
 
 namespace ScotYard.Logique {
 
-    class Detective: Joueur{
+    public class Detective: Joueur{
 
         Color color;
+        public Color Color {
+            get { return color; }
+            set { color = value; }
+        }
+
 
         public Detective(string nom, int caseActuelle, Color color) : base(nom, caseActuelle) {
             this.NbrTaxi = 10;
