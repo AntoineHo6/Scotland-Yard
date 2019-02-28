@@ -10,20 +10,18 @@ using ScotYard.Graphe;
 using ScotYard.Logique;
 using ScotAI;
 
-namespace ScotYard
-{
+namespace ScotYard {
 
 
-    public partial class FenetreJeu : Form
-    {
+    public partial class FenetreJeu : Form {
         // Liste des boutons du jeu
         List<Button> _listeBoutons = new List<Button>();
 
         // Les joueurs
-        Detective detec1;
-        Detective detec2;
-        Detective detec3;
-        MrX mrX;
+        private Detective detec1;
+        private Detective detec2;
+        private Detective detec3;
+        private MrX mrX;
 
         /// <summary>
         /// Constructeur de la fenêtre
@@ -33,9 +31,9 @@ namespace ScotYard
             InitialiserBoutons();
             ScotYard.Graphe.Case.CreerCases();
 
-            setup(detec1, detec2, detec3, mrX);
-            // TEMP
+            setup();
 
+            // TEMP
             //Detective detective1 = new Detective("Detective 1", 1);
             //Console.WriteLine(detective1.CaseActuelle);
             //detective1.test();
@@ -48,7 +46,7 @@ namespace ScotYard
         }
 
 
-        private void setup(Detective detec1, Detective detec2, Detective detec3, MrX mrX) {
+        private void setup() {
             List<int> exclude = new List<int>();
             int[] caseInitiales = new int[4];
 
@@ -81,8 +79,7 @@ namespace ScotYard
         /// <summary>
         /// Insertion des boutons dans une liste
         /// </summary>
-        private void InitialiserBoutons()
-        {
+        private void InitialiserBoutons() {
             _listeBoutons.Add(new Button()); // Bouton bidon
             _listeBoutons.Add(btn1);
             _listeBoutons.Add(btn2);

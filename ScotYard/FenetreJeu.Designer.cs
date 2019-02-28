@@ -281,7 +281,7 @@
             this.pictureBox22 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpBoxDetec = new System.Windows.Forms.GroupBox();
             this.label29 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -332,7 +332,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.grpBoxDetec.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
@@ -3106,28 +3106,28 @@
             this.pictureBox10.TabIndex = 24;
             this.pictureBox10.TabStop = false;
             // 
-            // groupBox2
+            // grpBoxDetec
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(0)))), ((int)(((byte)(2)))));
-            this.groupBox2.Controls.Add(this.label29);
-            this.groupBox2.Controls.Add(this.pictureBox10);
-            this.groupBox2.Controls.Add(this.pictureBox4);
-            this.groupBox2.Controls.Add(this.pictureBox3);
-            this.groupBox2.Controls.Add(this.label28);
-            this.groupBox2.Controls.Add(this.label27);
-            this.groupBox2.Controls.Add(this.label26);
-            this.groupBox2.Controls.Add(this.pictureBox28);
-            this.groupBox2.Controls.Add(this.pictureBox27);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.pictureBox26);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox2.Location = new System.Drawing.Point(1032, 27);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(455, 406);
-            this.groupBox2.TabIndex = 203;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Detective 1";
+            this.grpBoxDetec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(0)))), ((int)(((byte)(2)))));
+            this.grpBoxDetec.Controls.Add(this.label29);
+            this.grpBoxDetec.Controls.Add(this.pictureBox10);
+            this.grpBoxDetec.Controls.Add(this.pictureBox4);
+            this.grpBoxDetec.Controls.Add(this.pictureBox3);
+            this.grpBoxDetec.Controls.Add(this.label28);
+            this.grpBoxDetec.Controls.Add(this.label27);
+            this.grpBoxDetec.Controls.Add(this.label26);
+            this.grpBoxDetec.Controls.Add(this.pictureBox28);
+            this.grpBoxDetec.Controls.Add(this.pictureBox27);
+            this.grpBoxDetec.Controls.Add(this.label1);
+            this.grpBoxDetec.Controls.Add(this.pictureBox26);
+            this.grpBoxDetec.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBoxDetec.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.grpBoxDetec.Location = new System.Drawing.Point(1032, 27);
+            this.grpBoxDetec.Name = "grpBoxDetec";
+            this.grpBoxDetec.Size = new System.Drawing.Size(455, 406);
+            this.grpBoxDetec.TabIndex = 203;
+            this.grpBoxDetec.TabStop = false;
+            this.grpBoxDetec.Text = "Detective 1";
             // 
             // label29
             // 
@@ -3205,7 +3205,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(170, 39);
+            this.label1.Location = new System.Drawing.Point(180, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 24);
             this.label1.TabIndex = 26;
@@ -3312,7 +3312,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(1493, 856);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.grpBoxDetec);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn199);
             this.Controls.Add(this.btn198);
@@ -3554,8 +3554,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grpBoxDetec.ResumeLayout(false);
+            this.grpBoxDetec.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
@@ -3771,7 +3771,7 @@
         private System.Windows.Forms.Button btn2;
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpBoxDetec;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem uyhjToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nouvellePartieToolStripMenuItem;

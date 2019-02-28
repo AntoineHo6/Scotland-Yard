@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ScotYard.Logique {
 
-    class MrX : Joueur{
+    public class MrX : Joueur{
 
         public MrX(int caseActuelle) : base("Mr. X", caseActuelle) { }
 
