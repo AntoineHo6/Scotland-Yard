@@ -9,6 +9,10 @@ namespace ScotYard.Logique {
     public abstract class Joueur {
 
         String nom;
+        public String Nom {
+            get { return nom; }
+            set { nom = value; }
+        }
 
         int caseActuelle;
         public int CaseActuelle {

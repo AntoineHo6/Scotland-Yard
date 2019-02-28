@@ -26,9 +26,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtBoxDetec1 = new System.Windows.Forms.TextBox();
+            this.txtBoxDetec2 = new System.Windows.Forms.TextBox();
+            this.txtBoxDetec3 = new System.Windows.Forms.TextBox();
             this.btnDect1Color = new System.Windows.Forms.Button();
             this.btnDect2Color = new System.Windows.Forms.Button();
             this.btnDect3Color = new System.Windows.Forms.Button();
@@ -70,26 +70,26 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "3rd Detective :";
             // 
-            // textBox1
+            // txtBoxDetec1
             // 
-            this.textBox1.Location = new System.Drawing.Point(174, 61);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(214, 20);
-            this.textBox1.TabIndex = 4;
+            this.txtBoxDetec1.Location = new System.Drawing.Point(174, 61);
+            this.txtBoxDetec1.Name = "txtBoxDetec1";
+            this.txtBoxDetec1.Size = new System.Drawing.Size(214, 20);
+            this.txtBoxDetec1.TabIndex = 4;
             // 
-            // textBox2
+            // txtBoxDetec2
             // 
-            this.textBox2.Location = new System.Drawing.Point(174, 110);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(214, 20);
-            this.textBox2.TabIndex = 5;
+            this.txtBoxDetec2.Location = new System.Drawing.Point(174, 110);
+            this.txtBoxDetec2.Name = "txtBoxDetec2";
+            this.txtBoxDetec2.Size = new System.Drawing.Size(214, 20);
+            this.txtBoxDetec2.TabIndex = 5;
             // 
-            // textBox3
+            // txtBoxDetec3
             // 
-            this.textBox3.Location = new System.Drawing.Point(174, 161);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(214, 20);
-            this.textBox3.TabIndex = 6;
+            this.txtBoxDetec3.Location = new System.Drawing.Point(174, 161);
+            this.txtBoxDetec3.Name = "txtBoxDetec3";
+            this.txtBoxDetec3.Size = new System.Drawing.Size(214, 20);
+            this.txtBoxDetec3.TabIndex = 6;
             // 
             // btnDect1Color
             // 
@@ -154,9 +154,9 @@
             this.Controls.Add(this.btnDect3Color);
             this.Controls.Add(this.btnDect2Color);
             this.Controls.Add(this.btnDect1Color);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBoxDetec3);
+            this.Controls.Add(this.txtBoxDetec2);
+            this.Controls.Add(this.txtBoxDetec1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -173,9 +173,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtBoxDetec1;
+        private System.Windows.Forms.TextBox txtBoxDetec2;
+        private System.Windows.Forms.TextBox txtBoxDetec3;
         private System.Windows.Forms.Button btnDect2Color;
         private System.Windows.Forms.Button btnDect3Color;
         private System.Windows.Forms.Label label5;

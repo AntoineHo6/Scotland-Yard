@@ -26,11 +26,5 @@ namespace ScotYard.Logique {
 
         }
 
-        public void test() {
-            Console.WriteLine(this.NbrTaxi);
-            Console.WriteLine(this.NbrBus);
-            Console.WriteLine(this.NbrMetro);
-        }
-
     }
 }

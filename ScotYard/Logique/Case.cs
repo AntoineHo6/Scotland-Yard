@@ -27,6 +27,31 @@ namespace ScotYard.Graphe
             }
         }
 
+        public List<Case> ListeTaxis {
+            get {
+                return listeTaxis;
+            }
+        }
+
+        public List<Case> ListeBus {
+            get {
+                return listeBus;
+            }
+        }
+
+        public List<Case> ListeMetros {
+            get {
+                return listeMetros;
+            }
+        }
+
+        public List<Case> ListeBateaux {
+            get {
+                return listeBateaux;
+            }
+        }
+
+
         /// <summary>
         /// Vous devez appeler cette méthode avant de pouvoir utiliser ListeCases
         /// </summary>
@@ -66,7 +91,7 @@ namespace ScotYard.Graphe
             AssocierTaxis(14, 13, 25, 15);
             AssocierBus(14, 13, 15);
             AssocierTaxis(15, 14, 5, 16, 28, 26);
-            AssocierBus(15, 14, 16, 29);
+            AssocierBus(15, 14, 29, 41);
             AssocierTaxis(16, 15, 5, 28, 29);
             AssocierTaxis(17, 29, 7, 30);
             AssocierTaxis(18, 8, 31, 43);
@@ -361,7 +386,7 @@ namespace ScotYard.Graphe
         /// <summary>
         /// Numéro de la case
         /// </summary>
-        private int Numero
+        public int Numero
         {
             get;
             set;

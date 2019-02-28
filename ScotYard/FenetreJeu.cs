@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using ScotYard.Graphe;
 using ScotYard.Logique;
 using ScotAI;
+using System.Threading;
 
 namespace ScotYard {
 
@@ -18,10 +19,12 @@ namespace ScotYard {
         List<Button> _listeBoutons = new List<Button>();
 
         // Les joueurs
-        private Detective detec1;
-        private Detective detec2;
-        private Detective detec3;
-        private MrX mrX;
+        List<Detective> listeDetec = new List<Detective>();
+        MrX mrX;
+
+        int detecTurn = 1;
+
+        List<Thread> listeBlinkBtn = new List<Thread>(); 
 
         /// <summary>
         /// Constructeur de la fenêtre
@@ -30,8 +33,12 @@ namespace ScotYard {
             InitializeComponent();
             InitialiserBoutons();
             ScotYard.Graphe.Case.CreerCases();
-
+            
             setup();
+            paintDetecPos();
+            updateDetecGrpBox();
+
+            
 
             // TEMP
             //Detective detective1 = new Detective("Detective 1", 1);
@@ -45,7 +52,9 @@ namespace ScotYard {
             //Console.WriteLine("Voleur a bouger de 1 a " + a + " avec " + transportVoleur.Value);
         }
 
-
+        /// <summary>
+        ///     Initialise les objets joueurs
+        /// </summary>
         private void setup() {
             List<int> exclude = new List<int>();
             int[] caseInitiales = new int[4];
@@ -70,11 +79,56 @@ namespace ScotYard {
             }
 
             // Création joueurs
-            detec1 = new Detective("Detective 1", caseInitiales[0], Color.Maroon);
-            detec2 = new Detective("Detective 2", caseInitiales[1], Color.Green);
-            detec3 = new Detective("Detective 3", caseInitiales[2], Color.Navy);
+            listeDetec.Add(new Detective("Detective 1", caseInitiales[0], Color.Maroon));
+            listeDetec.Add(new Detective("Detective 2", caseInitiales[1], Color.Green));
+            listeDetec.Add(new Detective("Detective 3", caseInitiales[2], Color.Turquoise));
+            
             mrX = new MrX(caseInitiales[3]);
         }
+
+
+        public void paintDetecPos() {
+            for (int i = 0; i < listeDetec.Count; i++) {
+                int caseActuelleDetec = listeDetec[i].CaseActuelle;
+                _listeBoutons[caseActuelleDetec].BackColor = listeDetec[i].Color;
+
+                int rgbSum = listeDetec[i].Color.R + listeDetec[i].Color.G + listeDetec[i].Color.B;
+                // La couleur du detective est trop Clair
+                if (rgbSum > 382) {
+                    _listeBoutons[caseActuelleDetec].ForeColor = Color.Black;
+                }
+                // La couleur du detective est trop Sombre
+                else {
+                    _listeBoutons[caseActuelleDetec].ForeColor = Color.White;
+                }
+            }
+        }
+
+
+        public void updateDetecGrpBox() {
+            Detective detectiveCourant = listeDetec[detecTurn - 1];
+
+            grpBoxDetec.Text = detectiveCourant.Nom;
+            grpBoxDetec.BackColor = detectiveCourant.Color;
+
+            lblNbrTaxi.Text = "x " + detectiveCourant.NbrTaxi.ToString();
+            lblNbrMetro.Text = "x " + detectiveCourant.NbrMetro.ToString();
+            lblNbrBus.Text = "x " + detectiveCourant.NbrBus.ToString();
+
+            lblCaseAct.Text = "Case Actuelle: " + detectiveCourant.CaseActuelle.ToString();
+
+
+            int rgbSum = detectiveCourant.Color.R + detectiveCourant.Color.G + detectiveCourant.Color.B;
+            // La couleur du detective est trop Clair
+            if (rgbSum > 382) {
+                grpBoxDetec.ForeColor = Color.Black;
+            }
+            // La couleur du detective est trop Sombre
+            else {
+                grpBoxDetec.ForeColor = Color.White;
+            }
+        }
+
 
         /// <summary>
         /// Insertion des boutons dans une liste
@@ -283,8 +337,45 @@ namespace ScotYard {
         }
 
         private void optsMnuItem_Click(object sender, EventArgs e) {
-            FenetreOptions fntOpts = new FenetreOptions(detec1, detec2, detec3);
+            FenetreOptions fntOpts = new FenetreOptions(this, listeDetec);
             fntOpts.Show();
+        }
+
+        private void btnTaxi_Click(object sender, EventArgs e) {
+            Detective detecCourant = listeDetec[detecTurn - 1];
+            int caseActuelle = detecCourant.CaseActuelle;
+
+            // Clear current running blinking threads in list
+            for (int i = 0; i < listeBlinkBtn.Count; i++) {
+                listeBlinkBtn[i].Abort();
+            }
+            listeBlinkBtn.Clear();
+
+            // Loop through possible routes for taxi
+            for (int i = 0; i < Graphe.Case.ListeCases[caseActuelle].ListeTaxis.Count; i++) {
+                int casePossibleTaxi = Graphe.Case.ListeCases[caseActuelle].ListeTaxis[i].Numero;
+                
+                // Creates list of threads for blinking buttons
+                Thread blinkThread = new Thread(delegate () {
+                    while (true) {
+                        _listeBoutons[casePossibleTaxi].BackColor = Color.Yellow;
+                        System.Threading.Thread.Sleep(500);
+                        _listeBoutons[casePossibleTaxi].BackColor = Color.Transparent;
+                        System.Threading.Thread.Sleep(500);
+                    }
+                });
+
+                listeBlinkBtn.Add(blinkThread);
+            }
+
+            // Execute all the threads
+            for (int i = 0; i < listeBlinkBtn.Count; i++) {
+                listeBlinkBtn[i].Start();
+            }
         }
     }
 }
+
+
+// TODO: NE PAS TAXIER SUR LA CASE OU QUELQU UN DAUTRE SE RETROUVE
+// TODO: 
