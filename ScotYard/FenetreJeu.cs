@@ -90,12 +90,18 @@ namespace ScotYard {
             }
 
             // Création joueurs
-            listeDetec.Add(new Detective("Detective 1", caseInitiales[0], Color.Maroon));
-            listeDetec.Add(new Detective("Detective 2", caseInitiales[1], Color.Green));
+
+            // temp
+            // listeDetec.Add(new Detective("Detective 1", caseInitiales[0], Color.Maroon));
+            listeDetec.Add(new Detective("Detective 1", 45, Color.Maroon));
+
+            // listeDetec.Add(new Detective("Detective 2", caseInitiales[1], Color.Green));
+            listeDetec.Add(new Detective("Detective 2", 19, Color.Green));
+
             listeDetec.Add(new Detective("Detective 3", caseInitiales[2], Color.Turquoise));
             // temp
             //mrX = new MrX(caseInitiales[3]);
-            mrX = new MrX(194);
+            mrX = new MrX(1);
         }
 
 
@@ -140,6 +146,8 @@ namespace ScotYard {
                 mrX.NbrBlack--;
             }
 
+            // temp
+            Console.WriteLine("Mr. X est a " + mrX.CaseActuelle);
             updateMrXBoard(transport.ToString(), newBlackTicketBool);
         }
 
@@ -608,7 +616,17 @@ namespace ScotYard {
             _listeBoutons[listeDetec[detecTurn - 1].CaseActuelle].BackColor = Color.Transparent;
 
             listeDetec[detecTurn - 1].deplacerCase(caseChoisi);
-            
+
+
+            // -------------- In production --------------
+            if (listeDetec[detecTurn - 1].CaseActuelle == mrX.CaseActuelle) {
+                // VICTOIRE, faire des affaires de celebrations
+                lblVictoire.Visible = true;
+            }
+
+            // -------------- In production --------------
+
+
             listeDetec[detecTurn - 1].decrementeTrans(transChoisi);
             // Donne a Mr.X le transport utilisé par le detective
             mrX.incrementeTrans(transChoisi);
@@ -621,14 +639,12 @@ namespace ScotYard {
                 gameTurn++;
 
                 if (gameTurn < listeTourRevele[0]) {
-                    Console.WriteLine("JE CACHE");
                     cacheMrX();
                 }
 
                 mrXDeplace();
 
                 if (gameTurn == listeTourRevele[0]) {
-                    Console.WriteLine("JE REVELE");
                     ReveleMrX();
                     listeTourRevele.Remove(gameTurn);
                 }
@@ -674,15 +690,16 @@ namespace ScotYard {
 
 
 
+/// TODO MAJEUR: 
+/// TODO: verifier si un detective n'est plus capable de bouger
+/// TODO: arreter le jeux a la fin du tour 22
+/// TODO: quoi faire quand mr.X se deplace par bateau?
 
-// TODO: Mettre dans une fonction le code qui change la couleur du texte en noir ou blanc 
-// TODO: method parameters comments
-// TODO: verifier si detective se deplace sur la case de Mr.X
-// TODO: verifier si un detective n'est plus capable de bouger
-// TODO: Rendre plus visible les cases ou les detectives se retrouvent.
-// TODO: arreter le jeux a la fin du tour 22
-// TODO: paint buttons to correspond to the available transportation modes.
-// TODO: quoi faire quand mr.X se deplace par bateau?
+/// TODO MINEUR: 
+/// TODO: paint buttons to correspond to the available transportation modes.
+/// TODO: function parameters comments
+/// TODO: Mettre dans une fonction le code qui change la couleur du texte en noir ou blanc 
+/// TODO: Rendre plus visible les cases ou les detectives se retrouvent.
 
 
 ///

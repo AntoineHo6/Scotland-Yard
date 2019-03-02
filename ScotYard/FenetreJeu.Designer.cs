@@ -298,6 +298,7 @@
             this.àProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.picturebox1 = new System.Windows.Forms.PictureBox();
             this.lblStep = new System.Windows.Forms.Label();
+            this.lblVictoire = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -3259,12 +3260,26 @@
             this.lblStep.TabIndex = 205;
             this.lblStep.Text = "1. Choisissez une carte de transport";
             // 
+            // lblVictoire
+            // 
+            this.lblVictoire.AutoSize = true;
+            this.lblVictoire.BackColor = System.Drawing.Color.White;
+            this.lblVictoire.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVictoire.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.lblVictoire.Location = new System.Drawing.Point(185, 376);
+            this.lblVictoire.Name = "lblVictoire";
+            this.lblVictoire.Size = new System.Drawing.Size(681, 108);
+            this.lblVictoire.TabIndex = 206;
+            this.lblVictoire.Text = "V I C T O I R E";
+            this.lblVictoire.Visible = false;
+            // 
             // FenetreJeu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(1493, 856);
+            this.Controls.Add(this.lblVictoire);
             this.Controls.Add(this.lblStep);
             this.Controls.Add(this.grpBoxDetec);
             this.Controls.Add(this.groupBox1);
@@ -3787,6 +3802,7 @@
         private System.Windows.Forms.Button btnMetro;
         private System.Windows.Forms.Button btnTaxi;
         private System.Windows.Forms.Label lblStep;
+        private System.Windows.Forms.Label lblVictoire;
     }
 }
 
