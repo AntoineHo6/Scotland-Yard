@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ScotYard.Graphe;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace ScotYard.Logique {
 
@@ -38,9 +40,34 @@ namespace ScotYard.Logique {
             set { nbrMetro = value; }
         }
 
-        public Joueur(String nom, int caseActuelle) {
+        Color color;
+        public Color Color {
+            get { return color; }
+            set { color = value; }
+        }
+
+        public Joueur(String nom, int caseActuelle, Color color) {
             this.nom = nom;
             this.caseActuelle = caseActuelle;
+            this.Color = color;
         }
+        
+        
+        public void decrementeTrans(String transport) {
+            switch (transport) {
+                case "taxi":
+                    nbrTaxi--;
+                    break;
+                case "metro":
+                    nbrMetro--;
+                    break;
+                case "bus":
+                    nbrBus--;
+                    break;
+            }
+        }
+        
+
+        public abstract void deplacerCase(int laCase);
     }
 }

@@ -22,10 +22,14 @@ namespace ScotYard {
         List<Detective> listeDetec = new List<Detective>();
         MrX mrX;
 
+        // Le tour du detective
         int detecTurn = 1;
 
+        // Le thread qui indique les chemins possibles
         Thread blinkThread;
         List<int> lstPosRouteBtn = new List<int>();
+
+        String transChoisi;
 
         /// <summary>
         /// Constructeur de la fenêtre
@@ -36,18 +40,21 @@ namespace ScotYard {
 
             // Ajoute fonction a tous les boutons.
             for (int i = 0; i < _listeBoutons.Count; i++) {
-                _listeBoutons[i].Click += (s, e) => { btnCaseClick(); };
+                _listeBoutons[i].Click += (s, e) => { btnCaseClick(s, e); };
             }
 
             ScotYard.Graphe.Case.CreerCases();
 
             setup();
+
+            // MR X BOUGE
+
             paintDetecPos();
             updateDetecGrpBox();
 
             // TEMP
 
-            //MrX mrX = new MrX(1);
+            MrX mrX = new MrX(1);
             //Transports? transportVoleur;
             //bool? blackTicketBool;
             //int a = ScotAI.Case.ProchaineCaseVoleur(false, 1, 3, 3, 3, 3, out transportVoleur, out blackTicketBool);
@@ -103,23 +110,15 @@ namespace ScotYard {
         }
 
 
+        /// <summary>
+        ///     Coloris les boutons où les détectives sont présents.
+        /// </summary>
         public void paintDetecPos() {
             for (int i = 0; i < listeDetec.Count; i++) {
                 int caseActuelleDetec = listeDetec[i].CaseActuelle;
                 _listeBoutons[caseActuelleDetec].BackColor = listeDetec[i].Color;
 
-                ///
-                /// Change la couleur du text pour qu'il soit visible.
-                ///
-                int rgbSum = listeDetec[i].Color.R + listeDetec[i].Color.G + listeDetec[i].Color.B;
-                // La couleur du detective est trop Clair
-                if (rgbSum > 382) {
-                    _listeBoutons[caseActuelleDetec].ForeColor = Color.Black;
-                }
-                // La couleur du detective est trop Sombre
-                else {
-                    _listeBoutons[caseActuelleDetec].ForeColor = Color.White;
-                }
+                
             }
         }
 
@@ -136,16 +135,6 @@ namespace ScotYard {
 
             lblCaseAct.Text = "Case Actuelle: " + detectiveCourant.CaseActuelle.ToString();
 
-            int rgbSum = detectiveCourant.Color.R + detectiveCourant.Color.G + detectiveCourant.Color.B;
-            // La couleur du detective est trop Clair
-            if (rgbSum > 382) {
-                grpBoxDetec.ForeColor = Color.Black;
-            }
-            // La couleur du detective est trop Sombre
-            else {
-                grpBoxDetec.ForeColor = Color.White;
-            }
-
             // Avant de verifier si des transports sont indisponibles, on les fixe a true.
             btnTaxi.Enabled = true;
             btnTaxi.BackgroundImage = Properties.Resources.taxi_card;
@@ -155,24 +144,43 @@ namespace ScotYard {
             btnBus.BackgroundImage = Properties.Resources.bus_card;
 
             // Disable les boutons de transports inutilisables.
-            disableBtnTransIndisponible(Graphe.Case.ListeCases[listeDetec[detecTurn - 1].CaseActuelle].ListeTaxis, btnTaxi, Properties.Resources.taxi_card_disabled);
-            disableBtnTransIndisponible(Graphe.Case.ListeCases[listeDetec[detecTurn - 1].CaseActuelle].ListeMetros, btnMetro, Properties.Resources.metro_card_disabled);
-            disableBtnTransIndisponible(Graphe.Case.ListeCases[listeDetec[detecTurn - 1].CaseActuelle].ListeBus, btnBus, Properties.Resources.bus_card_disabled);
+            disableBtnTransIndisponible(Graphe.Case.ListeCases[listeDetec[detecTurn - 1].CaseActuelle].ListeTaxis, btnTaxi, Properties.Resources.taxi_card_disabled, "taxi");
+            disableBtnTransIndisponible(Graphe.Case.ListeCases[listeDetec[detecTurn - 1].CaseActuelle].ListeMetros, btnMetro, Properties.Resources.metro_card_disabled, "metro");
+            disableBtnTransIndisponible(Graphe.Case.ListeCases[listeDetec[detecTurn - 1].CaseActuelle].ListeBus, btnBus, Properties.Resources.bus_card_disabled, "bus");
         }
 
 
-        private void disableBtnTransIndisponible(List<Graphe.Case> listeTrans, Button btn, Bitmap disabledImage) {
+        private void disableBtnTransIndisponible(List<Graphe.Case> listeTrans, Button btn, Bitmap disabledImage, string transport) {
             bool indisponible = false;
             int nbrCheminIndisponible = 0;
 
             for (int i = 0; i < listeTrans.Count; i++) {
+                // Vérifie s'il n'y a aucun chemin possible avec le transport a partir de la case courante.
                 if (listeTrans.Count == 0) {
                     indisponible = true;
                     break;
                 }
+                // Vérifie si toutes les cases possibles sont déjà occupées.
                 else if (listeTrans[i].Numero == listeDetec[0].CaseActuelle || listeTrans[i].Numero == listeDetec[1].CaseActuelle || listeTrans[i].Numero == listeDetec[2].CaseActuelle) {
-                    Console.WriteLine("HELLO " + listeTrans[i].Numero);
                     nbrCheminIndisponible++;
+                }
+                // Si le joueur n'a aucune carte d'un type du transport, on set disabled cette carte.
+                switch (transport) {
+                    case "taxi":
+                        if (listeDetec[detecTurn - 1].NbrTaxi == 0) {
+                            indisponible = true;
+                        }
+                        break;
+                    case "metro":
+                        if (listeDetec[detecTurn - 1].NbrMetro == 0) {
+                            indisponible = true;
+                        }
+                        break;
+                    case "bus":
+                        if (listeDetec[detecTurn - 1].NbrBus == 0) {
+                            indisponible = true;
+                        }
+                        break;
                 }
             }
 
@@ -184,13 +192,6 @@ namespace ScotYard {
                 btn.Enabled = false;
                 btn.BackgroundImage = disabledImage;
             }
-        }
-
-
-        private void updateDetecPos() {
-            _listeBoutons[listeDetec[0].CaseActuelle].Enabled = true;
-            _listeBoutons[listeDetec[1].CaseActuelle].Enabled = true;
-            _listeBoutons[listeDetec[2].CaseActuelle].Enabled = true;
         }
 
 
@@ -400,7 +401,12 @@ namespace ScotYard {
             _listeBoutons.Add(btn199);
         }
 
-        private void resetListeBlinkBtn() {
+        private void stopBlinkPaths() {
+            // arrete le thread
+            if (blinkThread != null) {
+                blinkThread.Abort();
+            }
+
             // Set disabled les boutons qui clignotaient
             for (int i = 0; i < lstPosRouteBtn.Count; i++) {
                 _listeBoutons[lstPosRouteBtn[i]].Enabled = false;
@@ -408,25 +414,30 @@ namespace ScotYard {
                 _listeBoutons[lstPosRouteBtn[i]].Width = 28;
                 _listeBoutons[lstPosRouteBtn[i]].Height = 20;
             }
-
-            // Clear current running blinkThread
-            if (blinkThread != null) {
-                blinkThread.Abort();
-            }
-
+            
             lstPosRouteBtn.Clear();
 
         }
 
 
+        /// <summary>
+        ///     Affiche la fenêtre d'options.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void optsMnuItem_Click(object sender, EventArgs e) {
             FenetreOptions fntOpts = new FenetreOptions(this, listeDetec);
             fntOpts.Show();
         }
 
         
+        /// <summary>
+        ///     Fait clignoter les chemins disponibles avec le mode de transport choisi
+        /// </summary>
+        /// <param name="listeTrans"></param>
+        /// <param name="color"></param>
         private void blinkRoutes(List<Graphe.Case> listeTrans, Color color) {
-            resetListeBlinkBtn();
+            stopBlinkPaths();
 
             for (int i = 0; i < listeTrans.Count; i++) {
                 int cheminPossible = listeTrans[i].Numero;
@@ -440,8 +451,8 @@ namespace ScotYard {
             // Set Enabled toutes les cases accessibles par taxi
             for (int i = 0; i < lstPosRouteBtn.Count; i++) {
                 _listeBoutons[lstPosRouteBtn[i]].Enabled = true;
-                _listeBoutons[lstPosRouteBtn[i]].Width = 38;
-                _listeBoutons[lstPosRouteBtn[i]].Height = 30;
+                _listeBoutons[lstPosRouteBtn[i]].Width = 36;
+                _listeBoutons[lstPosRouteBtn[i]].Height = 28;
             }
 
             // Clignote les cases accessible par taxi
@@ -465,40 +476,93 @@ namespace ScotYard {
         }
 
 
+        /// <summary>
+        ///     Indique à quelles cases le joueur peut se déplacer en taxi.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTaxi_Click(object sender, EventArgs e) {
             int caseActuelle = listeDetec[detecTurn - 1].CaseActuelle;
             blinkRoutes(Graphe.Case.ListeCases[caseActuelle].ListeTaxis, Color.Yellow);
+            transChoisi = "taxi";
             lblStep.Text = "2. Choisissez une route sur la planche";
         }
 
 
+        /// <summary>
+        ///     Indique à quelles cases le joueur peut se déplacer en metro.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMetro_Click(object sender, EventArgs e) {
             int caseActuelle = listeDetec[detecTurn - 1].CaseActuelle;
             blinkRoutes(Graphe.Case.ListeCases[caseActuelle].ListeMetros, Color.LightCoral);
+            transChoisi = "metro";
+            lblStep.Text = "2. Choisissez une route sur la planche";
         }
 
 
+        /// <summary>
+        ///     Indique à quelles cases le joueur peut se déplacer en bus.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBus_Click(object sender, EventArgs e) {
             int caseActuelle = listeDetec[detecTurn - 1].CaseActuelle;
             blinkRoutes(Graphe.Case.ListeCases[caseActuelle].ListeBus, Color.ForestGreen);
+            transChoisi = "bus";
+            lblStep.Text = "2. Choisissez une route sur la planche";
         }
 
-        private void btnCaseClick() {
+
+        /// <summary>
+        ///     Deplace le joueur et change le tour.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCaseClick(object sender, EventArgs e) {
+            stopBlinkPaths();
+            int caseChoisi = int.Parse((sender as Button).Text);
+
+            _listeBoutons[listeDetec[detecTurn - 1].CaseActuelle].BackColor = Color.Transparent;
+
+            listeDetec[detecTurn - 1].deplacerCase(caseChoisi);
+
+            listeDetec[detecTurn - 1].decrementeTrans(transChoisi);
+
+            lblStep.Text = "1. Choisissez une carte de transport";
+
             // Change le tour du detective
             if (detecTurn == 3) {
                 detecTurn = 1;
+                // mr.x bouge
             }
             else {
                 detecTurn++;
             }
 
+            paintDetecPos();
             updateDetecGrpBox();
-
-            lblStep.Text = "1. Choisissez une carte de transport";
         }
     }
 }
 
 
-// TODO: NE PAS TAXIER SUR LA CASE OU QUELQU UN DAUTRE SE RETROUVE
+// TODO: Mettre en fonction qui change la couleur du texte en noir ou blanc 
 // TODO: 
+
+
+///
+/// Change la couleur du text pour qu'il soit visible.
+///
+//int rgbSum = listeDetec[i].Color.R + listeDetec[i].Color.G + listeDetec[i].Color.B;
+
+//// La couleur du detective est trop Clair
+//if (rgbSum > 382) {
+//    _listeBoutons[caseActuelleDetec].ForeColor = Color.Black;
+//}
+//// La couleur du detective est trop Sombre
+//else {
+//    _listeBoutons[caseActuelleDetec].ForeColor = Color.White;
+
+//}

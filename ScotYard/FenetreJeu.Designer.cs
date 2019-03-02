@@ -286,8 +286,8 @@
             this.btnMetro = new System.Windows.Forms.Button();
             this.btnTaxi = new System.Windows.Forms.Button();
             this.lblCaseAct = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblNbrBus = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblNbrTaxi = new System.Windows.Forms.Label();
             this.lblNbrMetro = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -3167,9 +3167,18 @@
             this.lblCaseAct.AutoSize = true;
             this.lblCaseAct.Location = new System.Drawing.Point(6, 335);
             this.lblCaseAct.Name = "lblCaseAct";
-            this.lblCaseAct.Size = new System.Drawing.Size(199, 25);
+            this.lblCaseAct.Size = new System.Drawing.Size(116, 25);
             this.lblCaseAct.TabIndex = 30;
-            this.lblCaseAct.Text = "Case Actuelle : 176";
+            this.lblCaseAct.Text = "Case : 176";
+            // 
+            // lblNbrBus
+            // 
+            this.lblNbrBus.AutoSize = true;
+            this.lblNbrBus.Location = new System.Drawing.Point(167, 263);
+            this.lblNbrBus.Name = "lblNbrBus";
+            this.lblNbrBus.Size = new System.Drawing.Size(41, 25);
+            this.lblNbrBus.TabIndex = 29;
+            this.lblNbrBus.Text = "x 8";
             // 
             // pictureBox3
             // 
@@ -3182,15 +3191,6 @@
             this.pictureBox3.Size = new System.Drawing.Size(69, 40);
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
-            // 
-            // lblNbrBus
-            // 
-            this.lblNbrBus.AutoSize = true;
-            this.lblNbrBus.Location = new System.Drawing.Point(167, 263);
-            this.lblNbrBus.Name = "lblNbrBus";
-            this.lblNbrBus.Size = new System.Drawing.Size(41, 25);
-            this.lblNbrBus.TabIndex = 29;
-            this.lblNbrBus.Text = "x 8";
             // 
             // lblNbrTaxi
             // 

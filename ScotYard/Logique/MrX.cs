@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace ScotYard.Logique {
 
@@ -13,12 +15,15 @@ namespace ScotYard.Logique {
             set { nbrBlack = value; }
         }
 
-        public MrX(int caseActuelle) : base("Mr. X", caseActuelle) {
+        public MrX(int caseActuelle) : base("Mr. X", caseActuelle, Color.Gray) {
             this.NbrTaxi = 4;
             this.NbrMetro = 3;
             this.NbrBus = 3;
             nbrBlack = 3;
         }
-            
+
+        public override void deplacerCase(int laCase) {
+            throw new NotImplementedException();
+        }
     }
 }
