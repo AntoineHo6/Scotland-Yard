@@ -11,9 +11,15 @@ namespace ScotYard.Logique {
         
 
         public Detective(string nom, int caseActuelle, Color color) : base(nom, caseActuelle, color) {
-            NbrTaxi = 10;
-            NbrBus = 3;
-            NbrMetro = 3;
+            // temp
+            // NbrTaxi = 10;
+            //NbrBus = 3;
+            //NbrMetro = 3;
+
+            NbrTaxi = 1;
+            NbrBus = 1;
+            NbrMetro = 1;
+            
         }
 
 

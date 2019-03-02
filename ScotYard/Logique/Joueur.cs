@@ -11,40 +11,22 @@ namespace ScotYard.Logique {
     public abstract class Joueur {
 
         String nom;
-        public String Nom {
-            get { return nom; }
-            set { nom = value; }
-        }
+        public String Nom { get; set; }
 
         int caseActuelle;
-        public int CaseActuelle {
-            get { return caseActuelle; }
-            set { caseActuelle = value; }
-        }
+        public int CaseActuelle { get; set; }
 
         int nbrTaxi;
-        public int NbrTaxi {
-            get { return nbrTaxi; }
-            set { nbrTaxi = value; }
-        }
-
-        int nbrBus;
-        public int NbrBus {
-            get { return nbrBus; }
-            set { nbrBus = value; }
-        }
+        public int NbrTaxi { get; set; }
 
         int nbrMetro;
-        public int NbrMetro {
-            get { return nbrMetro; }
-            set { nbrMetro = value; }
-        }
+        public int NbrMetro { get; set; }
 
+        int nbrBus;
+        public int NbrBus { get; set; }
+        
         Color color;
-        public Color Color {
-            get { return color; }
-            set { color = value; }
-        }
+        public Color Color { get; set; }
 
         public Joueur(String nom, int caseActuelle, Color color) {
             this.Nom = nom;

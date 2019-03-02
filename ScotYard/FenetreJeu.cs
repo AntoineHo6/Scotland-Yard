@@ -93,7 +93,7 @@ namespace ScotYard {
 
             // temp
             // listeDetec.Add(new Detective("Detective 1", caseInitiales[0], Color.Maroon));
-            listeDetec.Add(new Detective("Detective 1", 45, Color.Maroon));
+            listeDetec.Add(new Detective("Detective 1", 20, Color.Maroon));
 
             // listeDetec.Add(new Detective("Detective 2", caseInitiales[1], Color.Green));
             listeDetec.Add(new Detective("Detective 2", 19, Color.Green));
@@ -146,8 +146,6 @@ namespace ScotYard {
                 mrX.NbrBlack--;
             }
 
-            // temp
-            Console.WriteLine("Mr. X est a " + mrX.CaseActuelle);
             updateMrXBoard(transport.ToString(), newBlackTicketBool);
         }
 
@@ -211,8 +209,10 @@ namespace ScotYard {
             // Avant de verifier si des transports sont indisponibles, on les fixe a true.
             btnTaxi.Enabled = true;
             btnTaxi.BackgroundImage = Properties.Resources.taxi_card;
+
             btnMetro.Enabled = true;
             btnMetro.BackgroundImage = Properties.Resources.metro_card;
+
             btnBus.Enabled = true;
             btnBus.BackgroundImage = Properties.Resources.bus_card;
 
@@ -220,6 +220,22 @@ namespace ScotYard {
             disableBtnTransIndisponible(Graphe.Case.ListeCases[listeDetec[detecTurn - 1].CaseActuelle].ListeTaxis, btnTaxi, Properties.Resources.taxi_card_disabled, "Taxi");
             disableBtnTransIndisponible(Graphe.Case.ListeCases[listeDetec[detecTurn - 1].CaseActuelle].ListeMetros, btnMetro, Properties.Resources.metro_card_disabled, "Metro");
             disableBtnTransIndisponible(Graphe.Case.ListeCases[listeDetec[detecTurn - 1].CaseActuelle].ListeBus, btnBus, Properties.Resources.bus_card_disabled, "Bus");
+
+            // -------------- In production --------------
+            // RISQUE D'UNE BOUCLE INFINIE SI LES 3 DETECTIVES NE PEUVENT PLUS BOUGER.
+            // On skip le detective qui ne peut plus jouer
+            if (btnTaxi.Enabled == false && btnMetro.Enabled == false && btnBus.Enabled == false) {
+                if (detecTurn == 3) {
+                    detecTurn = 1;
+                }
+                else {
+                    detecTurn++;
+                }
+
+                updateDetecGrpBox();
+            }
+
+            // -------------- In production --------------
         }
 
 
@@ -691,9 +707,9 @@ namespace ScotYard {
 
 
 /// TODO MAJEUR: 
-/// TODO: verifier si un detective n'est plus capable de bouger
 /// TODO: arreter le jeux a la fin du tour 22
 /// TODO: quoi faire quand mr.X se deplace par bateau?
+/// TODO: si tout les detectives ne sont plus capable de bouger, faut eviter boucle infinie
 
 /// TODO MINEUR: 
 /// TODO: paint buttons to correspond to the available transportation modes.
