@@ -24,7 +24,8 @@ namespace ScotYard {
 
         int detecTurn = 1;
 
-        List<Thread> listeBlinkBtn = new List<Thread>(); 
+        Thread blinkThread;
+        List<int> lstPosRouteBtn = new List<int>();
 
         /// <summary>
         /// Constructeur de la fenêtre
@@ -32,13 +33,17 @@ namespace ScotYard {
         public FenetreJeu() {
             InitializeComponent();
             InitialiserBoutons();
+
+            // Ajoute fonction a tous les boutons.
+            for (int i = 0; i < _listeBoutons.Count; i++) {
+                _listeBoutons[i].Click += (s, e) => { btnCaseClick(); };
+            }
+
             ScotYard.Graphe.Case.CreerCases();
-            
+
             setup();
             paintDetecPos();
             updateDetecGrpBox();
-
-            
 
             // TEMP
             //Detective detective1 = new Detective("Detective 1", 1);
@@ -53,11 +58,17 @@ namespace ScotYard {
         }
 
         /// <summary>
-        ///     Initialise les objets joueurs
+        ///     Initialise les objets joueurs et set Disabled tous les boutons.
         /// </summary>
         private void setup() {
+            // Par defaut, tout les boutons sont disabled
+            for (int i = 0; i < _listeBoutons.Count; i++) {
+                _listeBoutons[i].Enabled = false;
+                _listeBoutons[i].BackColor = Color.Transparent;
+            }
+            
             List<int> exclude = new List<int>();
-            int[] caseInitiales = new int[4];
+            int[] caseInitiales = new int[4];       // Contient les positions initiales des detectives et de Mr.X.
 
             Random rnd = new Random();
 
@@ -79,10 +90,14 @@ namespace ScotYard {
             }
 
             // Création joueurs
-            listeDetec.Add(new Detective("Detective 1", caseInitiales[0], Color.Maroon));
+            // temp
+            //listeDetec.Add(new Detective("Detective 1", caseInitiales[0], Color.Maroon));
+            listeDetec.Add(new Detective("Detective 1", 1, Color.Maroon));
             listeDetec.Add(new Detective("Detective 2", caseInitiales[1], Color.Green));
             listeDetec.Add(new Detective("Detective 3", caseInitiales[2], Color.Turquoise));
-            
+
+            updateDetecPos();
+
             mrX = new MrX(caseInitiales[3]);
         }
 
@@ -92,6 +107,9 @@ namespace ScotYard {
                 int caseActuelleDetec = listeDetec[i].CaseActuelle;
                 _listeBoutons[caseActuelleDetec].BackColor = listeDetec[i].Color;
 
+                ///
+                /// Change la couleur du text pour qu'il soit visible.
+                ///
                 int rgbSum = listeDetec[i].Color.R + listeDetec[i].Color.G + listeDetec[i].Color.B;
                 // La couleur du detective est trop Clair
                 if (rgbSum > 382) {
@@ -117,7 +135,6 @@ namespace ScotYard {
 
             lblCaseAct.Text = "Case Actuelle: " + detectiveCourant.CaseActuelle.ToString();
 
-
             int rgbSum = detectiveCourant.Color.R + detectiveCourant.Color.G + detectiveCourant.Color.B;
             // La couleur du detective est trop Clair
             if (rgbSum > 382) {
@@ -127,6 +144,13 @@ namespace ScotYard {
             else {
                 grpBoxDetec.ForeColor = Color.White;
             }
+        }
+
+
+        private void updateDetecPos() {
+            _listeBoutons[listeDetec[0].CaseActuelle].Enabled = true;
+            _listeBoutons[listeDetec[1].CaseActuelle].Enabled = true;
+            _listeBoutons[listeDetec[2].CaseActuelle].Enabled = true;
         }
 
 
@@ -336,42 +360,87 @@ namespace ScotYard {
             _listeBoutons.Add(btn199);
         }
 
+        private void resetListeBlinkBtn() {
+            // Set disabled les boutons qui clignotaient
+            for (int i = 0; i < lstPosRouteBtn.Count; i++) {
+                _listeBoutons[lstPosRouteBtn[i]].Enabled = false;
+                _listeBoutons[lstPosRouteBtn[i]].BackColor = Color.Transparent;
+            }
+
+            // Clear current running blinkThread
+            if (blinkThread != null) {
+                blinkThread.Abort();
+            }
+
+            lstPosRouteBtn.Clear();
+
+        }
+
+
         private void optsMnuItem_Click(object sender, EventArgs e) {
             FenetreOptions fntOpts = new FenetreOptions(this, listeDetec);
             fntOpts.Show();
         }
 
-        private void btnTaxi_Click(object sender, EventArgs e) {
-            Detective detecCourant = listeDetec[detecTurn - 1];
-            int caseActuelle = detecCourant.CaseActuelle;
+        
+        private void blinkRoutes(List<Graphe.Case> lstTransPossible, Color color) {
+            resetListeBlinkBtn();
 
-            // Clear current running blinking threads in list
-            for (int i = 0; i < listeBlinkBtn.Count; i++) {
-                listeBlinkBtn[i].Abort();
+            for (int i = 0; i < lstTransPossible.Count; i++) {
+                int cheminPossible = lstTransPossible[i].Numero;
+
+                // Si le chemin possible n'est pas une case occupé par un autre detective.
+                if (!(cheminPossible == listeDetec[0].CaseActuelle) && !(cheminPossible == listeDetec[1].CaseActuelle) && !(cheminPossible == listeDetec[2].CaseActuelle)) {
+                    lstPosRouteBtn.Add(cheminPossible);
+                }
             }
-            listeBlinkBtn.Clear();
 
-            // Loop through possible routes for taxi
-            for (int i = 0; i < Graphe.Case.ListeCases[caseActuelle].ListeTaxis.Count; i++) {
-                int casePossibleTaxi = Graphe.Case.ListeCases[caseActuelle].ListeTaxis[i].Numero;
-                
-                // Creates list of threads for blinking buttons
-                Thread blinkThread = new Thread(delegate () {
-                    while (true) {
-                        _listeBoutons[casePossibleTaxi].BackColor = Color.Yellow;
-                        System.Threading.Thread.Sleep(500);
-                        _listeBoutons[casePossibleTaxi].BackColor = Color.Transparent;
-                        System.Threading.Thread.Sleep(500);
+            // Set Enabled toutes les cases accessibles par taxi
+            for (int i = 0; i < lstPosRouteBtn.Count; i++) {
+                _listeBoutons[lstPosRouteBtn[i]].Enabled = true;
+            }
+
+            // Clignote les cases accessible par taxi
+            blinkThread = new Thread(delegate () {
+                while (true) {
+                    // Coloris en jaune toutes les cases accessible par taxi
+                    for (int i = 0; i < lstPosRouteBtn.Count; i++) {
+                        _listeBoutons[lstPosRouteBtn[i]].BackColor = color;
                     }
-                });
+                    System.Threading.Thread.Sleep(500);
 
-                listeBlinkBtn.Add(blinkThread);
-            }
+                    // Enleve le jaune de toutes les cases accessible par taxi
+                    for (int i = 0; i < lstPosRouteBtn.Count; i++) {
+                        _listeBoutons[lstPosRouteBtn[i]].BackColor = Color.Transparent;
+                    }
+                    System.Threading.Thread.Sleep(500);
+                }
+            });
 
-            // Execute all the threads
-            for (int i = 0; i < listeBlinkBtn.Count; i++) {
-                listeBlinkBtn[i].Start();
-            }
+            blinkThread.Start();
+        }
+
+
+        private void btnTaxi_Click(object sender, EventArgs e) {
+            int caseActuelle = listeDetec[detecTurn - 1].CaseActuelle;
+            blinkRoutes(Graphe.Case.ListeCases[caseActuelle].ListeTaxis, Color.Yellow);
+        }
+
+
+        private void btnMetro_Click(object sender, EventArgs e) {
+            int caseActuelle = listeDetec[detecTurn - 1].CaseActuelle;
+            blinkRoutes(Graphe.Case.ListeCases[caseActuelle].ListeMetros, Color.LightCoral);
+        }
+
+
+        private void btnBus_Click(object sender, EventArgs e) {
+            int caseActuelle = listeDetec[detecTurn - 1].CaseActuelle;
+            blinkRoutes(Graphe.Case.ListeCases[caseActuelle].ListeBus, Color.ForestGreen);
+        }
+
+        private void btnCaseClick() {
+            Console.WriteLine("HELLO");
+            
         }
     }
 }

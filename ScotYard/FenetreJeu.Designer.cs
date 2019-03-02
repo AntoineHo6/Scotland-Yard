@@ -282,6 +282,9 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.grpBoxDetec = new System.Windows.Forms.GroupBox();
+            this.btnBus = new System.Windows.Forms.Button();
+            this.btnMetro = new System.Windows.Forms.Button();
+            this.btnTaxi = new System.Windows.Forms.Button();
             this.lblCaseAct = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblNbrBus = new System.Windows.Forms.Label();
@@ -298,9 +301,6 @@
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.àProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.picturebox1 = new System.Windows.Forms.PictureBox();
-            this.btnTaxi = new System.Windows.Forms.Button();
-            this.btnMetro = new System.Windows.Forms.Button();
-            this.btnBus = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -3126,6 +3126,43 @@
             this.grpBoxDetec.TabStop = false;
             this.grpBoxDetec.Text = "Detective 1";
             // 
+            // btnBus
+            // 
+            this.btnBus.BackgroundImage = global::ScotYard.Properties.Resources.bus_card;
+            this.btnBus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBus.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnBus.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnBus.Location = new System.Drawing.Point(153, 258);
+            this.btnBus.Name = "btnBus";
+            this.btnBus.Size = new System.Drawing.Size(150, 90);
+            this.btnBus.TabIndex = 33;
+            this.btnBus.UseVisualStyleBackColor = true;
+            this.btnBus.Click += new System.EventHandler(this.btnBus_Click);
+            // 
+            // btnMetro
+            // 
+            this.btnMetro.BackgroundImage = global::ScotYard.Properties.Resources.train_card;
+            this.btnMetro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMetro.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnMetro.Location = new System.Drawing.Point(153, 162);
+            this.btnMetro.Name = "btnMetro";
+            this.btnMetro.Size = new System.Drawing.Size(150, 90);
+            this.btnMetro.TabIndex = 32;
+            this.btnMetro.UseVisualStyleBackColor = true;
+            this.btnMetro.Click += new System.EventHandler(this.btnMetro_Click);
+            // 
+            // btnTaxi
+            // 
+            this.btnTaxi.BackgroundImage = global::ScotYard.Properties.Resources.taxi_card;
+            this.btnTaxi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTaxi.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnTaxi.Location = new System.Drawing.Point(153, 66);
+            this.btnTaxi.Name = "btnTaxi";
+            this.btnTaxi.Size = new System.Drawing.Size(150, 90);
+            this.btnTaxi.TabIndex = 31;
+            this.btnTaxi.UseVisualStyleBackColor = true;
+            this.btnTaxi.Click += new System.EventHandler(this.btnTaxi_Click);
+            // 
             // lblCaseAct
             // 
             this.lblCaseAct.AutoSize = true;
@@ -3266,40 +3303,6 @@
             this.picturebox1.Size = new System.Drawing.Size(1026, 817);
             this.picturebox1.TabIndex = 3;
             this.picturebox1.TabStop = false;
-            // 
-            // btnTaxi
-            // 
-            this.btnTaxi.BackgroundImage = global::ScotYard.Properties.Resources.taxi_card;
-            this.btnTaxi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTaxi.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnTaxi.Location = new System.Drawing.Point(153, 66);
-            this.btnTaxi.Name = "btnTaxi";
-            this.btnTaxi.Size = new System.Drawing.Size(150, 90);
-            this.btnTaxi.TabIndex = 31;
-            this.btnTaxi.UseVisualStyleBackColor = true;
-            this.btnTaxi.Click += new System.EventHandler(this.btnTaxi_Click);
-            // 
-            // btnMetro
-            // 
-            this.btnMetro.BackgroundImage = global::ScotYard.Properties.Resources.train_card;
-            this.btnMetro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMetro.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnMetro.Location = new System.Drawing.Point(153, 162);
-            this.btnMetro.Name = "btnMetro";
-            this.btnMetro.Size = new System.Drawing.Size(150, 90);
-            this.btnMetro.TabIndex = 32;
-            this.btnMetro.UseVisualStyleBackColor = true;
-            // 
-            // btnBus
-            // 
-            this.btnBus.BackgroundImage = global::ScotYard.Properties.Resources.bus_card;
-            this.btnBus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBus.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnBus.Location = new System.Drawing.Point(153, 258);
-            this.btnBus.Name = "btnBus";
-            this.btnBus.Size = new System.Drawing.Size(150, 90);
-            this.btnBus.TabIndex = 33;
-            this.btnBus.UseVisualStyleBackColor = true;
             // 
             // FenetreJeu
             // 
