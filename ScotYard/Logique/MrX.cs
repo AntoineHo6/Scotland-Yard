@@ -25,13 +25,9 @@ namespace ScotYard.Logique {
         }
 
 
-        public String deplacerCase(int posDetec1, int posDetec2, int PosDetec3) {
-            Transports? transportVoleur;
-            bool? blackTicketBool;
+        public void deplacerCase(int posDetec1, int posDetec2, int PosDetec3, out Transports? transportVoleur, out bool? blackTicketBool) {
             int prochaineCase = ScotAI.Case.ProchaineCaseVoleur(false, CaseActuelle, NbrTaxi, NbrBus, NbrMetro, NbrBlack, out transportVoleur, out blackTicketBool, posDetec1, posDetec2, PosDetec3);
             CaseActuelle = prochaineCase;
-
-            return transportVoleur.ToString();
         }
 
 

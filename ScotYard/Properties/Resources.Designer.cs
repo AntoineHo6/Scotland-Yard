@@ -63,6 +63,16 @@ namespace ScotYard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap black_ticket {
+            get {
+                object obj = ResourceManager.GetObject("black_ticket", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bus_card {
             get {
                 object obj = ResourceManager.GetObject("bus_card", resourceCulture);

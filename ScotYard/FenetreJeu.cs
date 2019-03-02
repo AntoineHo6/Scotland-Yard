@@ -128,11 +128,19 @@ namespace ScotYard {
 
 
         private void mrXDeplace() {
-            String transport = mrX.deplacerCase(listeDetec[0].CaseActuelle, listeDetec[1].CaseActuelle, listeDetec[2].CaseActuelle);
-            // temp
-            Console.WriteLine("MR.X utilise: " + transport);
-            mrX.decrementeTrans(transport);
-            updateMrXBoard(transport);
+            Transports? transport;
+            bool? blackTicketBool;
+
+            mrX.deplacerCase(listeDetec[0].CaseActuelle, listeDetec[1].CaseActuelle, listeDetec[2].CaseActuelle, out transport, out blackTicketBool);
+            mrX.decrementeTrans(transport.ToString());
+
+            bool newBlackTicketBool = blackTicketBool ?? false;
+
+            if (newBlackTicketBool) {
+                mrX.NbrBlack--;
+            }
+
+            updateMrXBoard(transport.ToString(), newBlackTicketBool);
         }
 
 
@@ -145,18 +153,24 @@ namespace ScotYard {
         }
 
 
-        private void updateMrXBoard(String transport) {
-            switch(transport) {
-                case "Taxi":
-                    listePicBox[gameTurn].BackgroundImage = Properties.Resources.taxi_card;
-                    break;
-                case "Metro":
-                    listePicBox[gameTurn].BackgroundImage = Properties.Resources.metro_card;
-                    break;
-                case "Bus":
-                    listePicBox[gameTurn].BackgroundImage = Properties.Resources.bus_card;
-                    break;
-            } 
+        private void updateMrXBoard(String transport, bool newBlackTicketBool) {
+            if (!newBlackTicketBool) {
+                switch (transport) {
+                    case "Taxi":
+                        listePicBox[gameTurn].BackgroundImage = Properties.Resources.taxi_card;
+                        break;
+                    case "Metro":
+                        listePicBox[gameTurn].BackgroundImage = Properties.Resources.metro_card;
+                        break;
+                    case "Bus":
+                        listePicBox[gameTurn].BackgroundImage = Properties.Resources.bus_card;
+                        break;
+                }
+            }
+            else {
+                listePicBox[gameTurn].BackgroundImage = Properties.Resources.black_ticket;
+            }
+             
         }
 
 
@@ -224,17 +238,17 @@ namespace ScotYard {
                 }
                 // Si le joueur n'a aucune carte d'un type du transport, on set disabled cette carte.
                 switch (transport) {
-                    case "taxi":
+                    case "Taxi":
                         if (listeDetec[detecTurn - 1].NbrTaxi == 0) {
                             indisponible = true;
                         }
                         break;
-                    case "metro":
+                    case "Metro":
                         if (listeDetec[detecTurn - 1].NbrMetro == 0) {
                             indisponible = true;
                         }
                         break;
-                    case "bus":
+                    case "Bus":
                         if (listeDetec[detecTurn - 1].NbrBus == 0) {
                             indisponible = true;
                         }
@@ -661,14 +675,14 @@ namespace ScotYard {
 
 
 
-// TODO: Mettre en fonction code qui change la couleur du texte en noir ou blanc 
-// TODO: Faire que Mr x utilise carte noir
+// TODO: Mettre dans une fonction le code qui change la couleur du texte en noir ou blanc 
 // TODO: method parameters comments
 // TODO: verifier si detective se deplace sur la case de Mr.X
 // TODO: verifier si un detective n'est plus capable de bouger
 // TODO: Rendre plus visible les cases ou les detectives se retrouvent.
 // TODO: arreter le jeux a la fin du tour 22
 // TODO: paint buttons to correspond to the available transportation modes.
+// TODO: quoi faire quand mr.X se deplace par bateau?
 
 
 ///
