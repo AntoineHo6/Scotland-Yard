@@ -47,27 +47,25 @@ namespace ScotYard.Logique {
         }
 
         public Joueur(String nom, int caseActuelle, Color color) {
-            this.nom = nom;
-            this.caseActuelle = caseActuelle;
+            this.Nom = nom;
+            this.CaseActuelle = caseActuelle;
             this.Color = color;
         }
         
         
         public void decrementeTrans(String transport) {
             switch (transport) {
-                case "taxi":
+                case "Taxi":
                     nbrTaxi--;
                     break;
-                case "metro":
+                case "Metro":
                     nbrMetro--;
                     break;
-                case "bus":
+                case "Bus":
                     nbrBus--;
                     break;
             }
         }
         
-
-        public abstract void deplacerCase(int laCase);
     }
 }

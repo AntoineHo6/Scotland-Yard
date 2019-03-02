@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
+using ScotAI;
 
 namespace ScotYard.Logique {
 
@@ -15,15 +16,38 @@ namespace ScotYard.Logique {
             set { nbrBlack = value; }
         }
 
-        public MrX(int caseActuelle) : base("Mr. X", caseActuelle, Color.Gray) {
-            this.NbrTaxi = 4;
-            this.NbrMetro = 3;
-            this.NbrBus = 3;
+
+        public MrX(int caseActuelle) : base("Mr. X", caseActuelle, Color.DimGray) {
+            NbrTaxi = 4;
+            NbrMetro = 3;
+            NbrBus = 3;
             nbrBlack = 3;
         }
 
-        public override void deplacerCase(int laCase) {
-            throw new NotImplementedException();
+
+        public String deplacerCase(int posDetec1, int posDetec2, int PosDetec3) {
+            Transports? transportVoleur;
+            bool? blackTicketBool;
+            int prochaineCase = ScotAI.Case.ProchaineCaseVoleur(false, CaseActuelle, NbrTaxi, NbrBus, NbrMetro, NbrBlack, out transportVoleur, out blackTicketBool, posDetec1, posDetec2, PosDetec3);
+            CaseActuelle = prochaineCase;
+
+            return transportVoleur.ToString();
         }
+
+
+        public void incrementeTrans(String transport) {
+            switch (transport) {
+                case "Taxi":
+                    NbrTaxi++;
+                    break;
+                case "Metro":
+                    NbrMetro++;
+                    break;
+                case "Bus":
+                    NbrBus++;
+                    break;
+            }
+        }
+        
     }
 }

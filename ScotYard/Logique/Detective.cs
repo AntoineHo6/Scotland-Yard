@@ -11,15 +11,14 @@ namespace ScotYard.Logique {
         
 
         public Detective(string nom, int caseActuelle, Color color) : base(nom, caseActuelle, color) {
-            this.NbrTaxi = 10;
-            this.NbrBus = 3;
-            this.NbrMetro = 3;
+            NbrTaxi = 10;
+            NbrBus = 3;
+            NbrMetro = 3;
         }
 
 
-        public override void deplacerCase(int laCase) {
+        public void deplacerCase(int laCase) {
             CaseActuelle = laCase;
-            Console.WriteLine(CaseActuelle);
         }
 
     }

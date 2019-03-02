@@ -255,39 +255,36 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox31 = new System.Windows.Forms.PictureBox();
-            this.pictureBox30 = new System.Windows.Forms.PictureBox();
-            this.pictureBox29 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn1 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn2 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn3 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn4 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn5 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn6 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn8 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn7 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn9 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn10 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn16 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn13 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn15 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn11 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn14 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn12 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.pictureBox19 = new System.Windows.Forms.PictureBox();
-            this.pictureBox25 = new System.Windows.Forms.PictureBox();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
-            this.pictureBox21 = new System.Windows.Forms.PictureBox();
-            this.pictureBox22 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn17 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn18 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn22 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn19 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn20 = new System.Windows.Forms.PictureBox();
+            this.picBoxTurn21 = new System.Windows.Forms.PictureBox();
             this.grpBoxDetec = new System.Windows.Forms.GroupBox();
             this.btnBus = new System.Windows.Forms.Button();
             this.btnMetro = new System.Windows.Forms.Button();
             this.btnTaxi = new System.Windows.Forms.Button();
             this.lblCaseAct = new System.Windows.Forms.Label();
             this.lblNbrBus = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblNbrTaxi = new System.Windows.Forms.Label();
             this.lblNbrMetro = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -306,34 +303,31 @@
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn7)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn12)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn21)).BeginInit();
             this.grpBoxDetec.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturebox1)).BeginInit();
             this.SuspendLayout();
@@ -2553,7 +2547,7 @@
             this.panel6.Controls.Add(this.label23);
             this.panel6.Controls.Add(this.label24);
             this.panel6.Controls.Add(this.label25);
-            this.panel6.Location = new System.Drawing.Point(304, 26);
+            this.panel6.Location = new System.Drawing.Point(294, 29);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(49, 279);
             this.panel6.TabIndex = 30;
@@ -2624,7 +2618,7 @@
             this.panel5.Controls.Add(this.label15);
             this.panel5.Controls.Add(this.label16);
             this.panel5.Controls.Add(this.label17);
-            this.panel5.Location = new System.Drawing.Point(157, 26);
+            this.panel5.Location = new System.Drawing.Point(147, 29);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(49, 367);
             this.panel5.TabIndex = 29;
@@ -2712,7 +2706,7 @@
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.label2);
-            this.panel4.Location = new System.Drawing.Point(10, 26);
+            this.panel4.Location = new System.Drawing.Point(0, 29);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(49, 367);
             this.panel4.TabIndex = 28;
@@ -2794,314 +2788,290 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.pictureBox31);
-            this.panel3.Controls.Add(this.pictureBox30);
-            this.panel3.Controls.Add(this.pictureBox29);
-            this.panel3.Controls.Add(this.pictureBox9);
-            this.panel3.Controls.Add(this.pictureBox8);
-            this.panel3.Controls.Add(this.pictureBox7);
-            this.panel3.Controls.Add(this.pictureBox6);
-            this.panel3.Controls.Add(this.pictureBox5);
-            this.panel3.Location = new System.Drawing.Point(65, 26);
+            this.panel3.Controls.Add(this.picBoxTurn1);
+            this.panel3.Controls.Add(this.picBoxTurn2);
+            this.panel3.Controls.Add(this.picBoxTurn3);
+            this.panel3.Controls.Add(this.picBoxTurn4);
+            this.panel3.Controls.Add(this.picBoxTurn5);
+            this.panel3.Controls.Add(this.picBoxTurn6);
+            this.panel3.Controls.Add(this.picBoxTurn8);
+            this.panel3.Controls.Add(this.picBoxTurn7);
+            this.panel3.Location = new System.Drawing.Point(55, 29);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(77, 367);
             this.panel3.TabIndex = 27;
             // 
-            // pictureBox31
+            // picBoxTurn1
             // 
-            this.pictureBox31.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox31.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox31.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox31.Name = "pictureBox31";
-            this.pictureBox31.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox31.TabIndex = 22;
-            this.pictureBox31.TabStop = false;
+            this.picBoxTurn1.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn1.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn1.Location = new System.Drawing.Point(3, 3);
+            this.picBoxTurn1.Name = "picBoxTurn1";
+            this.picBoxTurn1.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn1.TabIndex = 22;
+            this.picBoxTurn1.TabStop = false;
             // 
-            // pictureBox30
+            // picBoxTurn2
             // 
-            this.pictureBox30.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox30.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox30.Location = new System.Drawing.Point(3, 48);
-            this.pictureBox30.Name = "pictureBox30";
-            this.pictureBox30.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox30.TabIndex = 21;
-            this.pictureBox30.TabStop = false;
+            this.picBoxTurn2.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn2.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn2.Location = new System.Drawing.Point(3, 48);
+            this.picBoxTurn2.Name = "picBoxTurn2";
+            this.picBoxTurn2.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn2.TabIndex = 21;
+            this.picBoxTurn2.TabStop = false;
             // 
-            // pictureBox29
+            // picBoxTurn3
             // 
-            this.pictureBox29.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox29.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox29.BackgroundImage")));
-            this.pictureBox29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox29.Location = new System.Drawing.Point(3, 94);
-            this.pictureBox29.Name = "pictureBox29";
-            this.pictureBox29.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox29.TabIndex = 20;
-            this.pictureBox29.TabStop = false;
+            this.picBoxTurn3.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxTurn3.BackgroundImage")));
+            this.picBoxTurn3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn3.Location = new System.Drawing.Point(3, 94);
+            this.picBoxTurn3.Name = "picBoxTurn3";
+            this.picBoxTurn3.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn3.TabIndex = 20;
+            this.picBoxTurn3.TabStop = false;
             // 
-            // pictureBox9
+            // picBoxTurn4
             // 
-            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox9.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.Location = new System.Drawing.Point(3, 140);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox9.TabIndex = 19;
-            this.pictureBox9.TabStop = false;
+            this.picBoxTurn4.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn4.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn4.Location = new System.Drawing.Point(3, 140);
+            this.picBoxTurn4.Name = "picBoxTurn4";
+            this.picBoxTurn4.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn4.TabIndex = 19;
+            this.picBoxTurn4.TabStop = false;
             // 
-            // pictureBox8
+            // picBoxTurn5
             // 
-            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(3, 186);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox8.TabIndex = 17;
-            this.pictureBox8.TabStop = false;
+            this.picBoxTurn5.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn5.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn5.Location = new System.Drawing.Point(3, 186);
+            this.picBoxTurn5.Name = "picBoxTurn5";
+            this.picBoxTurn5.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn5.TabIndex = 17;
+            this.picBoxTurn5.TabStop = false;
             // 
-            // pictureBox7
+            // picBoxTurn6
             // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox7.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Location = new System.Drawing.Point(3, 232);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox7.TabIndex = 18;
-            this.pictureBox7.TabStop = false;
+            this.picBoxTurn6.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn6.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn6.Location = new System.Drawing.Point(3, 232);
+            this.picBoxTurn6.Name = "picBoxTurn6";
+            this.picBoxTurn6.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn6.TabIndex = 18;
+            this.picBoxTurn6.TabStop = false;
             // 
-            // pictureBox6
+            // picBoxTurn8
             // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Location = new System.Drawing.Point(3, 323);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox6.TabIndex = 17;
-            this.pictureBox6.TabStop = false;
+            this.picBoxTurn8.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxTurn8.BackgroundImage")));
+            this.picBoxTurn8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn8.Location = new System.Drawing.Point(3, 323);
+            this.picBoxTurn8.Name = "picBoxTurn8";
+            this.picBoxTurn8.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn8.TabIndex = 17;
+            this.picBoxTurn8.TabStop = false;
             // 
-            // pictureBox5
+            // picBoxTurn7
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(3, 278);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox5.TabIndex = 17;
-            this.pictureBox5.TabStop = false;
+            this.picBoxTurn7.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn7.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn7.Location = new System.Drawing.Point(3, 278);
+            this.picBoxTurn7.Name = "picBoxTurn7";
+            this.picBoxTurn7.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn7.TabIndex = 17;
+            this.picBoxTurn7.TabStop = false;
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.pictureBox11);
-            this.panel2.Controls.Add(this.pictureBox16);
-            this.panel2.Controls.Add(this.pictureBox17);
-            this.panel2.Controls.Add(this.pictureBox15);
-            this.panel2.Controls.Add(this.pictureBox12);
-            this.panel2.Controls.Add(this.pictureBox14);
-            this.panel2.Controls.Add(this.pictureBox13);
-            this.panel2.Location = new System.Drawing.Point(212, 25);
+            this.panel2.Controls.Add(this.picBoxTurn9);
+            this.panel2.Controls.Add(this.picBoxTurn10);
+            this.panel2.Controls.Add(this.picBoxTurn16);
+            this.panel2.Controls.Add(this.picBoxTurn13);
+            this.panel2.Controls.Add(this.picBoxTurn15);
+            this.panel2.Controls.Add(this.picBoxTurn11);
+            this.panel2.Controls.Add(this.picBoxTurn14);
+            this.panel2.Controls.Add(this.picBoxTurn12);
+            this.panel2.Location = new System.Drawing.Point(202, 28);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(77, 367);
             this.panel2.TabIndex = 26;
             // 
-            // pictureBox2
+            // picBoxTurn9
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox2.TabIndex = 16;
-            this.pictureBox2.TabStop = false;
+            this.picBoxTurn9.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn9.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn9.Location = new System.Drawing.Point(3, 4);
+            this.picBoxTurn9.Name = "picBoxTurn9";
+            this.picBoxTurn9.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn9.TabIndex = 16;
+            this.picBoxTurn9.TabStop = false;
             // 
-            // pictureBox11
+            // picBoxTurn10
             // 
-            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox11.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox11.Location = new System.Drawing.Point(3, 49);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox11.TabIndex = 9;
-            this.pictureBox11.TabStop = false;
+            this.picBoxTurn10.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn10.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn10.Location = new System.Drawing.Point(3, 49);
+            this.picBoxTurn10.Name = "picBoxTurn10";
+            this.picBoxTurn10.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn10.TabIndex = 9;
+            this.picBoxTurn10.TabStop = false;
             // 
-            // pictureBox16
+            // picBoxTurn16
             // 
-            this.pictureBox16.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox16.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox16.Location = new System.Drawing.Point(3, 324);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox16.TabIndex = 14;
-            this.pictureBox16.TabStop = false;
+            this.picBoxTurn16.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn16.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn16.Location = new System.Drawing.Point(3, 324);
+            this.picBoxTurn16.Name = "picBoxTurn16";
+            this.picBoxTurn16.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn16.TabIndex = 14;
+            this.picBoxTurn16.TabStop = false;
             // 
-            // pictureBox17
+            // picBoxTurn13
             // 
-            this.pictureBox17.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox17.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox17.BackgroundImage")));
-            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox17.Location = new System.Drawing.Point(3, 187);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox17.TabIndex = 15;
-            this.pictureBox17.TabStop = false;
+            this.picBoxTurn13.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxTurn13.BackgroundImage")));
+            this.picBoxTurn13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn13.Location = new System.Drawing.Point(3, 187);
+            this.picBoxTurn13.Name = "picBoxTurn13";
+            this.picBoxTurn13.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn13.TabIndex = 15;
+            this.picBoxTurn13.TabStop = false;
             // 
-            // pictureBox15
+            // picBoxTurn15
             // 
-            this.pictureBox15.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox15.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox15.Location = new System.Drawing.Point(3, 279);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox15.TabIndex = 13;
-            this.pictureBox15.TabStop = false;
+            this.picBoxTurn15.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn15.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn15.Location = new System.Drawing.Point(3, 279);
+            this.picBoxTurn15.Name = "picBoxTurn15";
+            this.picBoxTurn15.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn15.TabIndex = 13;
+            this.picBoxTurn15.TabStop = false;
             // 
-            // pictureBox12
+            // picBoxTurn11
             // 
-            this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox12.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox12.Location = new System.Drawing.Point(3, 95);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox12.TabIndex = 10;
-            this.pictureBox12.TabStop = false;
+            this.picBoxTurn11.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn11.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn11.Location = new System.Drawing.Point(3, 95);
+            this.picBoxTurn11.Name = "picBoxTurn11";
+            this.picBoxTurn11.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn11.TabIndex = 10;
+            this.picBoxTurn11.TabStop = false;
             // 
-            // pictureBox14
+            // picBoxTurn14
             // 
-            this.pictureBox14.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox14.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox14.Location = new System.Drawing.Point(3, 233);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox14.TabIndex = 12;
-            this.pictureBox14.TabStop = false;
+            this.picBoxTurn14.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn14.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn14.Location = new System.Drawing.Point(3, 233);
+            this.picBoxTurn14.Name = "picBoxTurn14";
+            this.picBoxTurn14.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn14.TabIndex = 12;
+            this.picBoxTurn14.TabStop = false;
             // 
-            // pictureBox13
+            // picBoxTurn12
             // 
-            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox13.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox13.Location = new System.Drawing.Point(3, 141);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox13.TabIndex = 11;
-            this.pictureBox13.TabStop = false;
+            this.picBoxTurn12.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn12.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn12.Location = new System.Drawing.Point(3, 141);
+            this.picBoxTurn12.Name = "picBoxTurn12";
+            this.picBoxTurn12.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn12.TabIndex = 11;
+            this.picBoxTurn12.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.pictureBox18);
-            this.panel1.Controls.Add(this.pictureBox19);
-            this.panel1.Controls.Add(this.pictureBox25);
-            this.panel1.Controls.Add(this.pictureBox20);
-            this.panel1.Controls.Add(this.pictureBox21);
-            this.panel1.Controls.Add(this.pictureBox22);
-            this.panel1.Location = new System.Drawing.Point(359, 26);
+            this.panel1.Controls.Add(this.picBoxTurn17);
+            this.panel1.Controls.Add(this.picBoxTurn18);
+            this.panel1.Controls.Add(this.picBoxTurn22);
+            this.panel1.Controls.Add(this.picBoxTurn19);
+            this.panel1.Controls.Add(this.picBoxTurn20);
+            this.panel1.Controls.Add(this.picBoxTurn21);
+            this.panel1.Location = new System.Drawing.Point(349, 29);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(77, 279);
             this.panel1.TabIndex = 25;
             // 
-            // pictureBox18
+            // picBoxTurn17
             // 
-            this.pictureBox18.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox18.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox18.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox18.TabIndex = 16;
-            this.pictureBox18.TabStop = false;
+            this.picBoxTurn17.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn17.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn17.Location = new System.Drawing.Point(3, 3);
+            this.picBoxTurn17.Name = "picBoxTurn17";
+            this.picBoxTurn17.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn17.TabIndex = 16;
+            this.picBoxTurn17.TabStop = false;
             // 
-            // pictureBox19
+            // picBoxTurn18
             // 
-            this.pictureBox19.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox19.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox19.BackgroundImage")));
-            this.pictureBox19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox19.Location = new System.Drawing.Point(3, 49);
-            this.pictureBox19.Name = "pictureBox19";
-            this.pictureBox19.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox19.TabIndex = 17;
-            this.pictureBox19.TabStop = false;
+            this.picBoxTurn18.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn18.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxTurn18.BackgroundImage")));
+            this.picBoxTurn18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn18.Location = new System.Drawing.Point(3, 49);
+            this.picBoxTurn18.Name = "picBoxTurn18";
+            this.picBoxTurn18.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn18.TabIndex = 17;
+            this.picBoxTurn18.TabStop = false;
             // 
-            // pictureBox25
+            // picBoxTurn22
             // 
-            this.pictureBox25.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox25.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox25.BackgroundImage")));
-            this.pictureBox25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox25.Location = new System.Drawing.Point(3, 233);
-            this.pictureBox25.Name = "pictureBox25";
-            this.pictureBox25.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox25.TabIndex = 23;
-            this.pictureBox25.TabStop = false;
+            this.picBoxTurn22.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxTurn22.BackgroundImage")));
+            this.picBoxTurn22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn22.Location = new System.Drawing.Point(3, 233);
+            this.picBoxTurn22.Name = "picBoxTurn22";
+            this.picBoxTurn22.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn22.TabIndex = 23;
+            this.picBoxTurn22.TabStop = false;
             // 
-            // pictureBox20
+            // picBoxTurn19
             // 
-            this.pictureBox20.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox20.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox20.Location = new System.Drawing.Point(3, 95);
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox20.TabIndex = 18;
-            this.pictureBox20.TabStop = false;
+            this.picBoxTurn19.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn19.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn19.Location = new System.Drawing.Point(3, 95);
+            this.picBoxTurn19.Name = "picBoxTurn19";
+            this.picBoxTurn19.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn19.TabIndex = 18;
+            this.picBoxTurn19.TabStop = false;
             // 
-            // pictureBox21
+            // picBoxTurn20
             // 
-            this.pictureBox21.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox21.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox21.Location = new System.Drawing.Point(3, 141);
-            this.pictureBox21.Name = "pictureBox21";
-            this.pictureBox21.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox21.TabIndex = 19;
-            this.pictureBox21.TabStop = false;
+            this.picBoxTurn20.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn20.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn20.Location = new System.Drawing.Point(3, 141);
+            this.picBoxTurn20.Name = "picBoxTurn20";
+            this.picBoxTurn20.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn20.TabIndex = 19;
+            this.picBoxTurn20.TabStop = false;
             // 
-            // pictureBox22
+            // picBoxTurn21
             // 
-            this.pictureBox22.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox22.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
-            this.pictureBox22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox22.Location = new System.Drawing.Point(3, 187);
-            this.pictureBox22.Name = "pictureBox22";
-            this.pictureBox22.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox22.TabIndex = 20;
-            this.pictureBox22.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.DarkRed;
-            this.pictureBox4.BackgroundImage = global::ScotYard.Properties.Resources.bus_card;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(320, 170);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackColor = System.Drawing.Color.DarkRed;
-            this.pictureBox10.BackgroundImage = global::ScotYard.Properties.Resources.taxi_card;
-            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox10.Location = new System.Drawing.Point(321, 216);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox10.TabIndex = 24;
-            this.pictureBox10.TabStop = false;
+            this.picBoxTurn21.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxTurn21.BackgroundImage = global::ScotYard.Properties.Resources.empty_normal_slot;
+            this.picBoxTurn21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxTurn21.Location = new System.Drawing.Point(3, 187);
+            this.picBoxTurn21.Name = "picBoxTurn21";
+            this.picBoxTurn21.Size = new System.Drawing.Size(69, 40);
+            this.picBoxTurn21.TabIndex = 20;
+            this.picBoxTurn21.TabStop = false;
             // 
             // grpBoxDetec
             // 
@@ -3110,11 +3080,8 @@
             this.grpBoxDetec.Controls.Add(this.btnMetro);
             this.grpBoxDetec.Controls.Add(this.btnTaxi);
             this.grpBoxDetec.Controls.Add(this.lblCaseAct);
-            this.grpBoxDetec.Controls.Add(this.pictureBox10);
             this.grpBoxDetec.Controls.Add(this.lblNbrBus);
-            this.grpBoxDetec.Controls.Add(this.pictureBox3);
             this.grpBoxDetec.Controls.Add(this.lblNbrTaxi);
-            this.grpBoxDetec.Controls.Add(this.pictureBox4);
             this.grpBoxDetec.Controls.Add(this.lblNbrMetro);
             this.grpBoxDetec.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBoxDetec.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -3131,7 +3098,7 @@
             this.btnBus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBus.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnBus.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnBus.Location = new System.Drawing.Point(11, 230);
+            this.btnBus.Location = new System.Drawing.Point(23, 222);
             this.btnBus.Name = "btnBus";
             this.btnBus.Size = new System.Drawing.Size(150, 90);
             this.btnBus.TabIndex = 33;
@@ -3143,7 +3110,7 @@
             this.btnMetro.BackgroundImage = global::ScotYard.Properties.Resources.metro_card;
             this.btnMetro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMetro.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnMetro.Location = new System.Drawing.Point(11, 134);
+            this.btnMetro.Location = new System.Drawing.Point(23, 126);
             this.btnMetro.Name = "btnMetro";
             this.btnMetro.Size = new System.Drawing.Size(150, 90);
             this.btnMetro.TabIndex = 32;
@@ -3155,7 +3122,7 @@
             this.btnTaxi.BackgroundImage = global::ScotYard.Properties.Resources.taxi_card;
             this.btnTaxi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnTaxi.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnTaxi.Location = new System.Drawing.Point(11, 38);
+            this.btnTaxi.Location = new System.Drawing.Point(23, 30);
             this.btnTaxi.Name = "btnTaxi";
             this.btnTaxi.Size = new System.Drawing.Size(150, 90);
             this.btnTaxi.TabIndex = 31;
@@ -3165,7 +3132,7 @@
             // lblCaseAct
             // 
             this.lblCaseAct.AutoSize = true;
-            this.lblCaseAct.Location = new System.Drawing.Point(6, 335);
+            this.lblCaseAct.Location = new System.Drawing.Point(18, 327);
             this.lblCaseAct.Name = "lblCaseAct";
             this.lblCaseAct.Size = new System.Drawing.Size(116, 25);
             this.lblCaseAct.TabIndex = 30;
@@ -3174,28 +3141,16 @@
             // lblNbrBus
             // 
             this.lblNbrBus.AutoSize = true;
-            this.lblNbrBus.Location = new System.Drawing.Point(167, 263);
+            this.lblNbrBus.Location = new System.Drawing.Point(179, 255);
             this.lblNbrBus.Name = "lblNbrBus";
             this.lblNbrBus.Size = new System.Drawing.Size(41, 25);
             this.lblNbrBus.TabIndex = 29;
             this.lblNbrBus.Text = "x 8";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.DarkRed;
-            this.pictureBox3.BackgroundImage = global::ScotYard.Properties.Resources.metro_card;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(321, 266);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(69, 40);
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
             // lblNbrTaxi
             // 
             this.lblNbrTaxi.AutoSize = true;
-            this.lblNbrTaxi.Location = new System.Drawing.Point(167, 71);
+            this.lblNbrTaxi.Location = new System.Drawing.Point(179, 63);
             this.lblNbrTaxi.Name = "lblNbrTaxi";
             this.lblNbrTaxi.Size = new System.Drawing.Size(41, 25);
             this.lblNbrTaxi.TabIndex = 28;
@@ -3204,7 +3159,7 @@
             // lblNbrMetro
             // 
             this.lblNbrMetro.AutoSize = true;
-            this.lblNbrMetro.Location = new System.Drawing.Point(167, 167);
+            this.lblNbrMetro.Location = new System.Drawing.Point(179, 159);
             this.lblNbrMetro.Name = "lblNbrMetro";
             this.lblNbrMetro.Size = new System.Drawing.Size(53, 25);
             this.lblNbrMetro.TabIndex = 27;
@@ -3527,35 +3482,32 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn7)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn12)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn21)).EndInit();
             this.grpBoxDetec.ResumeLayout(false);
             this.grpBoxDetec.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturebox1)).EndInit();
@@ -3775,21 +3727,19 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem àProposToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.PictureBox pictureBox17;
-        private System.Windows.Forms.PictureBox pictureBox16;
-        private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox25;
-        private System.Windows.Forms.PictureBox pictureBox22;
-        private System.Windows.Forms.PictureBox pictureBox21;
-        private System.Windows.Forms.PictureBox pictureBox20;
-        private System.Windows.Forms.PictureBox pictureBox19;
-        private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.PictureBox picBoxTurn10;
+        private System.Windows.Forms.PictureBox picBoxTurn13;
+        private System.Windows.Forms.PictureBox picBoxTurn16;
+        private System.Windows.Forms.PictureBox picBoxTurn15;
+        private System.Windows.Forms.PictureBox picBoxTurn14;
+        private System.Windows.Forms.PictureBox picBoxTurn12;
+        private System.Windows.Forms.PictureBox picBoxTurn11;
+        private System.Windows.Forms.PictureBox picBoxTurn22;
+        private System.Windows.Forms.PictureBox picBoxTurn21;
+        private System.Windows.Forms.PictureBox picBoxTurn20;
+        private System.Windows.Forms.PictureBox picBoxTurn19;
+        private System.Windows.Forms.PictureBox picBoxTurn18;
+        private System.Windows.Forms.PictureBox picBoxTurn17;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -3822,18 +3772,17 @@
         private System.Windows.Forms.Label lblNbrTaxi;
         private System.Windows.Forms.ToolStripSeparator quitterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem1;
-        private System.Windows.Forms.PictureBox pictureBox31;
-        private System.Windows.Forms.PictureBox pictureBox30;
-        private System.Windows.Forms.PictureBox pictureBox29;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox picBoxTurn1;
+        private System.Windows.Forms.PictureBox picBoxTurn2;
+        private System.Windows.Forms.PictureBox picBoxTurn3;
+        private System.Windows.Forms.PictureBox picBoxTurn4;
+        private System.Windows.Forms.PictureBox picBoxTurn5;
+        private System.Windows.Forms.PictureBox picBoxTurn6;
+        private System.Windows.Forms.PictureBox picBoxTurn8;
+        private System.Windows.Forms.PictureBox picBoxTurn7;
+        private System.Windows.Forms.PictureBox picBoxTurn9;
         private System.Windows.Forms.Label lblCaseAct;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnBus;
         private System.Windows.Forms.Button btnMetro;
         private System.Windows.Forms.Button btnTaxi;
