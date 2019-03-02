@@ -290,7 +290,6 @@
             this.lblNbrBus = new System.Windows.Forms.Label();
             this.lblNbrTaxi = new System.Windows.Forms.Label();
             this.lblNbrMetro = new System.Windows.Forms.Label();
-            this.lblCartes = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.uyhjToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nouvellePartieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -301,6 +300,7 @@
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.àProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.picturebox1 = new System.Windows.Forms.PictureBox();
+            this.lblStep = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -3085,7 +3085,7 @@
             this.pictureBox4.BackgroundImage = global::ScotYard.Properties.Resources.bus_card;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(10, 150);
+            this.pictureBox4.Location = new System.Drawing.Point(320, 170);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(69, 40);
             this.pictureBox4.TabIndex = 2;
@@ -3097,7 +3097,7 @@
             this.pictureBox10.BackgroundImage = global::ScotYard.Properties.Resources.taxi_card;
             this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox10.Location = new System.Drawing.Point(11, 202);
+            this.pictureBox10.Location = new System.Drawing.Point(321, 216);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(69, 40);
             this.pictureBox10.TabIndex = 24;
@@ -3111,17 +3111,16 @@
             this.grpBoxDetec.Controls.Add(this.btnTaxi);
             this.grpBoxDetec.Controls.Add(this.lblCaseAct);
             this.grpBoxDetec.Controls.Add(this.pictureBox10);
-            this.grpBoxDetec.Controls.Add(this.pictureBox4);
-            this.grpBoxDetec.Controls.Add(this.pictureBox3);
             this.grpBoxDetec.Controls.Add(this.lblNbrBus);
+            this.grpBoxDetec.Controls.Add(this.pictureBox3);
             this.grpBoxDetec.Controls.Add(this.lblNbrTaxi);
+            this.grpBoxDetec.Controls.Add(this.pictureBox4);
             this.grpBoxDetec.Controls.Add(this.lblNbrMetro);
-            this.grpBoxDetec.Controls.Add(this.lblCartes);
             this.grpBoxDetec.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBoxDetec.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.grpBoxDetec.Location = new System.Drawing.Point(1032, 27);
+            this.grpBoxDetec.Location = new System.Drawing.Point(1032, 63);
             this.grpBoxDetec.Name = "grpBoxDetec";
-            this.grpBoxDetec.Size = new System.Drawing.Size(455, 406);
+            this.grpBoxDetec.Size = new System.Drawing.Size(455, 370);
             this.grpBoxDetec.TabIndex = 203;
             this.grpBoxDetec.TabStop = false;
             this.grpBoxDetec.Text = "Detective 1";
@@ -3132,7 +3131,7 @@
             this.btnBus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBus.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnBus.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnBus.Location = new System.Drawing.Point(153, 258);
+            this.btnBus.Location = new System.Drawing.Point(11, 230);
             this.btnBus.Name = "btnBus";
             this.btnBus.Size = new System.Drawing.Size(150, 90);
             this.btnBus.TabIndex = 33;
@@ -3141,10 +3140,10 @@
             // 
             // btnMetro
             // 
-            this.btnMetro.BackgroundImage = global::ScotYard.Properties.Resources.train_card;
+            this.btnMetro.BackgroundImage = global::ScotYard.Properties.Resources.metro_card;
             this.btnMetro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMetro.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnMetro.Location = new System.Drawing.Point(153, 162);
+            this.btnMetro.Location = new System.Drawing.Point(11, 134);
             this.btnMetro.Name = "btnMetro";
             this.btnMetro.Size = new System.Drawing.Size(150, 90);
             this.btnMetro.TabIndex = 32;
@@ -3156,7 +3155,7 @@
             this.btnTaxi.BackgroundImage = global::ScotYard.Properties.Resources.taxi_card;
             this.btnTaxi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnTaxi.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnTaxi.Location = new System.Drawing.Point(153, 66);
+            this.btnTaxi.Location = new System.Drawing.Point(11, 38);
             this.btnTaxi.Name = "btnTaxi";
             this.btnTaxi.Size = new System.Drawing.Size(150, 90);
             this.btnTaxi.TabIndex = 31;
@@ -3166,7 +3165,7 @@
             // lblCaseAct
             // 
             this.lblCaseAct.AutoSize = true;
-            this.lblCaseAct.Location = new System.Drawing.Point(250, 371);
+            this.lblCaseAct.Location = new System.Drawing.Point(6, 335);
             this.lblCaseAct.Name = "lblCaseAct";
             this.lblCaseAct.Size = new System.Drawing.Size(199, 25);
             this.lblCaseAct.TabIndex = 30;
@@ -3175,10 +3174,10 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.DarkRed;
-            this.pictureBox3.BackgroundImage = global::ScotYard.Properties.Resources.train_card;
+            this.pictureBox3.BackgroundImage = global::ScotYard.Properties.Resources.metro_card;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(11, 102);
+            this.pictureBox3.Location = new System.Drawing.Point(321, 266);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(69, 40);
             this.pictureBox3.TabIndex = 1;
@@ -3187,7 +3186,7 @@
             // lblNbrBus
             // 
             this.lblNbrBus.AutoSize = true;
-            this.lblNbrBus.Location = new System.Drawing.Point(309, 291);
+            this.lblNbrBus.Location = new System.Drawing.Point(167, 263);
             this.lblNbrBus.Name = "lblNbrBus";
             this.lblNbrBus.Size = new System.Drawing.Size(41, 25);
             this.lblNbrBus.TabIndex = 29;
@@ -3196,7 +3195,7 @@
             // lblNbrTaxi
             // 
             this.lblNbrTaxi.AutoSize = true;
-            this.lblNbrTaxi.Location = new System.Drawing.Point(309, 99);
+            this.lblNbrTaxi.Location = new System.Drawing.Point(167, 71);
             this.lblNbrTaxi.Name = "lblNbrTaxi";
             this.lblNbrTaxi.Size = new System.Drawing.Size(41, 25);
             this.lblNbrTaxi.TabIndex = 28;
@@ -3205,21 +3204,11 @@
             // lblNbrMetro
             // 
             this.lblNbrMetro.AutoSize = true;
-            this.lblNbrMetro.Location = new System.Drawing.Point(309, 195);
+            this.lblNbrMetro.Location = new System.Drawing.Point(167, 167);
             this.lblNbrMetro.Name = "lblNbrMetro";
             this.lblNbrMetro.Size = new System.Drawing.Size(53, 25);
             this.lblNbrMetro.TabIndex = 27;
             this.lblNbrMetro.Text = "x 10";
-            // 
-            // lblCartes
-            // 
-            this.lblCartes.AutoSize = true;
-            this.lblCartes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCartes.Location = new System.Drawing.Point(196, 39);
-            this.lblCartes.Name = "lblCartes";
-            this.lblCartes.Size = new System.Drawing.Size(73, 24);
-            this.lblCartes.TabIndex = 26;
-            this.lblCartes.Text = "Cartes :";
             // 
             // menuStrip1
             // 
@@ -3304,12 +3293,24 @@
             this.picturebox1.TabIndex = 3;
             this.picturebox1.TabStop = false;
             // 
+            // lblStep
+            // 
+            this.lblStep.AutoSize = true;
+            this.lblStep.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStep.ForeColor = System.Drawing.Color.White;
+            this.lblStep.Location = new System.Drawing.Point(1027, 24);
+            this.lblStep.Name = "lblStep";
+            this.lblStep.Size = new System.Drawing.Size(394, 29);
+            this.lblStep.TabIndex = 205;
+            this.lblStep.Text = "1. Choisissez une carte de transport";
+            // 
             // FenetreJeu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(1493, 856);
+            this.Controls.Add(this.lblStep);
             this.Controls.Add(this.grpBoxDetec);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn199);
@@ -3789,7 +3790,6 @@
         private System.Windows.Forms.PictureBox pictureBox20;
         private System.Windows.Forms.PictureBox pictureBox19;
         private System.Windows.Forms.PictureBox pictureBox18;
-        private System.Windows.Forms.Label lblCartes;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -3837,6 +3837,7 @@
         private System.Windows.Forms.Button btnBus;
         private System.Windows.Forms.Button btnMetro;
         private System.Windows.Forms.Button btnTaxi;
+        private System.Windows.Forms.Label lblStep;
     }
 }
 

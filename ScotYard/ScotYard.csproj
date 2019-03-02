@@ -111,6 +111,15 @@
   <ItemGroup>
     <None Include="Resources\empty reveal slot.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\taxi card disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\train card disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bus card disabled.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
