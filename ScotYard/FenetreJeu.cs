@@ -27,8 +27,15 @@ namespace ScotYard {
         Thread blinkRouteThread;
         List<int> lstPosRouteBtn = new List<int>();
 
+        Thread blinkMrXThread;
+
         String transChoisi;     // Le transport choisi par le detective
+
         List<PictureBox> listePicBox = new List<PictureBox>();      // Permet l'acces aux pictureBox.
+
+        List<int> listeTourRevele = new List<int>();
+
+        
 
         /// <summary>
         /// Constructeur de la fenêtre
@@ -37,6 +44,7 @@ namespace ScotYard {
             InitializeComponent();
             InitialiserBoutons();
             InitialiserPictureBoxListe();
+            InitialiseTourReveleListe();
 
             ScotYard.Graphe.Case.CreerCases();
 
@@ -46,6 +54,7 @@ namespace ScotYard {
 
             paintDetecPos();
             updateDetecGrpBox();
+
         }
 
         /// <summary>
@@ -81,19 +90,12 @@ namespace ScotYard {
             }
 
             // Création joueurs
+            listeDetec.Add(new Detective("Detective 1", caseInitiales[0], Color.Maroon));
+            listeDetec.Add(new Detective("Detective 2", caseInitiales[1], Color.Green));
+            listeDetec.Add(new Detective("Detective 3", caseInitiales[2], Color.Turquoise));
             // temp
-            //listeDetec.Add(new Detective("Detective 1", caseInitiales[0], Color.Maroon));
-            listeDetec.Add(new Detective("Detective 1", 1, Color.Maroon));
-
-            // listeDetec.Add(new Detective("Detective 2", caseInitiales[1], Color.Green));
-            listeDetec.Add(new Detective("Detective 2", 58, Color.Green));
-
-            // listeDetec.Add(new Detective("Detective 3", caseInitiales[2], Color.Turquoise));
-            listeDetec.Add(new Detective("Detective 3", 47, Color.Turquoise));
-
-            // updateDetecPos();
-
-            mrX = new MrX(caseInitiales[3]);
+            //mrX = new MrX(caseInitiales[3]);
+            mrX = new MrX(194);
         }
 
 
@@ -127,9 +129,19 @@ namespace ScotYard {
 
         private void mrXDeplace() {
             String transport = mrX.deplacerCase(listeDetec[0].CaseActuelle, listeDetec[1].CaseActuelle, listeDetec[2].CaseActuelle);
+            // temp
+            Console.WriteLine("MR.X utilise: " + transport);
             mrX.decrementeTrans(transport);
             updateMrXBoard(transport);
-            gameTurn++;
+        }
+
+
+        private void InitialiseTourReveleListe() {
+            listeTourRevele.Add(3);
+            listeTourRevele.Add(8);
+            listeTourRevele.Add(13);
+            listeTourRevele.Add(18);
+            listeTourRevele.Add(22);
         }
 
 
@@ -156,9 +168,6 @@ namespace ScotYard {
                 int caseActuelleDetec = listeDetec[i].CaseActuelle;
                 _listeBoutons[caseActuelleDetec].BackColor = listeDetec[i].Color;
             }
-
-            // temp
-            _listeBoutons[mrX.CaseActuelle].BackColor = mrX.Color;
         }
 
 
@@ -506,23 +515,23 @@ namespace ScotYard {
                 }
             }
 
-            // Set Enabled toutes les cases accessibles par taxi
+            // Set Enabled toutes les cases accessibles
             for (int i = 0; i < lstPosRouteBtn.Count; i++) {
                 _listeBoutons[lstPosRouteBtn[i]].Enabled = true;
                 _listeBoutons[lstPosRouteBtn[i]].Width = 36;
                 _listeBoutons[lstPosRouteBtn[i]].Height = 28;
             }
 
-            // Clignote les cases accessible par taxi
+            // Clignote les cases accessibles
             blinkRouteThread = new Thread(delegate () {
                 while (true) {
-                    // Coloris en jaune toutes les cases accessible par taxi
+                    // Coloris en jaune toutes les cases accessibles
                     for (int i = 0; i < lstPosRouteBtn.Count; i++) {
                         _listeBoutons[lstPosRouteBtn[i]].BackColor = color;
                     }
                     System.Threading.Thread.Sleep(300);
 
-                    // Enleve le jaune de toutes les cases accessible par taxi
+                    // Enleve le jaune de toutes les cases accessibles
                     for (int i = 0; i < lstPosRouteBtn.Count; i++) {
                         _listeBoutons[lstPosRouteBtn[i]].BackColor = Color.Transparent;
                     }
@@ -542,7 +551,7 @@ namespace ScotYard {
         private void btnTaxi_Click(object sender, EventArgs e) {
             int caseActuelle = listeDetec[detecTurn - 1].CaseActuelle;
             blinkRoutes(Graphe.Case.ListeCases[caseActuelle].ListeTaxis, Color.Yellow);
-            transChoisi = "taxi";
+            transChoisi = "Taxi";
             lblStep.Text = "2. Choisissez une route sur la planche";
         }
 
@@ -555,7 +564,7 @@ namespace ScotYard {
         private void btnMetro_Click(object sender, EventArgs e) {
             int caseActuelle = listeDetec[detecTurn - 1].CaseActuelle;
             blinkRoutes(Graphe.Case.ListeCases[caseActuelle].ListeMetros, Color.LightCoral);
-            transChoisi = "metro";
+            transChoisi = "Metro";
             lblStep.Text = "2. Choisissez une route sur la planche";
         }
 
@@ -568,7 +577,7 @@ namespace ScotYard {
         private void btnBus_Click(object sender, EventArgs e) {
             int caseActuelle = listeDetec[detecTurn - 1].CaseActuelle;
             blinkRoutes(Graphe.Case.ListeCases[caseActuelle].ListeBus, Color.ForestGreen);
-            transChoisi = "bus";
+            transChoisi = "Bus";
             lblStep.Text = "2. Choisissez une route sur la planche";
         }
 
@@ -584,33 +593,67 @@ namespace ScotYard {
 
             _listeBoutons[listeDetec[detecTurn - 1].CaseActuelle].BackColor = Color.Transparent;
 
-            // temp
-            _listeBoutons[mrX.CaseActuelle].BackColor = Color.Transparent;
-
             listeDetec[detecTurn - 1].deplacerCase(caseChoisi);
-
+            
             listeDetec[detecTurn - 1].decrementeTrans(transChoisi);
+            // Donne a Mr.X le transport utilisé par le detective
             mrX.incrementeTrans(transChoisi);
 
             lblStep.Text = "1. Choisissez une carte de transport";
 
-            
             // Change le tour du detective et mrX se deplace
             if (detecTurn == 3) {
                 detecTurn = 1;
+                gameTurn++;
+
+                if (gameTurn < listeTourRevele[0]) {
+                    Console.WriteLine("JE CACHE");
+                    cacheMrX();
+                }
+
                 mrXDeplace();
+
+                if (gameTurn == listeTourRevele[0]) {
+                    Console.WriteLine("JE REVELE");
+                    ReveleMrX();
+                    listeTourRevele.Remove(gameTurn);
+                }
             }
             else {
                 detecTurn++;
             }
-
+            
             paintDetecPos();
             updateDetecGrpBox();
         }
 
 
         private void ReveleMrX() {
+            _listeBoutons[mrX.CaseActuelle].Width = 36;
+            _listeBoutons[mrX.CaseActuelle].Height = 28;
 
+            blinkMrXThread = new Thread(delegate () {
+                while (true) {
+                    _listeBoutons[mrX.CaseActuelle].BackColor = Color.Black;
+                    System.Threading.Thread.Sleep(300);
+                    _listeBoutons[mrX.CaseActuelle].BackColor = Color.Transparent;
+                    System.Threading.Thread.Sleep(300);
+                }
+            });
+
+            blinkMrXThread.Start();
+        }
+
+
+        private void cacheMrX() {
+            if (blinkMrXThread != null) {
+                blinkMrXThread.Abort();
+            }
+
+            _listeBoutons[mrX.CaseActuelle].Width = 28;
+            _listeBoutons[mrX.CaseActuelle].Height = 20;
+
+            _listeBoutons[mrX.CaseActuelle].BackColor = Color.Transparent;
         }
     }
 }
@@ -618,12 +661,14 @@ namespace ScotYard {
 
 
 
-// TODO: Mettre en fonction qui change la couleur du texte en noir ou blanc 
+// TODO: Mettre en fonction code qui change la couleur du texte en noir ou blanc 
 // TODO: Faire que Mr x utilise carte noir
 // TODO: method parameters comments
 // TODO: verifier si detective se deplace sur la case de Mr.X
 // TODO: verifier si un detective n'est plus capable de bouger
-// TODO: reveler MR.X dans les tours definis.
+// TODO: Rendre plus visible les cases ou les detectives se retrouvent.
+// TODO: arreter le jeux a la fin du tour 22
+// TODO: paint buttons to correspond to the available transportation modes.
 
 
 ///
