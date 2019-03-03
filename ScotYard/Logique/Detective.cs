@@ -12,18 +12,24 @@ namespace ScotYard.Logique {
         bool estBloque;
         public bool EstBloque { get; set; }
 
-        public Detective(string nom, int caseActuelle, Color color) : base(nom, caseActuelle, color) {
-            // temp
-            // NbrTaxi = 10;
-            //NbrBus = 3;
-            //NbrMetro = 3;
+        bool isLastInTurn;
+        public bool IsLastInTurn { get; set; }
 
+        int idNum;
+        public int IdNum { get; set; }
+
+        public Detective(string nom, int caseActuelle, Color color, int id) : base(nom, caseActuelle, color) {
+            //NbrTaxi = 10;
+            //NbrBus = 8;
+            //NbrMetro = 4;
+            // temp
             NbrTaxi = 1;
-            NbrBus = 1;
-            NbrMetro = 1;
+            NbrBus = 0;
+            NbrMetro = 0;
 
             estBloque = false;
-            
+            isLastInTurn = false;
+            this.IdNum = id;
         }
 
 
