@@ -92,9 +92,9 @@ namespace ScotYard {
             // Création joueurs
             listeDetec.Add(new Detective("Detective 1", caseInitiales[0], Color.Maroon, 1));
             //listeDetec.Add(new Detective("Detective 1", 20, Color.Maroon));
-            listeDetec[0].NbrTaxi = 100;
-            listeDetec[0].NbrMetro = 100;
-            listeDetec[0].NbrBus = 100;
+            //listeDetec[0].NbrTaxi = 100;
+            //listeDetec[0].NbrMetro = 100;
+            //listeDetec[0].NbrBus = 100;
 
             listeDetec.Add(new Detective("Detective 2", caseInitiales[1], Color.Green, 2));
             //listeDetec.Add(new Detective("Detective 2", 19, Color.Green));
@@ -256,6 +256,11 @@ namespace ScotYard {
             disableBtnTransIndisponible(Graphe.Case.ListeCases[detec.CaseActuelle].ListeBus, btnBus, Properties.Resources.bus_card_disabled, "Bus");
             
             if (!btnTaxi.Enabled && !btnMetro.Enabled && !btnBus.Enabled) {
+                if (listeDetec[0].EstBloque && listeDetec[1].EstBloque && listeDetec[2].EstBloque) {
+                    ecranDefaite();
+                    return;
+                }
+
                 // Change le tour du detective et mrX se deplace
                 if (detec.IsLastInTurn || detecTurn == 3) {
                     detecTurn = 1;
@@ -272,7 +277,10 @@ namespace ScotYard {
                         ReveleMrX();
                         listeTourRevele.Remove(gameTurn);
                     }
-                }
+                }if (listeDetec[0].EstBloque && listeDetec[1].EstBloque && listeDetec[2].EstBloque) {
+                            detec.IsLastInTurn = true;
+                            ecranDefaite();
+                        }
                 else {
                     detecTurn++;
                 }
@@ -783,7 +791,6 @@ namespace ScotYard {
 /// TODO MAJEUR: 
 /// TODO: quoi faire quand mr.X se deplace par bateau?
 /// TODO: ne doit pas recommener le tour par detective 1, mais par detective avec le bool
-/// TODO: parfois, detective seul a 1 tour de plus.
 
 
 /// TODO MINEUR: 
