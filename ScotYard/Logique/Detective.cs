@@ -9,13 +9,10 @@ namespace ScotYard.Logique {
 
     public class Detective : Joueur {
 
-        bool estBloque;
         public bool EstBloque { get; set; }
 
-        bool isLastInTurn;
         public bool IsLastInTurn { get; set; }
 
-        int idNum;
         public int IdNum { get; set; }
 
         public Detective(string nom, int caseActuelle, Color color, int id) : base(nom, caseActuelle, color) {
@@ -27,8 +24,8 @@ namespace ScotYard.Logique {
             NbrBus = 0;
             NbrMetro = 0;
 
-            estBloque = false;
-            isLastInTurn = false;
+            EstBloque = false;
+            IsLastInTurn = false;
             this.IdNum = id;
         }
 

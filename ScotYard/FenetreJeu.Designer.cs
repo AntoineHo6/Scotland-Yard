@@ -300,6 +300,7 @@
             this.lblStep = new System.Windows.Forms.Label();
             this.lblVictoire = new System.Windows.Forms.Label();
             this.lblDefaite = new System.Windows.Forms.Label();
+            this.lblTour = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -2526,6 +2527,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.groupBox1.Controls.Add(this.lblTour);
             this.groupBox1.Controls.Add(this.panel6);
             this.groupBox1.Controls.Add(this.panel5);
             this.groupBox1.Controls.Add(this.panel4);
@@ -3287,6 +3289,15 @@
             this.lblDefaite.Text = "D É F A I T E";
             this.lblDefaite.Visible = false;
             // 
+            // lblTour
+            // 
+            this.lblTour.AutoSize = true;
+            this.lblTour.Location = new System.Drawing.Point(289, 344);
+            this.lblTour.Name = "lblTour";
+            this.lblTour.Size = new System.Drawing.Size(80, 25);
+            this.lblTour.TabIndex = 31;
+            this.lblTour.Text = "Tour: 1";
+            // 
             // FenetreJeu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3505,6 +3516,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ScotLand Yard";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -3819,6 +3831,7 @@
         private System.Windows.Forms.Label lblStep;
         private System.Windows.Forms.Label lblVictoire;
         private System.Windows.Forms.Label lblDefaite;
+        private System.Windows.Forms.Label lblTour;
     }
 }
 

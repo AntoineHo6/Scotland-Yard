@@ -17,6 +17,7 @@ namespace ScotYard {
     public partial class FenetreJeu : Form {
         List<Button> _listeBoutons = new List<Button>();
         List<PictureBox> listePicBox = new List<PictureBox>();      // Permet l'acces aux pictureBox.
+        List<int> listeTourRevele = new List<int>();
 
         List<Detective> listeDetec = new List<Detective>();
         MrX mrX;
@@ -31,11 +32,10 @@ namespace ScotYard {
         Thread blinkMrXThread;
 
         String transChoisi;     // Le transport choisi par le detective
-        
 
-        List<int> listeTourRevele = new List<int>();
 
-        
+
+
 
         /// <summary>
         /// Constructeur de la fenêtre
@@ -66,7 +66,7 @@ namespace ScotYard {
                 _listeBoutons[i].Enabled = false;
                 _listeBoutons[i].BackColor = Color.Transparent;
             }
-            
+
             List<int> exclude = new List<int>();
             int[] caseInitiales = new int[4];       // Contient les positions initiales des detectives et de Mr.X.
 
@@ -92,13 +92,14 @@ namespace ScotYard {
             // Création joueurs
             listeDetec.Add(new Detective("Detective 1", caseInitiales[0], Color.Maroon, 1));
             //listeDetec.Add(new Detective("Detective 1", 20, Color.Maroon));
-            //listeDetec[0].NbrTaxi = 100;
-            //listeDetec[0].NbrMetro = 100;
-            //listeDetec[0].NbrBus = 100;
+            // temp
+            listeDetec[0].NbrTaxi = 100;
+            listeDetec[0].NbrMetro = 100;
+            listeDetec[0].NbrBus = 100;
 
             listeDetec.Add(new Detective("Detective 2", caseInitiales[1], Color.Green, 2));
             //listeDetec.Add(new Detective("Detective 2", 19, Color.Green));
-            
+
             listeDetec.Add(new Detective("Detective 3", caseInitiales[2], Color.Turquoise, 3));
             listeDetec[2].IsLastInTurn = true;
             mrX = new MrX(caseInitiales[3]);
@@ -254,39 +255,55 @@ namespace ScotYard {
             disableBtnTransIndisponible(Graphe.Case.ListeCases[detec.CaseActuelle].ListeTaxis, btnTaxi, Properties.Resources.taxi_card_disabled, "Taxi");
             disableBtnTransIndisponible(Graphe.Case.ListeCases[detec.CaseActuelle].ListeMetros, btnMetro, Properties.Resources.metro_card_disabled, "Metro");
             disableBtnTransIndisponible(Graphe.Case.ListeCases[detec.CaseActuelle].ListeBus, btnBus, Properties.Resources.bus_card_disabled, "Bus");
-            
+
             if (!btnTaxi.Enabled && !btnMetro.Enabled && !btnBus.Enabled) {
                 if (listeDetec[0].EstBloque && listeDetec[1].EstBloque && listeDetec[2].EstBloque) {
                     ecranDefaite();
                     return;
                 }
 
+                // PEUT POTENTIELLEMENT REMPLACER LAUTRE CHECK QUE TT LE MONDE EST BLOQUE
+                // if 2 in 3 detectives are blocked
+                int nbrDetecBloque = 0;
+                for (int i = 0; i < listeDetec.Count; i++) {
+                    if (listeDetec[i].EstBloque) {
+                        nbrDetecBloque++;
+                    }
+                }
+
                 // Change le tour du detective et mrX se deplace
-                if (detec.IsLastInTurn || detecTurn == 3) {
+                if ((detec.IsLastInTurn || detecTurn == 3) && nbrDetecBloque > 1) {
                     detecTurn = 1;
                     gameTurn++;
+                    lblTour.Text = "Tour: " + gameTurn;
 
                     // Declignote Mr.X pendant les tours normaux
                     if (gameTurn < listeTourRevele[0]) {
                         cacheMrX();
                     }
 
+                    Console.WriteLine("Mr. X se deplace");
                     mrXDeplace();
 
                     if (gameTurn == listeTourRevele[0]) {
                         ReveleMrX();
                         listeTourRevele.Remove(gameTurn);
                     }
-                }if (listeDetec[0].EstBloque && listeDetec[1].EstBloque && listeDetec[2].EstBloque) {
-                            detec.IsLastInTurn = true;
-                            ecranDefaite();
-                        }
+                }
                 else {
                     detecTurn++;
                 }
+
+                // refactor
+                if (listeDetec[0].EstBloque && listeDetec[1].EstBloque && listeDetec[2].EstBloque) {
+                    detec.IsLastInTurn = true;
+                    ecranDefaite();
+                }
+                
                 updateDetecGrpBox();
             }
-            
+
+
         }
 
 
@@ -564,9 +581,9 @@ namespace ScotYard {
                     blinkRouteThread.Abort();
                 }
                 catch (System.Threading.ThreadAbortException) {
-                    
+
                 }
-                
+
             }
 
             // Set disabled les boutons qui clignotaient
@@ -576,7 +593,7 @@ namespace ScotYard {
                 _listeBoutons[lstPosRouteBtn[i]].Width = 28;
                 _listeBoutons[lstPosRouteBtn[i]].Height = 20;
             }
-            
+
             lstPosRouteBtn.Clear();
 
         }
@@ -592,7 +609,7 @@ namespace ScotYard {
             fntOpts.Show();
         }
 
-        
+
         /// <summary>
         ///     Fait clignoter les chemins disponibles avec le mode de transport choisi
         /// </summary>
@@ -698,7 +715,7 @@ namespace ScotYard {
                 ecranVictoire();
                 return;
             }
-            
+
             detec.decrementeTrans(transChoisi);
             // Donne a Mr.X le transport utilisé par le detective
             mrX.incrementeTrans(transChoisi);
@@ -707,14 +724,12 @@ namespace ScotYard {
 
             makeDetecStuck(detec);
 
-            Console.WriteLine("Detective " + detec.IdNum);
-            Console.WriteLine("Blocked?: " + detec.EstBloque);
-            Console.WriteLine("Is he last in turn?: " + detec.IsLastInTurn);
             // Change le tour du detective et mrX se deplace
             if (detec.IsLastInTurn || detecTurn == 3) {
                 detecTurn = 1;
                 gameTurn++;
-                
+                lblTour.Text = "Tour: " + gameTurn;
+
                 // Declignote Mr.X pendant les tours normaux
                 if (gameTurn < listeTourRevele[0]) {
                     cacheMrX();
@@ -730,7 +745,7 @@ namespace ScotYard {
             else {
                 detecTurn++;
             }
-            
+
             paintDetecPos();
             updateDetecGrpBox();
 
@@ -747,7 +762,7 @@ namespace ScotYard {
 
             if (detec.IsLastInTurn) {
                 detec.IsLastInTurn = false;
-                
+
                 // A RETRAVIALLER
                 switch (detec.IdNum) {
                     case 1:
@@ -770,7 +785,7 @@ namespace ScotYard {
                         break;
                 }
             }
-           
+
         }
 
 
@@ -791,6 +806,7 @@ namespace ScotYard {
 /// TODO MAJEUR: 
 /// TODO: quoi faire quand mr.X se deplace par bateau?
 /// TODO: ne doit pas recommener le tour par detective 1, mais par detective avec le bool
+/// TODO: refactor code
 
 
 /// TODO MINEUR: 
