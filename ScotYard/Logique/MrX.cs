@@ -11,10 +11,7 @@ namespace ScotYard.Logique {
     public class MrX : Joueur{
 
         int nbrBlack;
-        public int NbrBlack {
-            get { return nbrBlack; }
-            set { nbrBlack = value; }
-        }
+        public int NbrBlack { get; set; }
 
 
         public MrX(int caseActuelle) : base("Mr. X", caseActuelle, Color.DimGray) {

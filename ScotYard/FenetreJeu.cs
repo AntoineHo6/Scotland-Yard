@@ -225,6 +225,9 @@ namespace ScotYard {
             // RISQUE D'UNE BOUCLE INFINIE SI LES 3 DETECTIVES NE PEUVENT PLUS BOUGER.
             // On skip le detective qui ne peut plus jouer
             if (btnTaxi.Enabled == false && btnMetro.Enabled == false && btnBus.Enabled == false) {
+                listeDetec[detecTurn - 1].EstBloque = true;
+
+                // Change le tour
                 if (detecTurn == 3) {
                     detecTurn = 1;
                 }
@@ -232,10 +235,21 @@ namespace ScotYard {
                     detecTurn++;
                 }
 
+                // Verifie si les trois detectives sont bloques.
+                if (listeDetec[0].EstBloque && listeDetec[1].EstBloque && listeDetec[2].EstBloque) {
+                    ecranDefaite();
+                    return;
+                }
+
                 updateDetecGrpBox();
+                }
+
+                // -------------- In production --------------
             }
 
-            // -------------- In production --------------
+
+        private void ecranDefaite() {
+            lblDefaite.Visible = true;
         }
 
 
@@ -711,12 +725,13 @@ namespace ScotYard {
 /// TODO: quoi faire quand mr.X se deplace par bateau?
 /// TODO: si tout les detectives ne sont plus capable de bouger, faut eviter boucle infinie
 
+
 /// TODO MINEUR: 
 /// TODO: paint buttons to correspond to the available transportation modes.
 /// TODO: function parameters comments
 /// TODO: Mettre dans une fonction le code qui change la couleur du texte en noir ou blanc 
 /// TODO: Rendre plus visible les cases ou les detectives se retrouvent.
-
+/// TODO: Dans l'ecran de victoire ou de defaite, ne pas permettre l'interaction avec les controles.
 
 ///
 /// Change la couleur du text pour qu'il soit visible.

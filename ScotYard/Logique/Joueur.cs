@@ -38,13 +38,13 @@ namespace ScotYard.Logique {
         public void decrementeTrans(String transport) {
             switch (transport) {
                 case "Taxi":
-                    nbrTaxi--;
+                    NbrTaxi--;
                     break;
                 case "Metro":
-                    nbrMetro--;
+                    NbrMetro--;
                     break;
                 case "Bus":
-                    nbrBus--;
+                    NbrBus--;
                     break;
             }
         }

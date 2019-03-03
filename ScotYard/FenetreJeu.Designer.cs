@@ -299,6 +299,7 @@
             this.picturebox1 = new System.Windows.Forms.PictureBox();
             this.lblStep = new System.Windows.Forms.Label();
             this.lblVictoire = new System.Windows.Forms.Label();
+            this.lblDefaite = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -3273,12 +3274,26 @@
             this.lblVictoire.Text = "V I C T O I R E";
             this.lblVictoire.Visible = false;
             // 
+            // lblDefaite
+            // 
+            this.lblDefaite.AutoSize = true;
+            this.lblDefaite.BackColor = System.Drawing.Color.Black;
+            this.lblDefaite.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDefaite.ForeColor = System.Drawing.Color.Red;
+            this.lblDefaite.Location = new System.Drawing.Point(214, 376);
+            this.lblDefaite.Name = "lblDefaite";
+            this.lblDefaite.Size = new System.Drawing.Size(607, 108);
+            this.lblDefaite.TabIndex = 207;
+            this.lblDefaite.Text = "D É F A I T E";
+            this.lblDefaite.Visible = false;
+            // 
             // FenetreJeu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(1493, 856);
+            this.Controls.Add(this.lblDefaite);
             this.Controls.Add(this.lblVictoire);
             this.Controls.Add(this.lblStep);
             this.Controls.Add(this.grpBoxDetec);
@@ -3803,6 +3818,7 @@
         private System.Windows.Forms.Button btnTaxi;
         private System.Windows.Forms.Label lblStep;
         private System.Windows.Forms.Label lblVictoire;
+        private System.Windows.Forms.Label lblDefaite;
     }
 }
 
