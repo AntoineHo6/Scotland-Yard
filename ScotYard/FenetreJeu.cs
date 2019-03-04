@@ -93,12 +93,14 @@ namespace ScotYard {
             listeDetec.Add(new Detective("Detective 1", caseInitiales[0], Color.Maroon, 1));
             //listeDetec.Add(new Detective("Detective 1", 20, Color.Maroon));
             // temp
-            listeDetec[0].NbrTaxi = 100;
-            listeDetec[0].NbrMetro = 100;
-            listeDetec[0].NbrBus = 100;
+            
 
             listeDetec.Add(new Detective("Detective 2", caseInitiales[1], Color.Green, 2));
             //listeDetec.Add(new Detective("Detective 2", 19, Color.Green));
+
+            listeDetec[1].NbrTaxi = 100;
+            listeDetec[1].NbrMetro = 100;
+            listeDetec[1].NbrBus = 100;
 
             listeDetec.Add(new Detective("Detective 3", caseInitiales[2], Color.Turquoise, 3));
             listeDetec[2].IsLastInTurn = true;
@@ -219,8 +221,20 @@ namespace ScotYard {
         /// </summary>
         public void paintDetecPos() {
             for (int i = 0; i < listeDetec.Count; i++) {
-                int caseActuelleDetec = listeDetec[i].CaseActuelle;
-                _listeBoutons[caseActuelleDetec].BackColor = listeDetec[i].Color;
+                int caseDetec = listeDetec[i].CaseActuelle;
+                _listeBoutons[caseDetec].BackColor = listeDetec[i].Color;
+
+                _listeBoutons[caseDetec].Enabled = true;
+
+                int rgbSum = listeDetec[i].Color.R + listeDetec[i].Color.G + listeDetec[i].Color.B;
+                // La couleur du detective est trop Clair
+                if (rgbSum > 382) {
+                    _listeBoutons[caseDetec].ForeColor = Color.Black;
+                }
+                // La couleur du detective est trop Sombre
+                else {
+                    _listeBoutons[caseDetec].ForeColor = Color.White;
+                }
             }
         }
 
@@ -240,6 +254,16 @@ namespace ScotYard {
             lblNbrBus.Text = "x " + detec.NbrBus.ToString();
 
             lblCaseAct.Text = "Case : " + detec.CaseActuelle.ToString();
+
+            int rgbSum = detec.Color.R + detec.Color.G + detec.Color.B;
+            // La couleur du detective est trop Clair
+            if (rgbSum > 382) {
+                grpBoxDetec.ForeColor = Color.Black;
+            }
+            // La couleur du detective est trop Sombre
+            else {
+                grpBoxDetec.ForeColor = Color.White;
+            }
 
             // Avant de verifier si des transports sont indisponibles, on les fixe a true.
             btnTaxi.Enabled = true;
@@ -302,8 +326,6 @@ namespace ScotYard {
                 
                 updateDetecGrpBox();
             }
-
-
         }
 
 
@@ -704,53 +726,60 @@ namespace ScotYard {
 
             int caseChoisi = int.Parse((sender as Button).Text);
 
-            Detective detec = listeDetec[detecTurn - 1];
-
-            // Decoloris le bouton ou le detective se retrouve
-            _listeBoutons[detec.CaseActuelle].BackColor = Color.Transparent;
-
-            detec.deplacerCase(caseChoisi);
-
-            if (detec.CaseActuelle == mrX.CaseActuelle) {
-                ecranVictoire();
+            if (caseChoisi == listeDetec[0].CaseActuelle || caseChoisi == listeDetec[1].CaseActuelle || caseChoisi == listeDetec[2].CaseActuelle) {
                 return;
             }
-
-            detec.decrementeTrans(transChoisi);
-            // Donne a Mr.X le transport utilisé par le detective
-            mrX.incrementeTrans(transChoisi);
-
-            lblStep.Text = "1. Choisissez une carte de transport";
-
-            makeDetecStuck(detec);
-
-            // Change le tour du detective et mrX se deplace
-            if (detec.IsLastInTurn || detecTurn == 3) {
-                detecTurn = 1;
-                gameTurn++;
-                lblTour.Text = "Tour: " + gameTurn;
-
-                // Declignote Mr.X pendant les tours normaux
-                if (gameTurn < listeTourRevele[0]) {
-                    cacheMrX();
-                }
-
-                mrXDeplace();
-
-                if (gameTurn == listeTourRevele[0]) {
-                    ReveleMrX();
-                    listeTourRevele.Remove(gameTurn);
-                }
-            }
             else {
-                detecTurn++;
-            }
+                Detective detec = listeDetec[detecTurn - 1];
 
-            paintDetecPos();
-            updateDetecGrpBox();
+                // Decoloris le bouton ou le detective se retrouve
+                _listeBoutons[detec.CaseActuelle].BackColor = Color.Transparent;
+                _listeBoutons[detec.CaseActuelle].Enabled = false;
+                _listeBoutons[detec.CaseActuelle].ForeColor = Color.Black;
 
-            if (gameTurn == 22) {
-                ecranDefaite();
+                detec.deplacerCase(caseChoisi);
+
+                if (detec.CaseActuelle == mrX.CaseActuelle) {
+                    ecranVictoire();
+                    return;
+                }
+
+                detec.decrementeTrans(transChoisi);
+                // Donne a Mr.X le transport utilisé par le detective
+                mrX.incrementeTrans(transChoisi);
+
+                lblStep.Text = "1. Choisissez une carte de transport";
+
+                makeDetecStuck(detec);
+
+                // Change le tour du detective et mrX se deplace
+                if (detec.IsLastInTurn || detecTurn == 3) {
+                    detecTurn = 1;
+                    gameTurn++;
+                    lblTour.Text = "Tour: " + gameTurn;
+
+                    // Declignote Mr.X pendant les tours normaux
+                    if (gameTurn < listeTourRevele[0]) {
+                        cacheMrX();
+                    }
+
+                    mrXDeplace();
+
+                    if (gameTurn == listeTourRevele[0]) {
+                        ReveleMrX();
+                        listeTourRevele.Remove(gameTurn);
+                    }
+                }
+                else {
+                    detecTurn++;
+                }
+
+                paintDetecPos();
+                updateDetecGrpBox();
+
+                if (gameTurn == 22) {
+                    ecranDefaite();
+                }
             }
         }
 
@@ -798,6 +827,7 @@ namespace ScotYard {
         private void ecranDefaite() {
             lblDefaite.Visible = true;
         }
+        
     }
 }
 
@@ -816,18 +846,3 @@ namespace ScotYard {
 /// TODO: Rendre plus visible les cases ou les detectives se retrouvent.
 /// TODO: Dans l'ecran de victoire ou de defaite, ne pas permettre l'interaction avec les controles.
 /// TODO: Ajouter des "next detective peek"
-
-///
-/// Change la couleur du text pour qu'il soit visible.
-///
-//int rgbSum = listeDetec[i].Color.R + listeDetec[i].Color.G + listeDetec[i].Color.B;
-
-//// La couleur du detective est trop Clair
-//if (rgbSum > 382) {
-//    _listeBoutons[caseActuelleDetec].ForeColor = Color.Black;
-//}
-//// La couleur du detective est trop Sombre
-//else {
-//    _listeBoutons[caseActuelleDetec].ForeColor = Color.White;
-
-//}
