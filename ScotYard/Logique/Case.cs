@@ -86,7 +86,7 @@ namespace ScotYard.Graphe
             AssocierTaxis(11, 10, 3, 22);
             AssocierTaxis(12, 3, 23);
             AssocierTaxis(13, 4, 23, 14, 24);
-            AssocierBus(13, 23, 14, 25);
+            AssocierBus(13, 23, 14, 25, 52);
             AssocierMetros(13, 46, 89, 67);
             AssocierTaxis(14, 13, 25, 15);
             AssocierBus(14, 13, 15);
@@ -134,7 +134,7 @@ namespace ScotYard.Graphe
             AssocierTaxis(47, 46, 34, 62);
             AssocierTaxis(48, 62, 34, 35, 63);
             AssocierTaxis(49, 36, 50, 66);
-            AssocierTaxis(50, 49, 37, 38);
+            AssocierTaxis(50, 49, 37, 38, 67);
             AssocierTaxis(51, 67, 38, 39, 52, 68);
             AssocierTaxis(52, 39, 40, 69, 51);
             AssocierBus(52, 13, 41, 86, 67);
@@ -148,7 +148,7 @@ namespace ScotYard.Graphe
             AssocierBus(58, 1, 46, 77, 74);
             AssocierTaxis(59, 58, 45, 76, 75);
             AssocierTaxis(60, 45, 61, 76);
-            AssocierTaxis(61, 76, 46, 62, 78);
+            AssocierTaxis(61, 76, 46, 62, 78, 60);
             AssocierTaxis(62, 61, 47, 48, 79);
             AssocierTaxis(63, 79, 48, 64, 80);
             AssocierBus(63, 79, 34, 65, 100);
