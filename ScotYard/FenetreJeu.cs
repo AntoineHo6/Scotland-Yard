@@ -91,19 +91,21 @@ namespace ScotYard {
 
             // Création joueurs
             listeDetec.Add(new Detective("Detective 1", caseInitiales[0], Color.Maroon, 1));
+            listeDetec[0].IsFirstInTurn = true;
             //listeDetec.Add(new Detective("Detective 1", 20, Color.Maroon));
-            // temp
-            
 
             listeDetec.Add(new Detective("Detective 2", caseInitiales[1], Color.Green, 2));
             //listeDetec.Add(new Detective("Detective 2", 19, Color.Green));
+            
 
+            listeDetec.Add(new Detective("Detective 3", caseInitiales[2], Color.Turquoise, 3));
+            listeDetec[2].IsLastInTurn = true;
+
+            // temp
             listeDetec[1].NbrTaxi = 100;
             listeDetec[1].NbrMetro = 100;
             listeDetec[1].NbrBus = 100;
 
-            listeDetec.Add(new Detective("Detective 3", caseInitiales[2], Color.Turquoise, 3));
-            listeDetec[2].IsLastInTurn = true;
             mrX = new MrX(caseInitiales[3]);
             //mrX = new MrX(1);
         }
@@ -297,7 +299,14 @@ namespace ScotYard {
 
                 // Change le tour du detective et mrX se deplace
                 if ((detec.IsLastInTurn || detecTurn == 3) && nbrDetecBloque > 1) {
-                    detecTurn = 1;
+
+                    // Le tour commence par celui qui est premier
+                    for (int i = 0; i < listeDetec.Count; i++) {
+                        if (listeDetec[i].IsFirstInTurn) {
+                            detecTurn = listeDetec[i].IdNum;
+                        }
+                    }
+
                     gameTurn++;
                     lblTour.Text = "Tour: " + gameTurn;
 
@@ -752,9 +761,18 @@ namespace ScotYard {
 
                 makeDetecStuck(detec);
 
+                Console.WriteLine("Detective " + detec.IdNum + " IsFirstTurn?: " + detec.IsFirstInTurn);
+                Console.WriteLine("Detective " + detec.IdNum + " IsLastInTurn?: " + detec.IsLastInTurn);
+
                 // Change le tour du detective et mrX se deplace
                 if (detec.IsLastInTurn || detecTurn == 3) {
-                    detecTurn = 1;
+                    // Le tour commence par celui qui est premier
+                    for (int i = 0; i < listeDetec.Count; i++) {
+                        if (listeDetec[i].IsFirstInTurn) {
+                            detecTurn = listeDetec[i].IdNum;
+                        }
+                    }
+
                     gameTurn++;
                     lblTour.Text = "Tour: " + gameTurn;
 
@@ -789,7 +807,7 @@ namespace ScotYard {
                 detec.EstBloque = true;
             }
 
-            if (detec.IsLastInTurn) {
+            if (detec.IsLastInTurn && detec.EstBloque) {
                 detec.IsLastInTurn = false;
 
                 // A RETRAVIALLER
@@ -812,6 +830,33 @@ namespace ScotYard {
                             listeDetec[0].IsLastInTurn = true;
                         }
                         break;
+                }
+            }
+            else if (detec.IsFirstInTurn && detec.EstBloque) {
+                Console.WriteLine("Detective " + detec.IdNum + " n'est plus premier!");
+                detec.IsFirstInTurn = false;
+
+                switch (detec.IdNum) {
+                    case 1:
+                        if (!listeDetec[1].EstBloque) {
+                            //temp
+                            Console.WriteLine("1.1 Detective 2 est devenu premier pour les tours!");
+                            listeDetec[1].IsFirstInTurn = true;
+                        }
+                        else {
+                            Console.WriteLine("Detective 3 est devenu premier pour les tours!");
+                            listeDetec[2].IsFirstInTurn = true;
+                        }
+                        break;
+                    case 2:
+                        Console.WriteLine("Detective 3 est devenu premier pour les tours!");
+                        listeDetec[2].IsFirstInTurn = true;
+                        break;
+                    case 3:
+                        Console.WriteLine("1.2 Detective 2 est devenu premier pour les tours!");
+                        listeDetec[1].IsFirstInTurn = true;
+                        break;
+
                 }
             }
 
