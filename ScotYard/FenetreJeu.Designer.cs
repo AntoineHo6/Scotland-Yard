@@ -229,6 +229,7 @@
             this.btn2 = new System.Windows.Forms.Button();
             this.btn1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTour = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -296,11 +297,10 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.àProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.picturebox1 = new System.Windows.Forms.PictureBox();
+            this.picBoxBoard = new System.Windows.Forms.PictureBox();
             this.lblStep = new System.Windows.Forms.Label();
             this.lblVictoire = new System.Windows.Forms.Label();
             this.lblDefaite = new System.Windows.Forms.Label();
-            this.lblTour = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -332,7 +332,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxTurn21)).BeginInit();
             this.grpBoxDetec.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxBoard)).BeginInit();
             this.SuspendLayout();
             // 
             // btn199
@@ -2543,6 +2543,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mr. X";
             // 
+            // lblTour
+            // 
+            this.lblTour.AutoSize = true;
+            this.lblTour.Location = new System.Drawing.Point(305, 344);
+            this.lblTour.Name = "lblTour";
+            this.lblTour.Size = new System.Drawing.Size(80, 25);
+            this.lblTour.TabIndex = 31;
+            this.lblTour.Text = "Tour: 1";
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.label18);
@@ -3242,15 +3251,15 @@
             this.àProposToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.àProposToolStripMenuItem.Text = "À propos";
             // 
-            // picturebox1
+            // picBoxBoard
             // 
-            this.picturebox1.BackColor = System.Drawing.SystemColors.Control;
-            this.picturebox1.Image = global::ScotYard.Properties.Resources.ScotYardBordure;
-            this.picturebox1.Location = new System.Drawing.Point(0, 27);
-            this.picturebox1.Name = "picturebox1";
-            this.picturebox1.Size = new System.Drawing.Size(1026, 817);
-            this.picturebox1.TabIndex = 3;
-            this.picturebox1.TabStop = false;
+            this.picBoxBoard.BackColor = System.Drawing.SystemColors.Control;
+            this.picBoxBoard.Image = global::ScotYard.Properties.Resources.ScotYardBordure;
+            this.picBoxBoard.Location = new System.Drawing.Point(0, 27);
+            this.picBoxBoard.Name = "picBoxBoard";
+            this.picBoxBoard.Size = new System.Drawing.Size(1026, 817);
+            this.picBoxBoard.TabIndex = 3;
+            this.picBoxBoard.TabStop = false;
             // 
             // lblStep
             // 
@@ -3288,15 +3297,6 @@
             this.lblDefaite.TabIndex = 207;
             this.lblDefaite.Text = "D É F A I T E";
             this.lblDefaite.Visible = false;
-            // 
-            // lblTour
-            // 
-            this.lblTour.AutoSize = true;
-            this.lblTour.Location = new System.Drawing.Point(289, 344);
-            this.lblTour.Name = "lblTour";
-            this.lblTour.Size = new System.Drawing.Size(80, 25);
-            this.lblTour.TabIndex = 31;
-            this.lblTour.Text = "Tour: 1";
             // 
             // FenetreJeu
             // 
@@ -3508,7 +3508,7 @@
             this.Controls.Add(this.btn3);
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
-            this.Controls.Add(this.picturebox1);
+            this.Controls.Add(this.picBoxBoard);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -3552,15 +3552,13 @@
             this.grpBoxDetec.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxBoard)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox picturebox1;
         private System.Windows.Forms.Button btn199;
         private System.Windows.Forms.Button btn198;
         private System.Windows.Forms.Button btn197;
@@ -3832,6 +3830,7 @@
         private System.Windows.Forms.Label lblVictoire;
         private System.Windows.Forms.Label lblDefaite;
         private System.Windows.Forms.Label lblTour;
+        private System.Windows.Forms.PictureBox picBoxBoard;
     }
 }
 

@@ -12,7 +12,7 @@ namespace ScotYard.Logique {
 
         public String Nom { get; set; }
 
-        public int CaseActuelle { get; set; }
+        public int Case { get; set; }
 
         public int NbrTaxi { get; set; }
 
@@ -24,7 +24,7 @@ namespace ScotYard.Logique {
 
         public Joueur(String nom, int caseActuelle, Color color) {
             this.Nom = nom;
-            this.CaseActuelle = caseActuelle;
+            this.Case = caseActuelle;
             this.Color = color;
         }
         
@@ -42,6 +42,5 @@ namespace ScotYard.Logique {
                     break;
             }
         }
-        
     }
 }

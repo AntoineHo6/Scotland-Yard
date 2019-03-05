@@ -16,14 +16,14 @@ namespace ScotYard.Logique {
 
         public int IdNum { get; set; }
 
-        public Detective(string nom, int caseActuelle, Color color, int id) : base(nom, caseActuelle, color) {
+        public Detective(string nom, int Case, Color color, int id) : base(nom, Case, color) {
             NbrTaxi = 10;
             NbrBus = 8;
             NbrMetro = 4;
             // temp
             //NbrTaxi = 1;
-            //NbrBus = 0;
-            //NbrMetro = 0;
+            //NbrBus = 5;
+            //NbrMetro = 5;
 
             EstBloque = false;
 
@@ -35,7 +35,7 @@ namespace ScotYard.Logique {
 
 
         public void deplacerCase(int laCase) {
-            CaseActuelle = laCase;
+            Case = laCase;
         }
 
     }

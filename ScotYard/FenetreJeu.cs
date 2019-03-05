@@ -15,6 +15,7 @@ namespace ScotYard {
 
 
     public partial class FenetreJeu : Form {
+
         private static Random rnd;
         List<Button> _listeBoutons = new List<Button>();
         List<PictureBox> listePicBox = new List<PictureBox>();      // Permet l'acces aux pictureBox.
@@ -23,7 +24,7 @@ namespace ScotYard {
         List<Detective> listeDetec = new List<Detective>();
         MrX mrX;
 
-        int detecTurn = 1;      // Le tour du detective
+        int detecTurn = 1;      // Le tour du detective. À 3, on revient a 1 si c'est le cas.
         int gameTurn = 1;       // Tour du jeu global
 
         // Le thread qui indique les chemins possibles
@@ -52,8 +53,8 @@ namespace ScotYard {
 
             paintDetecPos();
             updateDetecGrpBox();
-
         }
+
 
         /// <summary>
         ///     Initialise les objets joueurs et set Disabled tous les boutons.
@@ -64,10 +65,9 @@ namespace ScotYard {
                 _listeBoutons[i].Enabled = false;
                 _listeBoutons[i].BackColor = Color.Transparent;
             }
-
-            List<int> exclude = new List<int>();
+            
+            List<int> exclude = new List<int>();    // Contient les cases deja occupe par les autres joueurs
             int[] caseInitiales = new int[4];       // Contient les positions initiales des detectives et de Mr.X.
-
             rnd = new Random();
 
             // Génère des ints aléatoires entre 1 et 199 inclusif sans dupliques
@@ -75,7 +75,6 @@ namespace ScotYard {
             for (int i = 0; i < caseInitiales.Length; i++) {
                 while (true) {
                     randNumCase = rnd.Next(1, 199);
-
                     if (exclude.Contains(randNumCase)) {
                         continue;
                     }
@@ -90,315 +89,18 @@ namespace ScotYard {
             // Création joueurs
             listeDetec.Add(new Detective("Detective 1", caseInitiales[0], Color.Maroon, 1));
             listeDetec[0].IsFirstInTurn = true;
-            //listeDetec.Add(new Detective("Detective 1", 20, Color.Maroon));
 
             listeDetec.Add(new Detective("Detective 2", caseInitiales[1], Color.Green, 2));
-            //listeDetec.Add(new Detective("Detective 2", 19, Color.Green));
 
-
-            // listeDetec.Add(new Detective("Detective 3", caseInitiales[2], Color.Turquoise, 3));
-            listeDetec.Add(new Detective("Detective 3", 20, Color.Turquoise, 3));
+            listeDetec.Add(new Detective("Detective 3", caseInitiales[2], Color.SteelBlue, 3));
             listeDetec[2].IsLastInTurn = true;
 
-            //listeDetec[2].NbrTaxi = 1;
-            //listeDetec[2].NbrMetro = 2;
-            //listeDetec[2].NbrBus = 2;
-
-            // temp
-            //listeDetec[1].NbrTaxi = 100;
-            //listeDetec[1].NbrMetro = 100;
-            //listeDetec[1].NbrBus = 100;
-
             mrX = new MrX(caseInitiales[3]);
-            //mrX = new MrX(1);
-        }
-
-
-        private void InitialiserPictureBoxListe() {
-            // Pour que l'index commence a 1
-            listePicBox.Add(null);
-            listePicBox.Add(picBoxTurn1);
-            listePicBox.Add(picBoxTurn2);
-            listePicBox.Add(picBoxTurn3);
-            listePicBox.Add(picBoxTurn4);
-            listePicBox.Add(picBoxTurn5);
-            listePicBox.Add(picBoxTurn6);
-            listePicBox.Add(picBoxTurn7);
-            listePicBox.Add(picBoxTurn8);
-            listePicBox.Add(picBoxTurn9);
-            listePicBox.Add(picBoxTurn10);
-            listePicBox.Add(picBoxTurn11);
-            listePicBox.Add(picBoxTurn12);
-            listePicBox.Add(picBoxTurn13);
-            listePicBox.Add(picBoxTurn14);
-            listePicBox.Add(picBoxTurn15);
-            listePicBox.Add(picBoxTurn16);
-            listePicBox.Add(picBoxTurn17);
-            listePicBox.Add(picBoxTurn18);
-            listePicBox.Add(picBoxTurn19);
-            listePicBox.Add(picBoxTurn20);
-            listePicBox.Add(picBoxTurn21);
-            listePicBox.Add(picBoxTurn22);
-        }
-
-
-        private void mrXDeplace() {
-            Transports? transport;
-            bool? blackTicketBool;
-
-            mrX.deplacerCase(listeDetec[0].CaseActuelle, listeDetec[1].CaseActuelle, listeDetec[2].CaseActuelle, out transport, out blackTicketBool);
-            mrX.decrementeTrans(transport.ToString());
-
-            bool newBlackTicketBool = blackTicketBool ?? false;
-
-            if (newBlackTicketBool) {
-                mrX.NbrBlack--;
-            }
-
-            updateMrXBoard(transport.ToString(), newBlackTicketBool);
-        }
-
-        /// <summary>
-        ///     Clignote la position de Mr.X
-        /// </summary>
-        private void ReveleMrX() {
-            _listeBoutons[mrX.CaseActuelle].Width = 36;
-            _listeBoutons[mrX.CaseActuelle].Height = 28;
-
-            blinkMrXThread = new Thread(delegate () {
-                while (true) {
-                    _listeBoutons[mrX.CaseActuelle].BackColor = Color.Black;
-                    System.Threading.Thread.Sleep(300);
-                    _listeBoutons[mrX.CaseActuelle].BackColor = Color.Transparent;
-                    System.Threading.Thread.Sleep(300);
-                }
-            });
-
-            blinkMrXThread.Start();
         }
 
 
         /// <summary>
-        ///     Arrete le clignotement de Mr.X
-        /// </summary>
-        private void cacheMrX() {
-            if (blinkMrXThread != null) {
-                blinkMrXThread.Abort();
-            }
-            _listeBoutons[mrX.CaseActuelle].Width = 28;
-            _listeBoutons[mrX.CaseActuelle].Height = 20;
-            _listeBoutons[mrX.CaseActuelle].BackColor = Color.Transparent;
-        }
-
-
-        private void updateMrXBoard(String transport, bool newBlackTicketBool) {
-            if (!newBlackTicketBool) {
-                switch (transport) {
-                    case "Taxi":
-                        listePicBox[gameTurn].BackgroundImage = Properties.Resources.taxi_card;
-                        break;
-                    case "Metro":
-                        listePicBox[gameTurn].BackgroundImage = Properties.Resources.metro_card;
-                        break;
-                    case "Bus":
-                        listePicBox[gameTurn].BackgroundImage = Properties.Resources.bus_card;
-                        break;
-                }
-            }
-            else {
-                listePicBox[gameTurn].BackgroundImage = Properties.Resources.black_ticket;
-            }
-
-        }
-
-
-        private void InitialiseTourReveleListe() {
-            listeTourRevele.Add(3);
-            listeTourRevele.Add(8);
-            listeTourRevele.Add(13);
-            listeTourRevele.Add(18);
-            listeTourRevele.Add(22);
-        }
-
-
-        /// <summary>
-        ///     Coloris les boutons où les détectives sont présents.
-        /// </summary>
-        public void paintDetecPos() {
-            for (int i = 0; i < listeDetec.Count; i++) {
-                int caseDetec = listeDetec[i].CaseActuelle;
-                _listeBoutons[caseDetec].BackColor = listeDetec[i].Color;
-
-                _listeBoutons[caseDetec].Enabled = true;
-
-                int rgbSum = listeDetec[i].Color.R + listeDetec[i].Color.G + listeDetec[i].Color.B;
-                // La couleur du detective est trop Clair
-                if (rgbSum > 382) {
-                    _listeBoutons[caseDetec].ForeColor = Color.Black;
-                }
-                // La couleur du detective est trop Sombre
-                else {
-                    _listeBoutons[caseDetec].ForeColor = Color.White;
-                }
-            }
-        }
-
-
-        /// <summary>
-        ///     Update le groupBox des detectives pour correspondre aux informations du detective en jeu.
-        /// </summary>
-        public void updateDetecGrpBox() {
-            // temp
-            Console.WriteLine(detecTurn);
-            Detective detec = listeDetec[detecTurn - 1];
-
-            grpBoxDetec.Text = detec.Nom;
-            grpBoxDetec.BackColor = detec.Color;
-
-            lblNbrTaxi.Text = "x " + detec.NbrTaxi.ToString();
-            lblNbrMetro.Text = "x " + detec.NbrMetro.ToString();
-            lblNbrBus.Text = "x " + detec.NbrBus.ToString();
-
-            lblCaseAct.Text = "Case : " + detec.CaseActuelle.ToString();
-
-            int rgbSum = detec.Color.R + detec.Color.G + detec.Color.B;
-            // La couleur du detective est trop Clair
-            if (rgbSum > 382) {
-                grpBoxDetec.ForeColor = Color.Black;
-            }
-            // La couleur du detective est trop Sombre
-            else {
-                grpBoxDetec.ForeColor = Color.White;
-            }
-
-            // Avant de verifier si des transports sont indisponibles, on les fixe a true.
-            btnTaxi.Enabled = true;
-            btnTaxi.BackgroundImage = Properties.Resources.taxi_card;
-
-            btnMetro.Enabled = true;
-            btnMetro.BackgroundImage = Properties.Resources.metro_card;
-
-            btnBus.Enabled = true;
-            btnBus.BackgroundImage = Properties.Resources.bus_card;
-
-            // Disable les boutons de transports inutilisables.
-            disableBtnTransIndisponible(Graphe.Case.ListeCases[detec.CaseActuelle].ListeTaxis, btnTaxi, Properties.Resources.taxi_card_disabled, "Taxi");
-            disableBtnTransIndisponible(Graphe.Case.ListeCases[detec.CaseActuelle].ListeMetros, btnMetro, Properties.Resources.metro_card_disabled, "Metro");
-            disableBtnTransIndisponible(Graphe.Case.ListeCases[detec.CaseActuelle].ListeBus, btnBus, Properties.Resources.bus_card_disabled, "Bus");
-
-            if (!btnTaxi.Enabled && !btnMetro.Enabled && !btnBus.Enabled) {
-                // temp 
-                Console.WriteLine("AAAAAAAHHHHHHHHHHHH");
-                Console.WriteLine("Detective " + detec.IdNum + " n'est plus capable de bouger");
-                if (listeDetec[0].EstBloque && listeDetec[1].EstBloque && listeDetec[2].EstBloque) {
-                    ecranDefaite();
-                    return;
-                }
-
-                // PEUT POTENTIELLEMENT REMPLACER LAUTRE CHECK QUE TT LE MONDE EST BLOQUE
-                // if 2 in 3 detectives are blocked
-                int nbrDetecBloque = 0;
-                for (int i = 0; i < listeDetec.Count; i++) {
-                    if (listeDetec[i].EstBloque) {
-                        nbrDetecBloque++;
-                    }
-                }
-
-                // Change le tour du detective et mrX se deplace
-                if ((detec.IsLastInTurn || detecTurn == 3) && nbrDetecBloque > 1) {
-
-                    // Le tour commence par celui qui est premier
-                    for (int i = 0; i < listeDetec.Count; i++) {
-                        if (listeDetec[i].IsFirstInTurn) {
-                            detecTurn = listeDetec[i].IdNum;
-                        }
-                    }
-
-                    gameTurn++;
-                    lblTour.Text = "Tour: " + gameTurn;
-
-                    // Declignote Mr.X pendant les tours normaux
-                    if (gameTurn < listeTourRevele[0]) {
-                        cacheMrX();
-                    }
-
-                    Console.WriteLine("Mr. X se deplace");
-                    mrXDeplace();
-
-                    if (gameTurn == listeTourRevele[0]) {
-                        ReveleMrX();
-                        listeTourRevele.Remove(gameTurn);
-                    }
-                }
-                else {
-                    detecTurn++;
-                }
-
-                // refactor
-                if (listeDetec[0].EstBloque && listeDetec[1].EstBloque && listeDetec[2].EstBloque) {
-                    detec.IsLastInTurn = true;
-                    ecranDefaite();
-                }
-
-                updateDetecGrpBox();
-            }
-        }
-
-
-        /// <summary>
-        ///     Disable les boutons de transports des detectives s'il sont pas disponibles
-        /// </summary>
-        /// <param name="listeTrans"></param>
-        /// <param name="btn"></param>
-        /// <param name="disabledImage"></param>
-        /// <param name="transport"></param>
-        private void disableBtnTransIndisponible(List<Graphe.Case> listeTrans, Button btn, Bitmap disabledImage, string transport) {
-            bool indisponible = false;
-            int nbrCheminIndisponible = 0;
-
-            for (int i = 0; i < listeTrans.Count; i++) {
-                // Vérifie s'il n'y a aucun chemin possible avec le transport a partir de la case courante.
-                if (listeTrans.Count == 0) {
-                    indisponible = true;
-                    break;
-                }
-                // Vérifie si toutes les cases possibles sont déjà occupées.
-                else if (listeTrans[i].Numero == listeDetec[0].CaseActuelle || listeTrans[i].Numero == listeDetec[1].CaseActuelle || listeTrans[i].Numero == listeDetec[2].CaseActuelle) {
-                    nbrCheminIndisponible++;
-                }
-                // Si le joueur n'a aucune carte d'un type du transport, on set disabled cette carte.
-                switch (transport) {
-                    case "Taxi":
-                        if (listeDetec[detecTurn - 1].NbrTaxi == 0) {
-                            indisponible = true;
-                        }
-                        break;
-                    case "Metro":
-                        if (listeDetec[detecTurn - 1].NbrMetro == 0) {
-                            indisponible = true;
-                        }
-                        break;
-                    case "Bus":
-                        if (listeDetec[detecTurn - 1].NbrBus == 0) {
-                            indisponible = true;
-                        }
-                        break;
-                }
-            }
-
-            if (nbrCheminIndisponible == listeTrans.Count) {
-                indisponible = true;
-            }
-
-            if (indisponible) {
-                btn.Enabled = false;
-                btn.BackgroundImage = disabledImage;
-            }
-        }
-
-
-        /// <summary>
-        /// Insertion des boutons dans une liste
+        /// Insertion des boutons dans une liste.
         /// </summary>
         private void InitialiserBoutons() {
             _listeBoutons.Add(new Button()); // Bouton bidon
@@ -610,17 +312,280 @@ namespace ScotYard {
 
 
         /// <summary>
+        ///     Insertion des pictureBoxs dans une liste.
+        /// </summary>
+        private void InitialiserPictureBoxListe() {
+            // Pour que l'index commence a 1
+            listePicBox.Add(null);
+            listePicBox.Add(picBoxTurn1);
+            listePicBox.Add(picBoxTurn2);
+            listePicBox.Add(picBoxTurn3);
+            listePicBox.Add(picBoxTurn4);
+            listePicBox.Add(picBoxTurn5);
+            listePicBox.Add(picBoxTurn6);
+            listePicBox.Add(picBoxTurn7);
+            listePicBox.Add(picBoxTurn8);
+            listePicBox.Add(picBoxTurn9);
+            listePicBox.Add(picBoxTurn10);
+            listePicBox.Add(picBoxTurn11);
+            listePicBox.Add(picBoxTurn12);
+            listePicBox.Add(picBoxTurn13);
+            listePicBox.Add(picBoxTurn14);
+            listePicBox.Add(picBoxTurn15);
+            listePicBox.Add(picBoxTurn16);
+            listePicBox.Add(picBoxTurn17);
+            listePicBox.Add(picBoxTurn18);
+            listePicBox.Add(picBoxTurn19);
+            listePicBox.Add(picBoxTurn20);
+            listePicBox.Add(picBoxTurn21);
+            listePicBox.Add(picBoxTurn22);
+        }
+
+
+        /// <summary>
+        ///     Contient les tours ou est-ce que Mr.X se revele.
+        /// </summary>
+        private void InitialiseTourReveleListe() {
+            listeTourRevele.Add(3);
+            listeTourRevele.Add(8);
+            listeTourRevele.Add(13);
+            listeTourRevele.Add(18);
+            listeTourRevele.Add(22);
+        }
+
+
+        /// <summary>
+        ///     Mr. X se deplace et son carnet ajoute le transport qu'il vient d'utiliser au tour global du jeu courant.
+        /// </summary>
+        private void mrXDeplace() {
+            Transports? transport;
+            bool? blackTicketBool;
+
+            mrX.deplacerCase(listeDetec[0].Case, listeDetec[1].Case, listeDetec[2].Case, out transport, out blackTicketBool);
+            mrX.decrementeTrans(transport.ToString());
+
+            bool newBlackTicketBool = blackTicketBool ?? false;
+
+            if (newBlackTicketBool) {
+                mrX.NbrBlack--;
+            }
+
+            updateMrXBoard(transport.ToString(), newBlackTicketBool);
+        }
+
+        /// <summary>
+        ///     Clignote la position de Mr.X
+        /// </summary>
+        private void ReveleMrX() {
+            _listeBoutons[mrX.Case].Width = 36;
+            _listeBoutons[mrX.Case].Height = 28;
+
+            blinkMrXThread = new Thread(delegate () {
+                while (true) {
+                    _listeBoutons[mrX.Case].BackColor = Color.Black;
+                    System.Threading.Thread.Sleep(300);
+                    _listeBoutons[mrX.Case].BackColor = Color.Transparent;
+                    System.Threading.Thread.Sleep(300);
+                }
+            });
+
+            blinkMrXThread.Start();
+        }
+
+
+        /// <summary>
+        ///     Arrete le clignotement de Mr.X
+        /// </summary>
+        private void cacheMrX() {
+            if (blinkMrXThread != null) {
+                blinkMrXThread.Abort();
+            }
+            _listeBoutons[mrX.Case].Width = 28;
+            _listeBoutons[mrX.Case].Height = 20;
+            _listeBoutons[mrX.Case].BackColor = Color.Transparent;
+        }
+
+
+        /// <summary>
+        ///     Ajoute la carte joué par Mr.X sur le carnet des tours.
+        /// </summary>
+        /// <param name="transport"></param>
+        /// <param name="newBlackTicketBool"></param>
+        private void updateMrXBoard(String transport, bool newBlackTicketBool) {
+            if (!newBlackTicketBool) {
+                switch (transport) {
+                    case "Taxi":
+                        listePicBox[gameTurn].BackgroundImage = Properties.Resources.taxi_card;
+                        break;
+                    case "Metro":
+                        listePicBox[gameTurn].BackgroundImage = Properties.Resources.metro_card;
+                        break;
+                    case "Bus":
+                        listePicBox[gameTurn].BackgroundImage = Properties.Resources.bus_card;
+                        break;
+                }
+            }
+            else {
+                listePicBox[gameTurn].BackgroundImage = Properties.Resources.black_ticket;
+            }
+
+        }
+        
+
+        /// <summary>
+        ///     Coloris les boutons où les détectives sont présents.
+        /// </summary>
+        public void paintDetecPos() {
+            for (int i = 0; i < listeDetec.Count; i++) {
+                int caseDetec = listeDetec[i].Case;
+                _listeBoutons[caseDetec].BackColor = listeDetec[i].Color;
+
+                _listeBoutons[caseDetec].Enabled = true;
+
+                int rgbSum = listeDetec[i].Color.R + listeDetec[i].Color.G + listeDetec[i].Color.B;
+                // La couleur du detective est trop Clair
+                if (rgbSum > 382) {
+                    _listeBoutons[caseDetec].ForeColor = Color.Black;
+                }
+                // La couleur du detective est trop Sombre
+                else {
+                    _listeBoutons[caseDetec].ForeColor = Color.White;
+                }
+            }
+        }
+
+
+        /// <summary>
+        ///     Update le groupBox des detectives pour correspondre aux informations du detective en jeu.
+        /// </summary>
+        public void updateDetecGrpBox() {
+            Detective detec = listeDetec[detecTurn - 1];
+
+            grpBoxDetec.Text = detec.Nom;
+            grpBoxDetec.BackColor = detec.Color;
+
+            lblNbrTaxi.Text = "x " + detec.NbrTaxi.ToString();
+            lblNbrMetro.Text = "x " + detec.NbrMetro.ToString();
+            lblNbrBus.Text = "x " + detec.NbrBus.ToString();
+
+            lblCaseAct.Text = "Case : " + detec.Case.ToString();
+
+            int rgbSum = detec.Color.R + detec.Color.G + detec.Color.B;
+            // La couleur du detective est trop Clair
+            if (rgbSum > 382) {
+                grpBoxDetec.ForeColor = Color.Black;
+            }
+            // La couleur du detective est trop Sombre
+            else {
+                grpBoxDetec.ForeColor = Color.White;
+            }
+
+            // Avant de verifier si des transports sont indisponibles, on les fixe a true.
+            btnTaxi.Enabled = true;
+            btnTaxi.BackgroundImage = Properties.Resources.taxi_card;
+
+            btnMetro.Enabled = true;
+            btnMetro.BackgroundImage = Properties.Resources.metro_card;
+
+            btnBus.Enabled = true;
+            btnBus.BackgroundImage = Properties.Resources.bus_card;
+
+            // Disable les boutons de transports inutilisables.
+            disableBtnTransIndisponible(Graphe.Case.ListeCases[detec.Case].ListeTaxis, btnTaxi, Properties.Resources.taxi_card_disabled, "Taxi");
+            disableBtnTransIndisponible(Graphe.Case.ListeCases[detec.Case].ListeMetros, btnMetro, Properties.Resources.metro_card_disabled, "Metro");
+            disableBtnTransIndisponible(Graphe.Case.ListeCases[detec.Case].ListeBus, btnBus, Properties.Resources.bus_card_disabled, "Bus");
+
+            if (!btnTaxi.Enabled && !btnMetro.Enabled && !btnBus.Enabled) {
+                if (listeDetec[0].EstBloque && listeDetec[1].EstBloque && listeDetec[2].EstBloque) {
+                    ecranDefaite();
+                    return;
+                }
+
+                // Compte le nombre de detectives bloques.
+                int nbrDetecBloque = 0;
+                for (int i = 0; i < listeDetec.Count; i++) {
+                    if (listeDetec[i].EstBloque) {
+                        nbrDetecBloque++;
+                    }
+                }
+
+                // Change le tour du detective et mrX se deplace
+                if ((detec.IsLastInTurn || detecTurn == 3) && nbrDetecBloque > 1) {
+                    dernierTourRotationLogique();
+                }
+                else {
+                    detecTurn++;
+                }
+
+                // refactor
+                //if (listeDetec[0].EstBloque && listeDetec[1].EstBloque && listeDetec[2].EstBloque) {
+                //    detec.IsLastInTurn = true;
+                //    ecranDefaite();
+                //}
+                updateDetecGrpBox();
+            }
+        }
+
+
+        /// <summary>
+        ///     Disable les boutons de transports des detectives s'il sont pas disponibles
+        /// </summary>
+        /// <param name="listeTrans"></param>
+        /// <param name="btn"></param>
+        /// <param name="disabledImage"></param>
+        /// <param name="transport"></param>
+        private void disableBtnTransIndisponible(List<Graphe.Case> listeTrans, Button btn, Bitmap disabledImage, string transport) {
+            bool indisponible = false;
+            int nbrCheminIndisponible = 0;
+
+            for (int i = 0; i < listeTrans.Count; i++) {
+                // Vérifie s'il n'y a aucun chemin possible avec le transport a partir de la case courante.
+                if (listeTrans.Count == 0) {
+                    indisponible = true;
+                    break;
+                }
+                // Vérifie si toutes les cases possibles sont déjà occupées.
+                else if (listeTrans[i].Numero == listeDetec[0].Case || listeTrans[i].Numero == listeDetec[1].Case || listeTrans[i].Numero == listeDetec[2].Case) {
+                    nbrCheminIndisponible++;
+                }
+                // Si le joueur n'a aucune carte d'un type du transport, on set disabled cette carte.
+                switch (transport) {
+                    case "Taxi":
+                        if (listeDetec[detecTurn - 1].NbrTaxi == 0) {
+                            indisponible = true;
+                        }
+                        break;
+                    case "Metro":
+                        if (listeDetec[detecTurn - 1].NbrMetro == 0) {
+                            indisponible = true;
+                        }
+                        break;
+                    case "Bus":
+                        if (listeDetec[detecTurn - 1].NbrBus == 0) {
+                            indisponible = true;
+                        }
+                        break;
+                }
+            }
+
+            if (nbrCheminIndisponible == listeTrans.Count) {
+                indisponible = true;
+            }
+
+            if (indisponible) {
+                btn.Enabled = false;
+                btn.BackgroundImage = disabledImage;
+            }
+        }
+        
+
+        /// <summary>
         ///     Arrete le thread qui fait clignoter les chemins possibles et vide la liste des chemins possibles.
         /// </summary>
         private void stopBlinkPaths() {
             // arrete le thread
             if (blinkRouteThread != null) {
-                try {
-                    blinkRouteThread.Abort();
-                }
-                catch (System.Threading.ThreadAbortException) {
-
-                }
+                blinkRouteThread.Abort();
 
             }
 
@@ -633,7 +598,6 @@ namespace ScotYard {
             }
 
             lstPosRouteBtn.Clear();
-
         }
 
 
@@ -660,7 +624,7 @@ namespace ScotYard {
                 int cheminPossible = listeTrans[i].Numero;
 
                 // Si le chemin possible n'est pas une case occupé par un autre detective.
-                if (!(cheminPossible == listeDetec[0].CaseActuelle) && !(cheminPossible == listeDetec[1].CaseActuelle) && !(cheminPossible == listeDetec[2].CaseActuelle)) {
+                if (!(cheminPossible == listeDetec[0].Case) && !(cheminPossible == listeDetec[1].Case) && !(cheminPossible == listeDetec[2].Case)) {
                     lstPosRouteBtn.Add(cheminPossible);
                 }
             }
@@ -699,7 +663,7 @@ namespace ScotYard {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnTaxi_Click(object sender, EventArgs e) {
-            int caseActuelle = listeDetec[detecTurn - 1].CaseActuelle;
+            int caseActuelle = listeDetec[detecTurn - 1].Case;
             blinkRoutes(Graphe.Case.ListeCases[caseActuelle].ListeTaxis, Color.Yellow);
             transChoisi = "Taxi";
             lblStep.Text = "2. Choisissez une route sur la planche";
@@ -712,7 +676,7 @@ namespace ScotYard {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnMetro_Click(object sender, EventArgs e) {
-            int caseActuelle = listeDetec[detecTurn - 1].CaseActuelle;
+            int caseActuelle = listeDetec[detecTurn - 1].Case;
             blinkRoutes(Graphe.Case.ListeCases[caseActuelle].ListeMetros, Color.LightCoral);
             transChoisi = "Metro";
             lblStep.Text = "2. Choisissez une route sur la planche";
@@ -725,7 +689,7 @@ namespace ScotYard {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnBus_Click(object sender, EventArgs e) {
-            int caseActuelle = listeDetec[detecTurn - 1].CaseActuelle;
+            int caseActuelle = listeDetec[detecTurn - 1].Case;
             blinkRoutes(Graphe.Case.ListeCases[caseActuelle].ListeBus, Color.ForestGreen);
             transChoisi = "Bus";
             lblStep.Text = "2. Choisissez une route sur la planche";
@@ -742,20 +706,20 @@ namespace ScotYard {
 
             int caseChoisi = int.Parse((sender as Button).Text);
 
-            if (caseChoisi == listeDetec[0].CaseActuelle || caseChoisi == listeDetec[1].CaseActuelle || caseChoisi == listeDetec[2].CaseActuelle) {
+            if (caseChoisi == listeDetec[0].Case || caseChoisi == listeDetec[1].Case || caseChoisi == listeDetec[2].Case) {
                 return;
             }
             else {
                 Detective detec = listeDetec[detecTurn - 1];
 
                 // Decoloris le bouton ou le detective se retrouve
-                _listeBoutons[detec.CaseActuelle].BackColor = Color.Transparent;
-                _listeBoutons[detec.CaseActuelle].Enabled = false;
-                _listeBoutons[detec.CaseActuelle].ForeColor = Color.Black;
+                _listeBoutons[detec.Case].BackColor = Color.Transparent;
+                _listeBoutons[detec.Case].Enabled = false;
+                _listeBoutons[detec.Case].ForeColor = Color.Black;
 
                 detec.deplacerCase(caseChoisi);
 
-                if (detec.CaseActuelle == mrX.CaseActuelle) {
+                if (detec.Case == mrX.Case) {
                     ecranVictoire();
                     return;
                 }
@@ -766,34 +730,11 @@ namespace ScotYard {
 
                 lblStep.Text = "1. Choisissez une carte de transport";
 
-                makeDetecStuck(detec);
-
-                Console.WriteLine("Detective " + detec.IdNum + " IsFirstTurn?: " + detec.IsFirstInTurn);
-                Console.WriteLine("Detective " + detec.IdNum + " IsLastInTurn?: " + detec.IsLastInTurn);
+                checkDetecStuck(detec);
 
                 // Change le tour du detective et mrX se deplace
                 if (detec.IsLastInTurn || detecTurn == 3) {
-                    // Le tour commence par celui qui est premier
-                    for (int i = 0; i < listeDetec.Count; i++) {
-                        if (listeDetec[i].IsFirstInTurn) {
-                            detecTurn = listeDetec[i].IdNum;
-                        }
-                    }
-
-                    gameTurn++;
-                    lblTour.Text = "Tour: " + gameTurn;
-
-                    // Declignote Mr.X pendant les tours normaux
-                    if (gameTurn < listeTourRevele[0]) {
-                        cacheMrX();
-                    }
-
-                    mrXDeplace();
-
-                    if (gameTurn == listeTourRevele[0]) {
-                        ReveleMrX();
-                        listeTourRevele.Remove(gameTurn);
-                    }
+                    dernierTourRotationLogique();
                 }
                 else {
                     detecTurn++;
@@ -809,30 +750,60 @@ namespace ScotYard {
         }
 
 
-        private void makeDetecStuck(Detective detec) {
+        private void dernierTourRotationLogique() {
+            // Le tour commence par celui qui est premier
+            for (int i = 0; i < listeDetec.Count; i++) {
+                if (listeDetec[i].IsFirstInTurn) {
+                    detecTurn = listeDetec[i].IdNum;
+                }
+            }
+
+            gameTurn++;
+            lblTour.Text = "Tour: " + gameTurn;
+
+            // Declignote Mr.X pendant les tours normaux
+            if (gameTurn < listeTourRevele[0]) {
+                cacheMrX();
+            }
+
+            mrXDeplace();
+
+            if (gameTurn == listeTourRevele[0]) {
+                ReveleMrX();
+                listeTourRevele.Remove(gameTurn);
+            }
+        }
+
+
+        /// <summary>
+        ///     Verifie si le detective en question est bloque en permanence
+        /// </summary>
+        /// <param name="detec"></param>
+        private void checkDetecStuck(Detective detec) {
             bool taxiBloque = false;
             bool metroBloque = false;
             bool busBloque = false;
-
-            if (detec.NbrTaxi == 0 || Graphe.Case.ListeCases[detec.CaseActuelle].ListeTaxis.Count == 0) {
+            // Verifie si le transport est inutilisable.
+            if (detec.NbrTaxi == 0 || Graphe.Case.ListeCases[detec.Case].ListeTaxis.Count == 0) {
                 taxiBloque = true;
             }
-            if (detec.NbrMetro == 0 || Graphe.Case.ListeCases[detec.CaseActuelle].ListeMetros.Count == 0) {
+            if (detec.NbrMetro == 0 || Graphe.Case.ListeCases[detec.Case].ListeMetros.Count == 0) {
                 metroBloque = true;
             }
-            if (detec.NbrBus == 0 || Graphe.Case.ListeCases[detec.CaseActuelle].ListeBus.Count == 0) {
+            if (detec.NbrBus == 0 || Graphe.Case.ListeCases[detec.Case].ListeBus.Count == 0) {
                 busBloque = true;
             }
 
+            // Verifie si tout les transports sont bloques.
             if (taxiBloque && metroBloque && busBloque) {
                 detec.EstBloque = true;
             }
 
-
+            // Si le detective devenu bloque en permanence etait le dernier dans la rotation 
+            // des tours entre les detectives, on donne la qualite d'etre dernier a un autre detective.
             if (detec.IsLastInTurn && detec.EstBloque) {
                 detec.IsLastInTurn = false;
 
-                // A RETRAVIALLER
                 switch (detec.IdNum) {
                     case 1:
                         listeDetec[1].IsLastInTurn = true;
@@ -854,6 +825,8 @@ namespace ScotYard {
                         break;
                 }
             }
+            // Si le detective devenu bloque en permanence etait le premier dans la rotation 
+            // des tours entre les detectives, on donne la qualite d'etre premier a un autre detective.
             else if (detec.IsFirstInTurn && detec.EstBloque) {
                 detec.IsFirstInTurn = false;
 
@@ -872,40 +845,58 @@ namespace ScotYard {
                     case 3:
                         listeDetec[1].IsFirstInTurn = true;
                         break;
-
                 }
             }
 
         }
 
 
+        /// <summary>
+        ///     Affiche la victoire au joueur.
+        /// </summary>
         private void ecranVictoire() {
             lblVictoire.Visible = true;
-            // add celebration flairs
+            // add celebration flairs ?
+            disabledAllEnabledBtns();
         }
 
 
+        /// <summary>
+        ///     Affiche la defaite au joueur.
+        /// </summary>
         private void ecranDefaite() {
             lblDefaite.Visible = true;
+            disabledAllEnabledBtns();
         }
 
+
+        /// <summary>
+        ///     Disable TOUS les boutons qui sont potentiellement enabled.
+        /// </summary>
+        private void disabledAllEnabledBtns() {
+            btnTaxi.Enabled = false;
+            btnBus.Enabled = false;
+            btnMetro.Enabled = false;
+
+            // Disable les cases ou les detectives se retrouvent.
+            _listeBoutons[listeDetec[0].Case].Enabled = false;
+            _listeBoutons[listeDetec[1].Case].Enabled = false;
+            _listeBoutons[listeDetec[2].Case].Enabled = false;
+
+            stopBlinkPaths();
+        }
     }
 }
 
 
-
 /// TODO MAJEUR: 
-/// TODO: quoi faire quand mr.X se deplace par bateau?
-/// TODO: ne doit pas recommener le tour par detective 1, mais par detective avec le bool
-/// TODO: refactor code
+/// TODO: refactor code (faite a moitier? (tout est relatif (pas vraiment)))
 /// TODO: make error providers in options
-/// TODO: remplacer les for loop i avec des foreachs
+/// TODO: Changer pour pascalCasing des methodes pour commencer avec des majuscules
 
 
 /// TODO MINEUR: 
 /// TODO: paint buttons to correspond to the available transportation modes.
 /// TODO: function parameters comments
-/// TODO: Mettre dans une fonction le code qui change la couleur du texte en noir ou blanc 
 /// TODO: Rendre plus visible les cases ou les detectives se retrouvent.
-/// TODO: Dans l'ecran de victoire ou de defaite, ne pas permettre l'interaction avec les controles.
 /// TODO: Ajouter des "next detective peek"

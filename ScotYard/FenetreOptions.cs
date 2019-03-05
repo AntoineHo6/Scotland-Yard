@@ -23,6 +23,10 @@ namespace ScotYard {
             txtBoxDetec1.Text = listeDetec[0].Nom;
             txtBoxDetec2.Text = listeDetec[1].Nom;
             txtBoxDetec3.Text = listeDetec[2].Nom;
+
+            btnDect1Color.BackColor = listeDetec[0].Color;
+            btnDect2Color.BackColor = listeDetec[1].Color;
+            btnDect3Color.BackColor = listeDetec[2].Color;
         }
 
         private void btnDect1Color_Click(object sender, EventArgs e) {
