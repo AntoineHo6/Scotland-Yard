@@ -40,6 +40,5 @@ namespace ScotYard.Logique {
                     break;
             }
         }
-        
     }
 }

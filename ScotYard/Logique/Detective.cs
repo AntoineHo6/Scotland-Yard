@@ -11,8 +11,8 @@ namespace ScotYard.Logique {
 
         public bool EstBloque { get; set; }
 
-        public bool IsFirstInTurn { get; set; }
-        public bool IsLastInTurn { get; set; }
+        public bool estPremier { get; set; }
+        public bool estDernier { get; set; }
 
         public int IdNum { get; set; }
 
@@ -27,8 +27,8 @@ namespace ScotYard.Logique {
 
             EstBloque = false;
 
-            IsFirstInTurn = false;
-            IsLastInTurn = false;
+            estPremier = false;
+            estDernier = false;
 
             this.IdNum = id;
         }

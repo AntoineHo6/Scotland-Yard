@@ -23,18 +23,21 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtBoxDetec1 = new System.Windows.Forms.TextBox();
-            this.txtBoxDetec2 = new System.Windows.Forms.TextBox();
-            this.txtBoxDetec3 = new System.Windows.Forms.TextBox();
-            this.btnDect1Color = new System.Windows.Forms.Button();
-            this.btnDect2Color = new System.Windows.Forms.Button();
-            this.btnDect3Color = new System.Windows.Forms.Button();
+            this.TxtBoxDetec1 = new System.Windows.Forms.TextBox();
+            this.TxtBoxDetec2 = new System.Windows.Forms.TextBox();
+            this.TxtBoxDetec3 = new System.Windows.Forms.TextBox();
+            this.BtnDect1Color = new System.Windows.Forms.Button();
+            this.BtnDect2Color = new System.Windows.Forms.Button();
+            this.BtnDect3Color = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnSmttre = new System.Windows.Forms.Button();
+            this.BtnSmttre = new System.Windows.Forms.Button();
             this.clrDlg = new System.Windows.Forms.ColorDialog();
+            this.errProv = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errProv)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -70,78 +73,83 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "3rd Detective :";
             // 
-            // txtBoxDetec1
+            // TxtBoxDetec1
             // 
-            this.txtBoxDetec1.Location = new System.Drawing.Point(174, 61);
-            this.txtBoxDetec1.Name = "txtBoxDetec1";
-            this.txtBoxDetec1.Size = new System.Drawing.Size(214, 20);
-            this.txtBoxDetec1.TabIndex = 4;
+            this.TxtBoxDetec1.Location = new System.Drawing.Point(200, 60);
+            this.TxtBoxDetec1.Name = "TxtBoxDetec1";
+            this.TxtBoxDetec1.Size = new System.Drawing.Size(214, 20);
+            this.TxtBoxDetec1.TabIndex = 4;
             // 
-            // txtBoxDetec2
+            // TxtBoxDetec2
             // 
-            this.txtBoxDetec2.Location = new System.Drawing.Point(174, 110);
-            this.txtBoxDetec2.Name = "txtBoxDetec2";
-            this.txtBoxDetec2.Size = new System.Drawing.Size(214, 20);
-            this.txtBoxDetec2.TabIndex = 5;
+            this.TxtBoxDetec2.Location = new System.Drawing.Point(200, 111);
+            this.TxtBoxDetec2.Name = "TxtBoxDetec2";
+            this.TxtBoxDetec2.Size = new System.Drawing.Size(214, 20);
+            this.TxtBoxDetec2.TabIndex = 5;
             // 
-            // txtBoxDetec3
+            // TxtBoxDetec3
             // 
-            this.txtBoxDetec3.Location = new System.Drawing.Point(174, 161);
-            this.txtBoxDetec3.Name = "txtBoxDetec3";
-            this.txtBoxDetec3.Size = new System.Drawing.Size(214, 20);
-            this.txtBoxDetec3.TabIndex = 6;
+            this.TxtBoxDetec3.Location = new System.Drawing.Point(200, 161);
+            this.TxtBoxDetec3.Name = "TxtBoxDetec3";
+            this.TxtBoxDetec3.Size = new System.Drawing.Size(214, 20);
+            this.TxtBoxDetec3.TabIndex = 6;
             // 
-            // btnDect1Color
+            // BtnDect1Color
             // 
-            this.btnDect1Color.BackColor = System.Drawing.Color.Maroon;
-            this.btnDect1Color.Location = new System.Drawing.Point(394, 60);
-            this.btnDect1Color.Name = "btnDect1Color";
-            this.btnDect1Color.Size = new System.Drawing.Size(20, 20);
-            this.btnDect1Color.TabIndex = 9;
-            this.btnDect1Color.UseVisualStyleBackColor = false;
-            this.btnDect1Color.Click += new System.EventHandler(this.btnDect1Color_Click);
+            this.BtnDect1Color.BackColor = System.Drawing.Color.Maroon;
+            this.BtnDect1Color.Location = new System.Drawing.Point(174, 60);
+            this.BtnDect1Color.Name = "BtnDect1Color";
+            this.BtnDect1Color.Size = new System.Drawing.Size(20, 20);
+            this.BtnDect1Color.TabIndex = 9;
+            this.BtnDect1Color.UseVisualStyleBackColor = false;
+            this.BtnDect1Color.Click += new System.EventHandler(this.BtnDect1Color_Click);
             // 
-            // btnDect2Color
+            // BtnDect2Color
             // 
-            this.btnDect2Color.BackColor = System.Drawing.Color.Green;
-            this.btnDect2Color.Location = new System.Drawing.Point(394, 111);
-            this.btnDect2Color.Name = "btnDect2Color";
-            this.btnDect2Color.Size = new System.Drawing.Size(20, 20);
-            this.btnDect2Color.TabIndex = 10;
-            this.btnDect2Color.UseVisualStyleBackColor = false;
-            this.btnDect2Color.Click += new System.EventHandler(this.btnDect2Color_Click);
+            this.BtnDect2Color.BackColor = System.Drawing.Color.Green;
+            this.BtnDect2Color.Location = new System.Drawing.Point(174, 111);
+            this.BtnDect2Color.Name = "BtnDect2Color";
+            this.BtnDect2Color.Size = new System.Drawing.Size(20, 20);
+            this.BtnDect2Color.TabIndex = 10;
+            this.BtnDect2Color.UseVisualStyleBackColor = false;
+            this.BtnDect2Color.Click += new System.EventHandler(this.BtnDect2Color_Click);
             // 
-            // btnDect3Color
+            // BtnDect3Color
             // 
-            this.btnDect3Color.BackColor = System.Drawing.Color.Navy;
-            this.btnDect3Color.Location = new System.Drawing.Point(394, 160);
-            this.btnDect3Color.Name = "btnDect3Color";
-            this.btnDect3Color.Size = new System.Drawing.Size(20, 20);
-            this.btnDect3Color.TabIndex = 11;
-            this.btnDect3Color.UseVisualStyleBackColor = false;
-            this.btnDect3Color.Click += new System.EventHandler(this.btnDect3Color_Click);
+            this.BtnDect3Color.BackColor = System.Drawing.Color.Navy;
+            this.BtnDect3Color.Location = new System.Drawing.Point(174, 161);
+            this.BtnDect3Color.Name = "BtnDect3Color";
+            this.BtnDect3Color.Size = new System.Drawing.Size(20, 20);
+            this.BtnDect3Color.TabIndex = 11;
+            this.BtnDect3Color.UseVisualStyleBackColor = false;
+            this.BtnDect3Color.Click += new System.EventHandler(this.BtnDect3Color_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(249, 9);
+            this.label5.Location = new System.Drawing.Point(271, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 25);
             this.label5.TabIndex = 12;
             this.label5.Text = "Noms :";
             // 
-            // btnSmttre
+            // BtnSmttre
             // 
-            this.btnSmttre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSmttre.Location = new System.Drawing.Point(325, 218);
-            this.btnSmttre.Name = "btnSmttre";
-            this.btnSmttre.Size = new System.Drawing.Size(89, 23);
-            this.btnSmttre.TabIndex = 13;
-            this.btnSmttre.Text = "Soumettre";
-            this.btnSmttre.UseVisualStyleBackColor = true;
-            this.btnSmttre.Click += new System.EventHandler(this.btnSmttre_Click);
+            this.BtnSmttre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSmttre.Location = new System.Drawing.Point(325, 217);
+            this.BtnSmttre.Name = "BtnSmttre";
+            this.BtnSmttre.Size = new System.Drawing.Size(89, 23);
+            this.BtnSmttre.TabIndex = 13;
+            this.BtnSmttre.Text = "Soumettre";
+            this.BtnSmttre.UseVisualStyleBackColor = true;
+            this.BtnSmttre.Click += new System.EventHandler(this.BtnSmttre_Click);
+            // 
+            // errProv
+            // 
+            this.errProv.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errProv.ContainerControl = this;
             // 
             // FenetreOptions
             // 
@@ -149,20 +157,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(448, 272);
-            this.Controls.Add(this.btnSmttre);
+            this.Controls.Add(this.BtnSmttre);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnDect3Color);
-            this.Controls.Add(this.btnDect2Color);
-            this.Controls.Add(this.btnDect1Color);
-            this.Controls.Add(this.txtBoxDetec3);
-            this.Controls.Add(this.txtBoxDetec2);
-            this.Controls.Add(this.txtBoxDetec1);
+            this.Controls.Add(this.BtnDect3Color);
+            this.Controls.Add(this.BtnDect2Color);
+            this.Controls.Add(this.BtnDect1Color);
+            this.Controls.Add(this.TxtBoxDetec3);
+            this.Controls.Add(this.TxtBoxDetec2);
+            this.Controls.Add(this.TxtBoxDetec1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FenetreOptions";
             this.Text = "Options";
+            ((System.ComponentModel.ISupportInitialize)(this.errProv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,14 +182,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtBoxDetec1;
-        private System.Windows.Forms.TextBox txtBoxDetec2;
-        private System.Windows.Forms.TextBox txtBoxDetec3;
-        private System.Windows.Forms.Button btnDect2Color;
-        private System.Windows.Forms.Button btnDect3Color;
+        private System.Windows.Forms.TextBox TxtBoxDetec1;
+        private System.Windows.Forms.TextBox TxtBoxDetec2;
+        private System.Windows.Forms.TextBox TxtBoxDetec3;
+        private System.Windows.Forms.Button BtnDect2Color;
+        private System.Windows.Forms.Button BtnDect3Color;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnSmttre;
-        private System.Windows.Forms.Button btnDect1Color;
+        private System.Windows.Forms.Button BtnSmttre;
+        private System.Windows.Forms.Button BtnDect1Color;
         private System.Windows.Forms.ColorDialog clrDlg;
+        private System.Windows.Forms.ErrorProvider errProv;
     }
 }

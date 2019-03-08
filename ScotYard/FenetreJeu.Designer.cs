@@ -3116,7 +3116,7 @@
             this.btnBus.Size = new System.Drawing.Size(150, 90);
             this.btnBus.TabIndex = 33;
             this.btnBus.UseVisualStyleBackColor = true;
-            this.btnBus.Click += new System.EventHandler(this.btnBus_Click);
+            this.btnBus.Click += new System.EventHandler(this.BtnBus_Click);
             // 
             // btnMetro
             // 
@@ -3128,7 +3128,7 @@
             this.btnMetro.Size = new System.Drawing.Size(150, 90);
             this.btnMetro.TabIndex = 32;
             this.btnMetro.UseVisualStyleBackColor = true;
-            this.btnMetro.Click += new System.EventHandler(this.btnMetro_Click);
+            this.btnMetro.Click += new System.EventHandler(this.BtnMetro_Click);
             // 
             // btnTaxi
             // 
@@ -3140,7 +3140,7 @@
             this.btnTaxi.Size = new System.Drawing.Size(150, 90);
             this.btnTaxi.TabIndex = 31;
             this.btnTaxi.UseVisualStyleBackColor = true;
-            this.btnTaxi.Click += new System.EventHandler(this.btnTaxi_Click);
+            this.btnTaxi.Click += new System.EventHandler(this.BtnTaxi_Click);
             // 
             // lblCaseAct
             // 
@@ -3215,7 +3215,7 @@
             this.optsMnuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.optsMnuItem.Size = new System.Drawing.Size(197, 22);
             this.optsMnuItem.Text = "Options";
-            this.optsMnuItem.Click += new System.EventHandler(this.optsMnuItem_Click);
+            this.optsMnuItem.Click += new System.EventHandler(this.OptsMnuItem_Click);
             // 
             // quitterToolStripMenuItem
             // 

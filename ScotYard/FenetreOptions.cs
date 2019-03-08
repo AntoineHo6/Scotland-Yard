@@ -12,52 +12,79 @@ namespace ScotYard {
     public partial class FenetreOptions : Form {
 
         List<Detective> listeDetec = new List<Detective>();
-
         FenetreJeu fenetreJeu;
+
+        int[] nameErrState = { 0, 0, 0 };
 
         public FenetreOptions(FenetreJeu fenetreJeu, List<Detective> listeDetec) {
             InitializeComponent();
             this.listeDetec = listeDetec;
             this.fenetreJeu = fenetreJeu;
 
-            txtBoxDetec1.Text = listeDetec[0].Nom;
-            txtBoxDetec2.Text = listeDetec[1].Nom;
-            txtBoxDetec3.Text = listeDetec[2].Nom;
+            TxtBoxDetec1.Text = listeDetec[0].Nom;
+            TxtBoxDetec2.Text = listeDetec[1].Nom;
+            TxtBoxDetec3.Text = listeDetec[2].Nom;
 
-            btnDect1Color.BackColor = listeDetec[0].Color;
-            btnDect2Color.BackColor = listeDetec[1].Color;
-            btnDect3Color.BackColor = listeDetec[2].Color;
+            BtnDect1Color.BackColor = listeDetec[0].Color;
+            BtnDect2Color.BackColor = listeDetec[1].Color;
+            BtnDect3Color.BackColor = listeDetec[2].Color;
         }
 
-        private void btnDect1Color_Click(object sender, EventArgs e) {
+
+        private void BtnDect1Color_Click(object sender, EventArgs e) {
             if (clrDlg.ShowDialog() == DialogResult.OK) {
-                btnDect1Color.BackColor = clrDlg.Color;
+                BtnDect1Color.BackColor = clrDlg.Color;
                 listeDetec[0].Color = clrDlg.Color;
             }
         }
 
-        private void btnDect2Color_Click(object sender, EventArgs e) {
+
+        private void BtnDect2Color_Click(object sender, EventArgs e) {
             if (clrDlg.ShowDialog() == DialogResult.OK) {
-                btnDect2Color.BackColor = clrDlg.Color;
+                BtnDect2Color.BackColor = clrDlg.Color;
                 listeDetec[1].Color = clrDlg.Color;
             }
         }
 
-        private void btnDect3Color_Click(object sender, EventArgs e) {
+
+        private void BtnDect3Color_Click(object sender, EventArgs e) {
             if (clrDlg.ShowDialog() == DialogResult.OK) {
-                btnDect3Color.BackColor = clrDlg.Color;
+                BtnDect3Color.BackColor = clrDlg.Color;
                 listeDetec[2].Color = clrDlg.Color;
             }
         }
 
-        private void btnSmttre_Click(object sender, EventArgs e) {
-            listeDetec[0].Nom = txtBoxDetec1.Text;
-            listeDetec[1].Nom = txtBoxDetec2.Text;
-            listeDetec[2].Nom = txtBoxDetec3.Text;
 
-            fenetreJeu.updateDetecGrpBox();
-            fenetreJeu.paintDetecPos();
-            this.Close();
+        private void BtnSmttre_Click(object sender, EventArgs e) {
+            VerifieErrNom(TxtBoxDetec1, 0);
+            VerifieErrNom(TxtBoxDetec2, 1);
+            VerifieErrNom(TxtBoxDetec3, 2);
+
+            if (nameErrState.Contains(1)) {
+                // something
+            }
+            else {
+                listeDetec[0].Nom = TxtBoxDetec1.Text;
+                listeDetec[1].Nom = TxtBoxDetec2.Text;
+                listeDetec[2].Nom = TxtBoxDetec3.Text;
+
+                fenetreJeu.UpdateDetecGrpBox();
+                fenetreJeu.PaintDetecPos();
+                this.Close();
+            }
+        }
+
+
+        private void VerifieErrNom(TextBox txtBoxDetec, int index) {
+            errProv.SetError(txtBoxDetec, "");
+
+            if (txtBoxDetec.Text.Trim() == String.Empty) {
+                errProv.SetError(txtBoxDetec, "Le nom ne doit pas être vide");
+                nameErrState[index] = 1;
+            }
+            else {
+                nameErrState[index] = 0;
+            }
         }
     }
 }
