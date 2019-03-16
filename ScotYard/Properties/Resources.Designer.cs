@@ -131,6 +131,16 @@ namespace ScotYard.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Scotland_Yard_FR {
+            get {
+                object obj = ResourceManager.GetObject("Scotland_Yard_FR", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap ScotYardBordure {

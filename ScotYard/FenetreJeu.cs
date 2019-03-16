@@ -891,6 +891,11 @@ namespace ScotYard {
         }
 
 
+        /// <summary>
+        ///     Reinitialise tout afin de commencer une nouvelle partie.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NouvPartMnuItem_Click(object sender, EventArgs e) {
             lblDefaite.Visible = false;
             lblVictoire.Visible = false;
@@ -928,11 +933,40 @@ namespace ScotYard {
             PaintDetecPos();
             UpdateDetecGrpBox();
         }
+
+
+        /// <summary>
+        ///     Ferme l'application.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void quitMnuItem_Click(object sender, EventArgs e) {
+            Application.Exit();
+        }
+
+
+        /// <summary>
+        ///     Affiche le PDF des règles du jeu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void aideMnuItem_Click(object sender, EventArgs e) {
+            System.Diagnostics.Process.Start(@"\ScotYard-Etudiant\ScotYard\Resources\Scotland_Yard_FR.pdf");
+        }
+
+        
+        /// <summary>
+        ///     Affiche le nom de l'auteur et la date de remise.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void aProposMnuItem_Click(object sender, EventArgs e) {
+            MessageBox.Show("Antoine Ho, \n18 mars 2019", "À Propos");
+        }
     }
 }
 
 
 /// TODO MAJEUR: 
-/// TODO: make error providers in options. Add char limit.
-/// TODO: make menu functionalities
-/// TODO: Make mr.X dimgray
+/// TODO: open pdf file
+/// TODO: change Mr.X way of revealing himself if time == enough;

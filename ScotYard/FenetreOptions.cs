@@ -82,6 +82,10 @@ namespace ScotYard {
                 errProv.SetError(txtBoxDetec, "Le nom ne doit pas être vide");
                 nameErrState[index] = 1;
             }
+            else if (txtBoxDetec.Text.Length > 32) {
+                errProv.SetError(txtBoxDetec, "Le nom doit avoir au plus 32 charactères");
+                nameErrState[index] = 1;
+            }
             else {
                 nameErrState[index] = 0;
             }

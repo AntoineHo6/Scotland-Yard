@@ -293,10 +293,10 @@
             this.NouvPartMnuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optsMnuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
-            this.quitterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitMnuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.àProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aideMnuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aProposMnuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.picBoxBoard = new System.Windows.Forms.PictureBox();
             this.lblStep = new System.Windows.Forms.Label();
             this.lblVictoire = new System.Windows.Forms.Label();
@@ -3196,7 +3196,7 @@
             this.NouvPartMnuItem,
             this.optsMnuItem,
             this.quitterToolStripMenuItem,
-            this.quitterToolStripMenuItem1});
+            this.quitMnuItem});
             this.uyhjToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.uyhjToolStripMenuItem.Name = "uyhjToolStripMenuItem";
             this.uyhjToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
@@ -3223,34 +3223,37 @@
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(194, 6);
             // 
-            // quitterToolStripMenuItem1
+            // quitMnuItem
             // 
-            this.quitterToolStripMenuItem1.Name = "quitterToolStripMenuItem1";
-            this.quitterToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.quitterToolStripMenuItem1.Size = new System.Drawing.Size(197, 22);
-            this.quitterToolStripMenuItem1.Text = "Quitter";
+            this.quitMnuItem.Name = "quitMnuItem";
+            this.quitMnuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.quitMnuItem.Size = new System.Drawing.Size(197, 22);
+            this.quitMnuItem.Text = "Quitter";
+            this.quitMnuItem.Click += new System.EventHandler(this.quitMnuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aideToolStripMenuItem,
-            this.àProposToolStripMenuItem});
+            this.aideMnuItem,
+            this.aProposMnuItem});
             this.toolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
             this.toolStripMenuItem1.Text = "?";
             // 
-            // aideToolStripMenuItem
+            // aideMnuItem
             // 
-            this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
-            this.aideToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.aideToolStripMenuItem.Text = "Aide";
+            this.aideMnuItem.Name = "aideMnuItem";
+            this.aideMnuItem.Size = new System.Drawing.Size(180, 22);
+            this.aideMnuItem.Text = "Aide";
+            this.aideMnuItem.Click += new System.EventHandler(this.aideMnuItem_Click);
             // 
-            // àProposToolStripMenuItem
+            // aProposMnuItem
             // 
-            this.àProposToolStripMenuItem.Name = "àProposToolStripMenuItem";
-            this.àProposToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.àProposToolStripMenuItem.Text = "À propos";
+            this.aProposMnuItem.Name = "aProposMnuItem";
+            this.aProposMnuItem.Size = new System.Drawing.Size(180, 22);
+            this.aProposMnuItem.Text = "À propos";
+            this.aProposMnuItem.Click += new System.EventHandler(this.aProposMnuItem_Click);
             // 
             // picBoxBoard
             // 
@@ -3766,8 +3769,8 @@
         private System.Windows.Forms.ToolStripMenuItem NouvPartMnuItem;
         private System.Windows.Forms.ToolStripMenuItem optsMnuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem àProposToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aideMnuItem;
+        private System.Windows.Forms.ToolStripMenuItem aProposMnuItem;
         private System.Windows.Forms.PictureBox picBoxTurn10;
         private System.Windows.Forms.PictureBox picBoxTurn13;
         private System.Windows.Forms.PictureBox picBoxTurn16;
@@ -3812,7 +3815,7 @@
         private System.Windows.Forms.Label lblNbrBus;
         private System.Windows.Forms.Label lblNbrTaxi;
         private System.Windows.Forms.ToolStripSeparator quitterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem quitMnuItem;
         private System.Windows.Forms.PictureBox picBoxTurn1;
         private System.Windows.Forms.PictureBox picBoxTurn2;
         private System.Windows.Forms.PictureBox picBoxTurn3;

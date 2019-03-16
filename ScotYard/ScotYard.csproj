@@ -94,6 +94,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Scotland_Yard_FR.pdf" />
     <None Include="Resources\ScotYardBordure.jpg" />
   </ItemGroup>
   <ItemGroup>
