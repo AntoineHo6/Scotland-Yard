@@ -290,7 +290,7 @@
             this.lblNbrMetro = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.uyhjToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nouvellePartieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NouvPartMnuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optsMnuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.quitterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -2546,7 +2546,7 @@
             // lblTour
             // 
             this.lblTour.AutoSize = true;
-            this.lblTour.Location = new System.Drawing.Point(305, 344);
+            this.lblTour.Location = new System.Drawing.Point(306, 344);
             this.lblTour.Name = "lblTour";
             this.lblTour.Size = new System.Drawing.Size(80, 25);
             this.lblTour.TabIndex = 31;
@@ -3111,7 +3111,7 @@
             this.btnBus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBus.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnBus.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnBus.Location = new System.Drawing.Point(23, 222);
+            this.btnBus.Location = new System.Drawing.Point(147, 221);
             this.btnBus.Name = "btnBus";
             this.btnBus.Size = new System.Drawing.Size(150, 90);
             this.btnBus.TabIndex = 33;
@@ -3123,7 +3123,7 @@
             this.btnMetro.BackgroundImage = global::ScotYard.Properties.Resources.metro_card;
             this.btnMetro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMetro.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnMetro.Location = new System.Drawing.Point(23, 126);
+            this.btnMetro.Location = new System.Drawing.Point(147, 125);
             this.btnMetro.Name = "btnMetro";
             this.btnMetro.Size = new System.Drawing.Size(150, 90);
             this.btnMetro.TabIndex = 32;
@@ -3135,7 +3135,7 @@
             this.btnTaxi.BackgroundImage = global::ScotYard.Properties.Resources.taxi_card;
             this.btnTaxi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnTaxi.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnTaxi.Location = new System.Drawing.Point(23, 30);
+            this.btnTaxi.Location = new System.Drawing.Point(147, 29);
             this.btnTaxi.Name = "btnTaxi";
             this.btnTaxi.Size = new System.Drawing.Size(150, 90);
             this.btnTaxi.TabIndex = 31;
@@ -3145,7 +3145,7 @@
             // lblCaseAct
             // 
             this.lblCaseAct.AutoSize = true;
-            this.lblCaseAct.Location = new System.Drawing.Point(18, 327);
+            this.lblCaseAct.Location = new System.Drawing.Point(6, 335);
             this.lblCaseAct.Name = "lblCaseAct";
             this.lblCaseAct.Size = new System.Drawing.Size(116, 25);
             this.lblCaseAct.TabIndex = 30;
@@ -3154,7 +3154,7 @@
             // lblNbrBus
             // 
             this.lblNbrBus.AutoSize = true;
-            this.lblNbrBus.Location = new System.Drawing.Point(179, 255);
+            this.lblNbrBus.Location = new System.Drawing.Point(303, 254);
             this.lblNbrBus.Name = "lblNbrBus";
             this.lblNbrBus.Size = new System.Drawing.Size(41, 25);
             this.lblNbrBus.TabIndex = 29;
@@ -3163,7 +3163,7 @@
             // lblNbrTaxi
             // 
             this.lblNbrTaxi.AutoSize = true;
-            this.lblNbrTaxi.Location = new System.Drawing.Point(179, 63);
+            this.lblNbrTaxi.Location = new System.Drawing.Point(303, 62);
             this.lblNbrTaxi.Name = "lblNbrTaxi";
             this.lblNbrTaxi.Size = new System.Drawing.Size(41, 25);
             this.lblNbrTaxi.TabIndex = 28;
@@ -3172,7 +3172,7 @@
             // lblNbrMetro
             // 
             this.lblNbrMetro.AutoSize = true;
-            this.lblNbrMetro.Location = new System.Drawing.Point(179, 159);
+            this.lblNbrMetro.Location = new System.Drawing.Point(303, 158);
             this.lblNbrMetro.Name = "lblNbrMetro";
             this.lblNbrMetro.Size = new System.Drawing.Size(53, 25);
             this.lblNbrMetro.TabIndex = 27;
@@ -3193,7 +3193,7 @@
             // uyhjToolStripMenuItem
             // 
             this.uyhjToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nouvellePartieToolStripMenuItem,
+            this.NouvPartMnuItem,
             this.optsMnuItem,
             this.quitterToolStripMenuItem,
             this.quitterToolStripMenuItem1});
@@ -3202,12 +3202,13 @@
             this.uyhjToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.uyhjToolStripMenuItem.Text = "Menu";
             // 
-            // nouvellePartieToolStripMenuItem
+            // NouvPartMnuItem
             // 
-            this.nouvellePartieToolStripMenuItem.Name = "nouvellePartieToolStripMenuItem";
-            this.nouvellePartieToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.nouvellePartieToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.nouvellePartieToolStripMenuItem.Text = "Nouvelle Partie";
+            this.NouvPartMnuItem.Name = "NouvPartMnuItem";
+            this.NouvPartMnuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.NouvPartMnuItem.Size = new System.Drawing.Size(197, 22);
+            this.NouvPartMnuItem.Text = "Nouvelle Partie";
+            this.NouvPartMnuItem.Click += new System.EventHandler(this.NouvPartMnuItem_Click);
             // 
             // optsMnuItem
             // 
@@ -3762,7 +3763,7 @@
         private System.Windows.Forms.GroupBox grpBoxDetec;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem uyhjToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nouvellePartieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NouvPartMnuItem;
         private System.Windows.Forms.ToolStripMenuItem optsMnuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;

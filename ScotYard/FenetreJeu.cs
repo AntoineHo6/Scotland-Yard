@@ -18,7 +18,7 @@ namespace ScotYard {
 
         private static Random rnd;
         List<Button> _listeBoutons = new List<Button>();
-        List<PictureBox> listePicBox = new List<PictureBox>();      // Permet l'acces aux pictureBox.
+        List<PictureBox> _listePicBox = new List<PictureBox>();      // Permet l'acces aux pictureBox.
         List<int> listeTourRevele = new List<int>();
 
         List<Detective> listeDetec = new List<Detective>();
@@ -33,7 +33,7 @@ namespace ScotYard {
 
         Thread blinkMrXThread;
 
-        String transChoisi;     // Le transport choisi par le detective
+        String transChoisi;     // Le transport choisi par le detective en jeu
 
 
         /// <summary>
@@ -48,9 +48,7 @@ namespace ScotYard {
             ScotYard.Graphe.Case.CreerCases();
 
             Setup();
-
             MrXDeplace();
-
             PaintDetecPos();
             UpdateDetecGrpBox();
         }
@@ -316,29 +314,29 @@ namespace ScotYard {
         /// </summary>
         private void InitialiserPictureBoxListe() {
             // Pour que l'index commence a 1
-            listePicBox.Add(null);
-            listePicBox.Add(picBoxTurn1);
-            listePicBox.Add(picBoxTurn2);
-            listePicBox.Add(picBoxTurn3);
-            listePicBox.Add(picBoxTurn4);
-            listePicBox.Add(picBoxTurn5);
-            listePicBox.Add(picBoxTurn6);
-            listePicBox.Add(picBoxTurn7);
-            listePicBox.Add(picBoxTurn8);
-            listePicBox.Add(picBoxTurn9);
-            listePicBox.Add(picBoxTurn10);
-            listePicBox.Add(picBoxTurn11);
-            listePicBox.Add(picBoxTurn12);
-            listePicBox.Add(picBoxTurn13);
-            listePicBox.Add(picBoxTurn14);
-            listePicBox.Add(picBoxTurn15);
-            listePicBox.Add(picBoxTurn16);
-            listePicBox.Add(picBoxTurn17);
-            listePicBox.Add(picBoxTurn18);
-            listePicBox.Add(picBoxTurn19);
-            listePicBox.Add(picBoxTurn20);
-            listePicBox.Add(picBoxTurn21);
-            listePicBox.Add(picBoxTurn22);
+            _listePicBox.Add(null);
+            _listePicBox.Add(picBoxTurn1);
+            _listePicBox.Add(picBoxTurn2);
+            _listePicBox.Add(picBoxTurn3);
+            _listePicBox.Add(picBoxTurn4);
+            _listePicBox.Add(picBoxTurn5);
+            _listePicBox.Add(picBoxTurn6);
+            _listePicBox.Add(picBoxTurn7);
+            _listePicBox.Add(picBoxTurn8);
+            _listePicBox.Add(picBoxTurn9);
+            _listePicBox.Add(picBoxTurn10);
+            _listePicBox.Add(picBoxTurn11);
+            _listePicBox.Add(picBoxTurn12);
+            _listePicBox.Add(picBoxTurn13);
+            _listePicBox.Add(picBoxTurn14);
+            _listePicBox.Add(picBoxTurn15);
+            _listePicBox.Add(picBoxTurn16);
+            _listePicBox.Add(picBoxTurn17);
+            _listePicBox.Add(picBoxTurn18);
+            _listePicBox.Add(picBoxTurn19);
+            _listePicBox.Add(picBoxTurn20);
+            _listePicBox.Add(picBoxTurn21);
+            _listePicBox.Add(picBoxTurn22);
         }
 
 
@@ -370,7 +368,7 @@ namespace ScotYard {
                 mrX.NbrBlack--;
             }
 
-            updateMrCarnet(transport.ToString(), newBlackTicketBool);
+            UpdateMrCarnet(transport.ToString(), newBlackTicketBool);
         }
 
         /// <summary>
@@ -411,22 +409,22 @@ namespace ScotYard {
         /// </summary>
         /// <param name="transport"> Le transport utilise par Mr. X </param>
         /// <param name="usedBlackTicket"> Boolean si Mr. X a utilise un black ticket ou pas </param>
-        private void updateMrCarnet(String transport, bool usedBlackTicket) {
+        private void UpdateMrCarnet(String transport, bool usedBlackTicket) {
             if (!usedBlackTicket) {
                 switch (transport) {
                     case "Taxi":
-                        listePicBox[gameTurn].BackgroundImage = Properties.Resources.taxi_card;
+                        _listePicBox[gameTurn].BackgroundImage = Properties.Resources.taxi_card;
                         break;
                     case "Metro":
-                        listePicBox[gameTurn].BackgroundImage = Properties.Resources.metro_card;
+                        _listePicBox[gameTurn].BackgroundImage = Properties.Resources.metro_card;
                         break;
                     case "Bus":
-                        listePicBox[gameTurn].BackgroundImage = Properties.Resources.bus_card;
+                        _listePicBox[gameTurn].BackgroundImage = Properties.Resources.bus_card;
                         break;
                 }
             }
             else {
-                listePicBox[gameTurn].BackgroundImage = Properties.Resources.black_ticket;
+                _listePicBox[gameTurn].BackgroundImage = Properties.Resources.black_ticket;
             }
 
         }
@@ -499,7 +497,7 @@ namespace ScotYard {
 
             if (!btnTaxi.Enabled && !btnMetro.Enabled && !btnBus.Enabled) {
                 if (listeDetec[0].EstBloque && listeDetec[1].EstBloque && listeDetec[2].EstBloque) {
-                    ecranDefaite();
+                    EcranDefaite();
                     return;
                 }
 
@@ -724,7 +722,7 @@ namespace ScotYard {
                 detec.deplacerCase(caseChoisi);
 
                 if (detec.Case == mrX.Case) {
-                    ecranVictoire();
+                    EcranVictoire();
                     return;
                 }
 
@@ -748,7 +746,7 @@ namespace ScotYard {
                 UpdateDetecGrpBox();
 
                 if (gameTurn == 22) {
-                    ecranDefaite();
+                    EcranDefaite();
                 }
             }
         }
@@ -821,7 +819,7 @@ namespace ScotYard {
                     case 3:
                         if (listeDetec[0].EstBloque && listeDetec[1].EstBloque && listeDetec[2].EstBloque) {
                             detec.estDernier = true;
-                            ecranDefaite();
+                            EcranDefaite();
                         }
                         else if (!listeDetec[1].EstBloque) {
                             listeDetec[1].estDernier = true;
@@ -860,7 +858,7 @@ namespace ScotYard {
         /// <summary>
         ///     Affiche la victoire au joueur.
         /// </summary>
-        private void ecranVictoire() {
+        private void EcranVictoire() {
             lblVictoire.Visible = true;
             // add celebration flairs ?
             DisabledAllEnabledBtns();
@@ -870,7 +868,7 @@ namespace ScotYard {
         /// <summary>
         ///     Affiche la defaite au joueur.
         /// </summary>
-        private void ecranDefaite() {
+        private void EcranDefaite() {
             lblDefaite.Visible = true;
             DisabledAllEnabledBtns();
         }
@@ -891,14 +889,50 @@ namespace ScotYard {
 
             StopBlinkPaths();
         }
+
+
+        private void NouvPartMnuItem_Click(object sender, EventArgs e) {
+            lblDefaite.Visible = false;
+            lblVictoire.Visible = false;
+
+            CacheMrX();
+
+            // Reinitialise les boutons des detectives sur la planche de jeu.
+            for (int i = 0; i < listeDetec.Count; i++) {
+                int caseDetec = listeDetec[i].Case;
+                _listeBoutons[caseDetec].BackColor = Color.Transparent;
+                _listeBoutons[caseDetec].ForeColor = Color.Black;
+                _listeBoutons[caseDetec].Width = 28;
+                _listeBoutons[caseDetec].Height = 20;
+            }
+
+            InitialiseTourReveleListe();
+            // remove all pictures in picture boxes
+            for (int i = 1; i < _listePicBox.Count; i++) {
+                if (listeTourRevele.Contains(i)) {
+                    _listePicBox[i].BackgroundImage = Properties.Resources.empty_reveal_slot;
+                }
+                else {
+                    _listePicBox[i].BackgroundImage = Properties.Resources.empty_normal_slot;
+                }
+            }
+
+            listeDetec.Clear();
+            Setup();
+
+            detecTurn = 1;
+            gameTurn = 1;
+
+            MrXDeplace();
+
+            PaintDetecPos();
+            UpdateDetecGrpBox();
+        }
     }
 }
 
 
 /// TODO MAJEUR: 
 /// TODO: make error providers in options. Add char limit.
-
-
-/// TODO MINEUR: 
-/// TODO: paint buttons to correspond to the available transportation modes. (possible?)
-/// TODO: Ajouter des "next detective peek"
+/// TODO: make menu functionalities
+/// TODO: Make mr.X dimgray
