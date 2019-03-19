@@ -3229,7 +3229,7 @@
             this.quitMnuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
             this.quitMnuItem.Size = new System.Drawing.Size(197, 22);
             this.quitMnuItem.Text = "Quitter";
-            this.quitMnuItem.Click += new System.EventHandler(this.quitMnuItem_Click);
+            this.quitMnuItem.Click += new System.EventHandler(this.QuitMnuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -3246,14 +3246,14 @@
             this.aideMnuItem.Name = "aideMnuItem";
             this.aideMnuItem.Size = new System.Drawing.Size(180, 22);
             this.aideMnuItem.Text = "Aide";
-            this.aideMnuItem.Click += new System.EventHandler(this.aideMnuItem_Click);
+            this.aideMnuItem.Click += new System.EventHandler(this.AideMnuItem_Click);
             // 
             // aProposMnuItem
             // 
             this.aProposMnuItem.Name = "aProposMnuItem";
             this.aProposMnuItem.Size = new System.Drawing.Size(180, 22);
             this.aProposMnuItem.Text = "À propos";
-            this.aProposMnuItem.Click += new System.EventHandler(this.aProposMnuItem_Click);
+            this.aProposMnuItem.Click += new System.EventHandler(this.AProposMnuItem_Click);
             // 
             // picBoxBoard
             // 

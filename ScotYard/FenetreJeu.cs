@@ -936,32 +936,32 @@ namespace ScotYard {
 
 
         /// <summary>
-        ///     Ferme l'application.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void quitMnuItem_Click(object sender, EventArgs e) {
-            Application.Exit();
-        }
-
-
-        /// <summary>
         ///     Affiche le PDF des règles du jeu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void aideMnuItem_Click(object sender, EventArgs e) {
+        private void AideMnuItem_Click(object sender, EventArgs e) {
             System.Diagnostics.Process.Start(@"..\..\Resources\Scotland_Yard_FR.pdf");
         }
 
-        
+
         /// <summary>
         ///     Affiche le nom de l'auteur et la date de remise.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void aProposMnuItem_Click(object sender, EventArgs e) {
+        private void AProposMnuItem_Click(object sender, EventArgs e) {
             MessageBox.Show("Antoine Ho, \n18 mars 2019", "À Propos");
+        }
+
+
+        /// <summary>
+        ///     Ferme l'application.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QuitMnuItem_Click(object sender, EventArgs e) {
+            Application.Exit();
         }
     }
 }
