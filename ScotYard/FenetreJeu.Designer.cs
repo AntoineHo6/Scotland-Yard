@@ -3308,6 +3308,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(1493, 856);
+            this.ControlBox = false;
             this.Controls.Add(this.lblDefaite);
             this.Controls.Add(this.lblVictoire);
             this.Controls.Add(this.lblStep);

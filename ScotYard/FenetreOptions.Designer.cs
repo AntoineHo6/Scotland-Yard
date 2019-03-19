@@ -157,6 +157,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(448, 272);
+            this.ControlBox = false;
             this.Controls.Add(this.BtnSmttre);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnDect3Color);

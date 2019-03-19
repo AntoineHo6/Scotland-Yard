@@ -951,7 +951,7 @@ namespace ScotYard {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void aideMnuItem_Click(object sender, EventArgs e) {
-            System.Diagnostics.Process.Start(@"\ScotYard-Etudiant\ScotYard\Resources\Scotland_Yard_FR.pdf");
+            System.Diagnostics.Process.Start(@"..\..\Resources\Scotland_Yard_FR.pdf");
         }
 
         
@@ -965,8 +965,3 @@ namespace ScotYard {
         }
     }
 }
-
-
-/// TODO MAJEUR: 
-/// TODO: open pdf file
-/// TODO: change Mr.X way of revealing himself if time == enough;
